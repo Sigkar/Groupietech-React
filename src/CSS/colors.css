@@ -69,79 +69,79 @@
 /*Actual Site Colors*/
 
 /*Light Blue*/
-.lb{
+.Lightblue{
     color: rgba(10, 193, 255, 1) !important;
 }
-.lb-bg{
+.Lightblue-bg{
     background-color: rgba(10, 193, 255, 1) !important;
 }
-.lb-bor{
+.Lightblue-bor{
     border-color:rgba(10, 193, 255, 1) !important;
 }
 
 /*Light Gray*/
-.lg{
+.Lightgray{
     color: rgba(73, 81, 84, 1) !important;
 }
-.lg-bg{
+.Lightgray-bg{
     background-color: rgba(73, 81, 84, 1) !important;
 }
-.lg-bor{
+.Lightgray-bor{
     border-color:rgba(73, 81, 84, 1) !important;
 }
 
 /*Dark Gray*/
-.dg{
+.Darkgray{
     color: rgba(0, 34, 45, 1) !important;
 }
-.dg-bg{
+.Darkgray-bg{
     background-color: rgba(0, 34, 45, 1) !important;
 }
-.dg-bor{
+.Darkgray-bor{
     border-color:rgba(0, 34, 45, 1) !important;
 }
 
 /*Red*/
-.r{
+.Red{
     color: rgba(191, 63, 63, 1) !important;
 }
-.r-bg{
+.Red-bg{
     background-color: rgba(191, 63, 63, 1) !important;
 }
-.r-bor{
+.Red-border{
     border-color: rgba(191, 63, 63, 1) !important;
 }
 
 /*Pink*/
-.p{
+.Pink{
     color: rgba(239, 0, 107, 1) !important;
 }
-.p-bg{
+.Pink-bg{
     background-color: rgba(239, 0, 107, 1) !important;
 }
-.p-bor{
+.Pink-border{
     border-color: rgba(239, 0, 107, 1) !important;
 }
 
 /*Orange*/
-.o{
+.Orange{
     color: rgba(255, 84, 5, 1) !important;
 }
 
-.o-bg{
+.Orange-bg{
     background-color:rgba(255, 84, 5, 1) !important;
 }
-.o-bor{
+.Orange-border{
     border-color:rgba(255, 84, 5, 1) !important;
 }
 
 /*Special White*/
-.w{
+.White{
     color:rgba(242, 230, 250, 1) !important;
 }
-.w-bg{
+.White-bg{
     background-color:rgba(255, 245, 245, 1) !important;
 }
-.w-bor{
+.White-border{
     border-color:rgba(255, 245, 245, 1) !important;
 }

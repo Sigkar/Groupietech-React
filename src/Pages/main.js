@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import { Navigation, NavBar } from '../Components/navigation.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Navigation } from '../Components/navigation.js';
-
 
 export class Main extends Component{
     render(){
         return(
         <div className="App">
-            <header className="App-header">
-                <Navigation/>
-            </header>
+            <div className="App-header">
+                <Router>
+                    <section className="Content-Container">    
+                        <Navigation/>
+                        <NavBar></NavBar>
+                    </section>
+                </Router>
+            </div>
         </div>
         )
     }

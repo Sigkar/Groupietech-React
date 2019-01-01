@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-import { Posed } from 'react-pose';
+import posed  from 'react-pose';
+import {FullCard} from '../Components/cards.js';
+import {FullCardTitle} from '../Components/content.js';
+
 export class Home extends Component{
+    componentWillMount(){
+
+    }
+    componentDidMount(){
+
+    }
     render(){
         return(
-            <section id="home">
-                <header>
-                    <h1> J A M </h1>
-                </header>
-
+            <section id="homepage">
+                <FullCard className="White-bg">
+                    <FullCardTitle>
+                        GROUPIETECH
+                    </FullCardTitle>
+                </FullCard>
             </section>
         )
     }
