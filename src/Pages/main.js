@@ -10,7 +10,7 @@ export class Main extends Component{
                 <Router>
                     <section className="Content-Container">    
                         <Navigation/>
-                        <NavBar></NavBar>
+                        <NavBar/>
                     </section>
                 </Router>
             </div>

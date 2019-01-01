@@ -72,6 +72,9 @@
 .Lightblue{
     color: rgba(10, 193, 255, 1) !important;
 }
+.Lightblue-children *{
+    color: rgba(10, 193, 255, 1) !important;
+}
 .Lightblue-bg{
     background-color: rgba(10, 193, 255, 1) !important;
 }
@@ -81,6 +84,9 @@
 
 /*Light Gray*/
 .Lightgray{
+    color: rgba(73, 81, 84, 1) !important;
+}
+.Lightgray-children{
     color: rgba(73, 81, 84, 1) !important;
 }
 .Lightgray-bg{
@@ -94,6 +100,9 @@
 .Darkgray{
     color: rgba(0, 34, 45, 1) !important;
 }
+.Darkgray-children * {
+    color: rgba(0, 34, 45, 1) !important;
+}
 .Darkgray-bg{
     background-color: rgba(0, 34, 45, 1) !important;
 }
@@ -103,6 +112,9 @@
 
 /*Red*/
 .Red{
+    color: rgba(191, 63, 63, 1) !important;
+}
+.Red-children{
     color: rgba(191, 63, 63, 1) !important;
 }
 .Red-bg{
@@ -116,6 +128,9 @@
 .Pink{
     color: rgba(239, 0, 107, 1) !important;
 }
+.Pink-children * {
+    color: rgba(239, 0, 107, 1) !important;
+}
 .Pink-bg{
     background-color: rgba(239, 0, 107, 1) !important;
 }
@@ -127,7 +142,9 @@
 .Orange{
     color: rgba(255, 84, 5, 1) !important;
 }
-
+.Orange-children * {
+    background-color:rgba(255, 84, 5, 1) !important;
+}
 .Orange-bg{
     background-color:rgba(255, 84, 5, 1) !important;
 }
@@ -139,9 +156,22 @@
 .White{
     color:rgba(242, 230, 250, 1) !important;
 }
+.White-children * {
+    color:rgba(242, 230, 250, 1) !important;
+}
 .White-bg{
     background-color:rgba(255, 245, 245, 1) !important;
 }
 .White-border{
     border-color:rgba(255, 245, 245, 1) !important;
+}
+
+/* Overrides */
+.Lightblue-hover:hover * {
+    transition: color 0.2s;
+    -ms-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -webkit-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    color: rgba(10, 193, 255, 1) !important;
 }

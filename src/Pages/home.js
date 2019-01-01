@@ -14,9 +14,6 @@ export class Home extends Component{
         return(
             <section id="homepage">
                 <FullCard className="White-bg">
-                    <FullCardTitle>
-                        GROUPIETECH
-                    </FullCardTitle>
                 </FullCard>
             </section>
         )
