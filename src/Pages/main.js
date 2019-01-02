@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navigation, NavBar, FunctionIcon } from '../Components/navigation.js';
+import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle, SideBar} from '../Components/navigation.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import posed from 'react-pose';
@@ -22,25 +22,39 @@ const Popout = posed.div({
 });
 const SwapVisible = posed.div({
     open:{
-        display:'block',
+        x:'0px',
         transition:{
-            duration:350,
-        },
+            duration:300,
+        }
     },
     closed:{
-        display:'none',
+        x:'200px',
         transition:{
-            duration:350,
-        },
+            duration:300,
+        }
     }
 });
-
-
+class NavBar extends Component{
+    render(){
+        return(
+            <SideBar className="Darkgray-bg">
+                <Spacer>
+                    <SpacerTitle>GROUPIETECH</SpacerTitle>
+                </Spacer>
+                <NavItem navState={this.props.navState} link="/" navIcon="queue_music" navTitle="QUEUE"/>
+                <NavItem navState={this.props.navState} link="/" navIcon="calendar_today" navTitle="LOCAL GIGS"/>
+                <NavItem navState={this.props.navState} link="/" navIcon="supervisor_account" navTitle="MANAGER"/>
+                <NavItem navState={this.props.navState} link="/" navIcon="track_changes" navTitle="FIND BANDS"/>
+                <NavItem navState={this.props.navState} link="/login" navIcon="account_circle" navTitle="ACCOUNT"/>
+            </SideBar>
+        )
+    }
+}
 
 export class Main extends Component{
     state = { isOpen: false, navigationOption:false};
 
-    toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: true}) : this.setState({ navigationOption:false }));
+    toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: false}) : this.setState({ navigationOption:true }));
 
     render(){
         const { isOpen, navigationOption } = this.state;
@@ -50,10 +64,13 @@ export class Main extends Component{
                 <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
                     <FunctionIcon navIcon="menu" classOption="Open-Menu" functionOption={this.toggle}/>
                 </SwapVisible>
+                <SwapVisible pose={navigationOption ? 'open' : 'closed'}>
+                    <FunctionIcon navIcon="close" classOption="Open-Menu" functionOption={this.toggle}/>
+                </SwapVisible>
                     <Router>
                         <div id="Complete-App">
                             <Popout pose={ isOpen ? 'open' : 'closed' }>
-                                <NavBar/>
+                                <NavBar navState={this.toggle}/>
                             </Popout>
                             <section className="Content-Container">    
                                 <Navigation/>

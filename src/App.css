@@ -25,6 +25,13 @@ body{
 
 
 /* Navigation */
+i{
+  user-select:none;
+  -ms-user-select:none;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -o-user-select:none;
+}
 .Icon-Child i{
   font-size:26px !important;
   position:relative;

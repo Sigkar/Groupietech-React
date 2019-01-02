@@ -12,14 +12,14 @@ import Logo from '../Images/icon.png';
 const HomePage = () => <Home/>;
 const AuthPage = () => <Auth/>;
 
-const Spacer = styled.div`
+export const Spacer = styled.div`
     height:60px;
     width:100%;
     clear:both;
     display:block;
     background:#ffffff;
 `;
-const SpacerTitle = styled.p`
+export const SpacerTitle = styled.p`
     height:60px;
     width:140px;
 
@@ -31,7 +31,7 @@ const SpacerTitle = styled.p`
 
     letter-spacing:2px;
 `;
-const LogoImage = styled.img`
+export const LogoImage = styled.img`
     position:fixed;
     top:0px;
     left:0px;
@@ -40,7 +40,7 @@ const LogoImage = styled.img`
     height:60px;
     border-bottom-right-radius:5px;
 `;
-const NavigationIcon = styled.i`
+export const NavigationIcon = styled.i`
     height: 40px !important;
     width: 40px !important;
     
@@ -51,7 +51,7 @@ const NavigationIcon = styled.i`
         color: rgba(10, 193, 255, 1) !important;
     }
 `;
-const FunctionalIcon = styled.div`
+export const FunctionalIcon = styled.div`
     height:50px !important;
     width: 50px !important;
     font-size:40px;
@@ -60,7 +60,7 @@ const FunctionalIcon = styled.div`
         color: rgba(10, 193, 255, 1) !important;
     }
 `
-const SideBar = styled.nav`
+export const SideBar = styled.nav`
     width:200px;
     height:100vh;
     position:fixed;
@@ -70,7 +70,7 @@ const SideBar = styled.nav`
     flex-direction:column;
     flex-wrap: wrap;
 `;
-const NavContent = styled.p`
+export const NavContent = styled.p`
     height:40px;
     width:145px;
     position:relative;
@@ -81,12 +81,12 @@ const NavContent = styled.p`
     line-height:40px;
     text-decoration:none !important;
 `
-const NavigationTileContainer = styled.nav`
+export const NavigationTileContainer = styled.nav`
     width:200px;
     height:50px !important;
     margin-top:0;
 `;
-const NavStyleLink = styled.div`
+export const NavStyleLink = styled.div`
     *{text-decoration:none !important;}
 `
 
@@ -100,11 +100,11 @@ export class FunctionIcon extends Component{
     }
 }
 
-class NavItem extends Component{
+export class NavItem extends Component{
     render(){
         return(
             <NavStyleLink>
-                <Link to={this.props.link}>
+                <Link to={this.props.link} onClick={this.props.navState}>
                     <NavigationTileContainer className="Lightblue-hover">
                         <div className={"NavTile Darkgray-bg " + this.props.classOption} >
                             <NavigationIcon className=" White-children Icon-Child">
@@ -130,19 +130,4 @@ export class Navigation extends Component{
         )
     }
 }
-export class NavBar extends Component{
-    render(){
-        return(
-            <SideBar className="Darkgray-bg">
-                <Spacer>
-                    <SpacerTitle>GROUPIETECH</SpacerTitle>
-                </Spacer>
-                <NavItem link="/" navIcon="queue_music" navTitle="QUEUE"/>
-                <NavItem link="/" navIcon="calendar_today" navTitle="LOCAL GIGS"/>
-                <NavItem link="/" navIcon="supervisor_account" navTitle="MANAGER"/>
-                <NavItem link="/" navIcon="track_changes" navTitle="FIND BANDS"/>
-                <NavItem link="/login" navIcon="account_circle" navTitle="ACCOUNT"/>
-            </SideBar>
-        )
-    }
-}
+
