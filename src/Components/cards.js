@@ -14,15 +14,13 @@ export const BoxContainer = styled.section`
     
 `;
 
-export const HalfCard = styled.div`
-    width:45vw;
-    height:45vw;
-    margin:2.5vh 2.5vw;
-    border-radius:5px;
-`;
+// export const HalfCard = styled.div`
+//     height:calc((100vw - 140px) / 2 - 2vw);
+//     width:48%;
+//     margin:1%;
+// `;
 
 export const FlexContainer = styled.section`
-    width:95vw;
     margin:0 auto;
     justify-content:space-around;
     display:flex;

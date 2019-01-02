@@ -5,6 +5,7 @@
 body{
   margin:0;
   padding:0;
+  overflow-x:hidden;
 }
 .App-header {
   position:absolute;
@@ -13,7 +14,7 @@ body{
   height:auto;
   min-height:100vh !important;
   overflow-y:scroll;
-  width:100vw;
+  width:calc(100vw + 1px) !important;
   background: linear-gradient(to top right, rgba(175, 0, 103, 1) 0%, rgba(191, 63, 63, 1) 0100%);
 }
 .Content-Container{
@@ -60,4 +61,33 @@ body{
   position:absolute;
   bottom:0px;
   left:0px;
+}
+/* Cards */
+.Half-Card{
+  height:calc((100vw - 140px) / 2 - 2vw);
+  width:calc(48% - 6px);
+  margin:1%;
+  border:3px solid;
+  border-radius:2px;
+}
+.Full-Short-Card{
+  min-height:20vw;
+  height:auto;
+  width:calc(98% - 6px);
+  margin:1%;
+  border:3px solid;
+  border-radius:2px;
+}
+
+.Card-Blue-To-White-Border{
+  border-image: linear-gradient(to top left, rgba(10, 193, 255, 1) 0%, rgba(255, 245, 245, 1) 100%) 5;
+}
+.Card-Red-Blue-Pink-Border{
+  border-image: linear-gradient(to top left, rgba(191, 63, 63, 1) 33.33%, rgba(10, 193, 255, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 5;
+}
+@media screen and (max-width:800px){
+  .Half-Card{
+    width:98%;
+    height:calc((100vw - 140px) - 2vw);
+  }
 }
