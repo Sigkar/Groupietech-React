@@ -12,8 +12,30 @@ import Logo from '../Images/icon.png';
 const HomePage = () => <Home/>;
 const AuthPage = () => <Auth/>;
 
+const Spacer = styled.div`
+    height:60px;
+    width:100%;
+    clear:both;
+    display:block;
+    background:#ffffff;
+`;
+const SpacerTitle = styled.p`
+    height:60px;
+    width:140px;
+
+    position:relative;
+    left:60px;
+    line-height:60px;
+    margin:0;
+    padding:0;
+
+    letter-spacing:2px;
+`;
 const LogoImage = styled.img`
-    margin-top:0px !important;
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index:10000;
     width:60px;
     height:60px;
     border-bottom-right-radius:5px;
@@ -38,7 +60,7 @@ const FunctionalIcon = styled.div`
     }
 `
 const SideBar = styled.nav`
-    width:250px;
+    width:200px;
     height:100vh;
     position:fixed;
     left:0px;
@@ -56,12 +78,16 @@ const NavContent = styled.p`
     padding:0;
     margin:0;
     line-height:50px;
+    text-decoration:none !important;
 `
 const NavigationTileContainer = styled.nav`
     width:200px;
     height:50px !important;
     margin-top:0;
 `;
+const NavStyleLink = styled.div`
+    *{text-decoration:none !important;}
+`
 
 export class FunctionIcon extends Component{
     render(){
@@ -76,16 +102,18 @@ export class FunctionIcon extends Component{
 class NavItem extends Component{
     render(){
         return(
-            <Link to={this.props.link}>
-                <NavigationTileContainer>
-                    <div className={"NavTile Darkgray-bg " + this.props.classOption} >
-                        <NavigationIcon className="Lightblue-hover White-children Icon-Child">
-                            <MaterialIcon icon={this.props.navIcon}/>
-                        </NavigationIcon>
-                    </div>
-                    <NavContent className="White">{this.props.navTitle}</NavContent>
-                </NavigationTileContainer>
-            </Link>
+            <NavStyleLink>
+                <Link to={this.props.link}>
+                    <NavigationTileContainer>
+                        <div className={"NavTile Darkgray-bg " + this.props.classOption} >
+                            <NavigationIcon className="Lightblue-hover White-children Icon-Child">
+                                <MaterialIcon icon={this.props.navIcon}/>
+                            </NavigationIcon>
+                        </div>
+                        <NavContent className="White">{this.props.navTitle}</NavContent>
+                    </NavigationTileContainer>
+                </Link>
+            </NavStyleLink>
         )
     }
 }
@@ -94,6 +122,7 @@ export class Navigation extends Component{
     render(){
         return(
             <div id="Main-Container">
+                <LogoImage src={Logo} alt="Groupietech Logo"/>
                 <Route path="/" exact component={HomePage}/>
                 <Route path="/login" exact component={AuthPage}/>
             </div>
@@ -104,10 +133,13 @@ export class NavBar extends Component{
     render(){
         return(
             <SideBar className="Darkgray-bg">
-                <NavItem link="/" navIcon="queue_music" navTitle="Your Queue"/>
-                <NavItem link="/" navIcon="calendar_today" navTitle="Local Gigs"/>
-                <NavItem link="/" navIcon="supervisor_account" navTitle="Manager"/>
-                <NavItem link="/" navIcon="track_changes" navTitle="Find Bands"/>
+                <Spacer>
+                    <SpacerTitle>GROUPIETECH</SpacerTitle>
+                </Spacer>
+                <NavItem link="/" navIcon="queue_music" navTitle="QUEUE"/>
+                <NavItem link="/" navIcon="calendar_today" navTitle="LOCAL GIGS"/>
+                <NavItem link="/" navIcon="supervisor_account" navTitle="MANAGER"/>
+                <NavItem link="/" navIcon="track_changes" navTitle="FIND BANDS"/>
                 <NavItem link="/login" navIcon="account_circle" classOption="Account"/>
             </SideBar>
         )

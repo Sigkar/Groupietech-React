@@ -9,14 +9,14 @@ const Popout = posed.div({
         x:'0px',
         delay: 50,
         transition:{
-            duration: 500,
+            duration: 350,
         }
     },
     closed: {
-        x:'-100%',
-        delay: 200,
+        x:'-300px',
+        delay: 50,
         transition:{
-            duration: 500,
+            duration: 350,
         }
     },
 });
