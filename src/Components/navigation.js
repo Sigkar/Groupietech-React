@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from 'styled-components';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
-import { Home } from '../Pages/home.js';
-import { Auth } from '../Pages/auth.js';
+import { Home } from '../Pages/feed/home.js';
+import { Auth } from '../Pages/profilemanagement/auth.js';
 
 import Logo from '../Images/icon.png';
 

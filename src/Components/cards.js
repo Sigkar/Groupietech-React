@@ -14,11 +14,11 @@ export const BoxContainer = styled.section`
     
 `;
 
-// export const HalfCard = styled.div`
-//     height:calc((100vw - 140px) / 2 - 2vw);
-//     width:48%;
-//     margin:1%;
-// `;
+export const FeatureContent = styled.section`
+    width:100%;
+    height:400px;
+`;
+
 
 export const FlexContainer = styled.section`
     margin:0 auto;
@@ -40,6 +40,4 @@ export const PageContainer = styled.div`
     min-height:100vh;
     position:relative;
     left:70px;
-
-
 `

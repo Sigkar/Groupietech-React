@@ -71,14 +71,22 @@ body{
   border-radius:2px;
 }
 .Full-Short-Card{
-  min-height:20vw;
-  height:auto;
+  height:250px;
   width:calc(98% - 6px);
   margin:1%;
   border:3px solid;
-  border-radius:2px;
+  border-radius:5px;
+  display:flex;
+  flex-wrap: wrap;
 }
-
+.Prevent-Overflow{
+  overflow:hidden !important;
+}
+.Card-Content-Third{
+  width:calc(100% / 3);
+  min-height:200px;
+  height:100%;
+}
 .Card-Blue-To-White-Border{
   border-image: linear-gradient(to top left, rgba(10, 193, 255, 1) 0%, rgba(255, 245, 245, 1) 100%) 5;
 }
