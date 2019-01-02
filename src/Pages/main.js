@@ -61,23 +61,23 @@ export class Main extends Component{
         return(
             <div className="App">
                 <div className="App-header">
+                    <Router>
+                        <div id="Complete-App">
+                            <section className="Content-Container">    
+                                <Navigation/>
+                            </section>
+                            <Popout pose={ isOpen ? 'open' : 'closed' }>
+                                <NavBar navState={this.toggle}/>
+                            </Popout>
+                        </div>
+                    </Router>
+                </div>
                 <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
                     <FunctionIcon navIcon="menu" classOption="Open-Menu" functionOption={this.toggle}/>
                 </SwapVisible>
                 <SwapVisible pose={navigationOption ? 'open' : 'closed'}>
                     <FunctionIcon navIcon="close" classOption="Open-Menu" functionOption={this.toggle}/>
                 </SwapVisible>
-                    <Router>
-                        <div id="Complete-App">
-                            <Popout pose={ isOpen ? 'open' : 'closed' }>
-                                <NavBar navState={this.toggle}/>
-                            </Popout>
-                            <section className="Content-Container">    
-                                <Navigation/>
-                            </section>
-                        </div>
-                    </Router>
-                </div>
             </div>
         )
     }

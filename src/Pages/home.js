@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import posed  from 'react-pose';
-import {FullCard} from '../Components/cards.js';
+import { PageContainer } from '../Components/cards.js';
 import {FullCardTitle} from '../Components/content.js';
 
 export class Home extends Component{
@@ -12,8 +12,8 @@ export class Home extends Component{
     }
     render(){
         return(
-            <section id="homepage">
-            </section>
+            <PageContainer className="White-bg">
+            </PageContainer>
         )
     }
 }

@@ -52,8 +52,8 @@ export const NavigationIcon = styled.i`
     }
 `;
 export const FunctionalIcon = styled.div`
-    height:50px !important;
-    width: 50px !important;
+    height:45px !important;
+    width: 45px !important;
     font-size:40px;
     z-index:2000;
     :hover{

@@ -36,3 +36,12 @@ export const SmallTile = styled.div`
     margin:.5vw;
     border-radius:4px;
 `;
+export const PageContainer = styled.div`
+    width:calc(100% - 140px);
+    height:auto;
+    min-height:100vh;
+    position:relative;
+    left:70px;
+
+
+`

@@ -19,26 +19,21 @@ body{
 .Content-Container{
   position:absolute;
   top:0px;
-  left:50px;
-  width:calc(100vw - 50px);
+  left:0px;
+  width:100vw;
 }
 
 
 /* Navigation */
-i{
-  user-select:none;
-  -ms-user-select:none;
-  -moz-user-select:none;
-  -webkit-user-select:none;
-  -o-user-select:none;
-}
 .Icon-Child i{
   font-size:26px !important;
   position:relative;
   top:7px;
+  z-index:3000;
 }
 .Functional-Icon-Child i{
   font-size:40px !important;
+  z-index:3000;
 }
 .NavTile{
   width:50px;
