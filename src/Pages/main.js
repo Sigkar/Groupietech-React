@@ -20,18 +20,36 @@ const Popout = posed.div({
         }
     },
 });
+const SwapVisible = posed.div({
+    open:{
+        display:'block',
+        transition:{
+            duration:350,
+        },
+    },
+    closed:{
+        display:'none',
+        transition:{
+            duration:350,
+        },
+    }
+});
+
+
 
 export class Main extends Component{
-    state = { isOpen: true};
+    state = { isOpen: false, navigationOption:false};
 
-    toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }));
-    
+    toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: true}) : this.setState({ navigationOption:false }));
+
     render(){
-        const { isOpen } = this.state;
+        const { isOpen, navigationOption } = this.state;
         return(
             <div className="App">
                 <div className="App-header">
-                <FunctionIcon navIcon="menu" classOption="Open-Menu" functionOption={this.toggle}/>
+                <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
+                    <FunctionIcon navIcon="menu" classOption="Open-Menu" functionOption={this.toggle}/>
+                </SwapVisible>
                     <Router>
                         <div id="Complete-App">
                             <Popout pose={ isOpen ? 'open' : 'closed' }>

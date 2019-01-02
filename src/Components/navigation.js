@@ -41,11 +41,11 @@ const LogoImage = styled.img`
     border-bottom-right-radius:5px;
 `;
 const NavigationIcon = styled.i`
-    height: 50px !important;
-    width: 50px !important;
-    font-size:40px;
+    height: 40px !important;
+    width: 40px !important;
+    
     position:relative;
-    left:5px;
+    left:10px;
     opacity:1;
     :hover{
         color: rgba(10, 193, 255, 1) !important;
@@ -55,6 +55,7 @@ const FunctionalIcon = styled.div`
     height:50px !important;
     width: 50px !important;
     font-size:40px;
+    z-index:2000;
     :hover{
         color: rgba(10, 193, 255, 1) !important;
     }
@@ -70,14 +71,14 @@ const SideBar = styled.nav`
     flex-wrap: wrap;
 `;
 const NavContent = styled.p`
-    height:50px;
-    width:150px;
+    height:40px;
+    width:145px;
     position:relative;
-    left:50px;
+    left:45px;
     top:-50px;
     padding:0;
     margin:0;
-    line-height:50px;
+    line-height:40px;
     text-decoration:none !important;
 `
 const NavigationTileContainer = styled.nav`
@@ -92,7 +93,7 @@ const NavStyleLink = styled.div`
 export class FunctionIcon extends Component{
     render(){
         return(
-            <FunctionalIcon onClick={this.props.functionOption} className={"Lightblue-hover White-children Icon-Child " + this.props.classOption}>
+            <FunctionalIcon onClick={this.props.functionOption} className={"Lightblue-hover White-children Functional-Icon-Child " + this.props.classOption}>
                 <MaterialIcon icon={this.props.navIcon}/>
             </FunctionalIcon>
         )
@@ -104,9 +105,9 @@ class NavItem extends Component{
         return(
             <NavStyleLink>
                 <Link to={this.props.link}>
-                    <NavigationTileContainer>
+                    <NavigationTileContainer className="Lightblue-hover">
                         <div className={"NavTile Darkgray-bg " + this.props.classOption} >
-                            <NavigationIcon className="Lightblue-hover White-children Icon-Child">
+                            <NavigationIcon className=" White-children Icon-Child">
                                 <MaterialIcon icon={this.props.navIcon}/>
                             </NavigationIcon>
                         </div>
@@ -140,7 +141,7 @@ export class NavBar extends Component{
                 <NavItem link="/" navIcon="calendar_today" navTitle="LOCAL GIGS"/>
                 <NavItem link="/" navIcon="supervisor_account" navTitle="MANAGER"/>
                 <NavItem link="/" navIcon="track_changes" navTitle="FIND BANDS"/>
-                <NavItem link="/login" navIcon="account_circle" classOption="Account"/>
+                <NavItem link="/login" navIcon="account_circle" navTitle="ACCOUNT"/>
             </SideBar>
         )
     }
