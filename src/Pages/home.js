@@ -13,8 +13,6 @@ export class Home extends Component{
     render(){
         return(
             <section id="homepage">
-                <FullCard className="White-bg">
-                </FullCard>
             </section>
         )
     }

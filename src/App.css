@@ -26,7 +26,7 @@ body{
 
 /* Navigation */
 .Icon-Child i{
-  font-size:40px !important;
+  font-size:30px !important;
 }
 .NavTile{
   width:50px;
@@ -41,18 +41,13 @@ body{
   -webkit-filter:brightness(105%);
   -o-filter:brightness(105%);
 }
-@media screen and (max-height:600px){
-  .Icon-Child i{
-    font-size:30px !important;
-    position:relative;
-    left:5px;
-  }
-  .NavTile{
-    left:10px;
-    height:40px;
-    width:40px;
-    margin-top:5px;
-  }
+
+.Open-Menu{
+  position:fixed;
+  top:10px;
+  right:10px;
+  z-index:2500;
+  cursor:pointer;
 }
 .Account{
   position:absolute;
