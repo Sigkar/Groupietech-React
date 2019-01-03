@@ -91,14 +91,34 @@ body{
 }
 .Half-Feature{
   width:50%;
-  height:auto;
-  min-height:400px;
+  height:400px;
 }
+.Scroll-Y{
+  overflow-y:scroll;
+}
+.Feature-Image-Options{
+  width:50%;
+  height:40px;
+  position:absolute;
+  bottom:0px;
+  right:0px;
+}
+.Social-Icon i{
+  font-size:32px !important;
+  width:32px !important;
+  height:32px !important;
+  margin:4px 10px !important;
+}
+
+
+
 @media screen and (max-width:600px){
   .Half-Feature{
     width:100% !important;
-    height:200px;
-    min-height:0px;
+    height:300px;
+  }
+  .Feature-Image-Options{
+    width:100%;
   }
 }
 
@@ -130,4 +150,18 @@ body{
     width:98%;
     height:calc((100vw - 140px) - 2vw);
   }
+}
+
+.Cover{
+  object-fit:fill;
+  margin:0;
+  padding:0;
+  min-height:400px;
+  min-width:400px;
+}
+
+.Contain{
+  object-fit:contain;
+  max-width:100%;
+  max-height:100%;
 }

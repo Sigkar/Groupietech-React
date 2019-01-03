@@ -176,4 +176,14 @@
     -webkit-transition: color 0.2s;
     -o-transition: color 0.2s;
     color: rgba(10, 193, 255, 1) !important;
+    cursor:pointer;
+}
+.Red-hover:hover *{
+    transition:color 0.2s;
+    -ms-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    -webkit-transition: color 0.2s;
+    -o-transition: color 0.2s;
+    color: rgba(191, 63, 63, 1) !important;
+    cursor:pointer;
 }
