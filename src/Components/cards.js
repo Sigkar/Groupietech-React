@@ -13,21 +13,28 @@ export const BoxContainer = styled.section`
     margin:0 auto;
     
 `;
-
+/* Features */
 export const FeatureContent = styled.section`
+    position:relative;
+    margin:20px 0;
     width:100%;
-    height:400px;
+    height:auto;
+    min-height:400px;
+`;
+export const HalfFeature = styled.div`
+    width:50%;
+    min-height:400px;
 `;
 
 
 export const FlexContainer = styled.section`
-    margin:0 auto;
-    justify-content:space-around;
     display:flex;
+    justify-content:space-around;
     align-items:center;
-    overflow: hidden;
     flex-wrap: wrap;
+    flex-direction: row;
 `;
+
 export const SmallTile = styled.div`
     width:9vw;
     height:9vw;

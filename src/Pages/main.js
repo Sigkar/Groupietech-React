@@ -13,7 +13,7 @@ const Popout = posed.div({
         }
     },
     closed: {
-        x:'-300px',
+        x:'-230px',
         delay: 50,
         transition:{
             duration: 350,
@@ -62,6 +62,7 @@ export class Main extends Component{
             <div className="App">
                 <div className="App-header">
                     <Router>
+                        
                         <div id="Complete-App">
                             <section className="Content-Container">    
                                 <Navigation/>
@@ -69,6 +70,7 @@ export class Main extends Component{
                             <Popout pose={ isOpen ? 'open' : 'closed' }>
                                 <NavBar navState={this.toggle}/>
                             </Popout>
+                            
                         </div>
                     </Router>
                 </div>

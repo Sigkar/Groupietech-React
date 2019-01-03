@@ -1,7 +1,25 @@
 import React, { Component } from 'react';
 import posed  from 'react-pose';
-import { PageContainer, FlexContainer, FeatureContent } from '../../Components/cards.js';
-import {ShortCard} from '../../Components/content.js';
+import { PageContainer, FlexContainer, FeatureContent, HalfFeature } from '../../Components/cards.js';
+import {Half} from '../../Components/content.js';
+
+
+
+class ContentFeatureComponent extends Component{
+    render(){
+        return(
+            <FeatureContent className="White-bg Heavy-Box-Shadow">
+                <FlexContainer>
+                    <div className="White-bg Half-Feature">
+                    </div>
+                    <div className="Darkgray-bg Half-Feature">
+                    </div>
+                </FlexContainer>
+            </FeatureContent>
+        )
+    }
+}
+
 
 export class Home extends Component{
     componentWillMount(){
@@ -13,12 +31,9 @@ export class Home extends Component{
     render(){
         return(
             <PageContainer>
-                <FlexContainer>
-                    <hr/>
-                    <FeatureContent className="White-bg">
-
-                    </FeatureContent>
-                </FlexContainer>
+                <ContentFeatureComponent/>
+                <ContentFeatureComponent/>
+                <ContentFeatureComponent/>
             </PageContainer>
         )
     }

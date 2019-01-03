@@ -165,7 +165,9 @@
 .White-border{
     border-color:rgba(255, 245, 245, 1) !important;
 }
-
+.RBPO{
+    background: linear-gradient(to right, rgba(191, 63, 63, 1) 25.0%, rgba(10, 193, 255, 1) 50.0%, rgba(175, 0, 103, 1) 75.0%, rgba(255, 84, 5, 1) 100%)
+}
 /* Overrides */
 .Lightblue-hover:hover * {
     transition: color 0.2s;

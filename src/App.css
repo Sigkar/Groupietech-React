@@ -25,6 +25,16 @@ body{
 }
 
 
+.Heavy-Box-Shadow{
+  -webkit-box-shadow: 20px 20px 30px -10px rgba(0,0,0,0.5);
+  -moz-box-shadow: 20px 20px 30px -10px rgba(0,0,0,0.5);
+  box-shadow: 20px 20px 30px -10px rgba(0,0,0,0.5);
+}
+.Heavy-Inset-Box-Shadow{
+  -webkit-box-shadow: inset -20px -20px 30px -10px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset -20px -20px 30px -10px rgba(0,0,0,0.5);
+  box-shadow: inset -20px -20px 30px -10px rgba(0,0,0,0.5);
+}
 /* Navigation */
 .Icon-Child i{
   font-size:26px !important;
@@ -79,6 +89,22 @@ body{
   display:flex;
   flex-wrap: wrap;
 }
+.Half-Feature{
+  width:50%;
+  height:auto;
+  min-height:400px;
+}
+@media screen and (max-width:600px){
+  .Half-Feature{
+    width:100% !important;
+    height:200px;
+    min-height:0px;
+  }
+}
+
+
+
+
 .Prevent-Overflow{
   overflow:hidden !important;
 }
@@ -93,6 +119,12 @@ body{
 .Card-Red-Blue-Pink-Border{
   border-image: linear-gradient(to top left, rgba(191, 63, 63, 1) 33.33%, rgba(10, 193, 255, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 5;
 }
+/* Card-Red-Blue-Pink-Orange-Border-Solid */
+.CRBPOBS{
+  border:4px solid;
+  border-image:linear-gradient(to right, rgba(191, 63, 63, 1) 25.0%, rgba(10, 193, 255, 1) 50.0%, rgba(175, 0, 103, 1) 75.0%, rgba(255, 84, 5, 1) 100%) 5;
+}
+
 @media screen and (max-width:800px){
   .Half-Card{
     width:98%;
