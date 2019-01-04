@@ -60,16 +60,6 @@ export const FunctionalIcon = styled.div`
         color: rgba(10, 193, 255, 1) !important;
     }
 `
-export const SideBar = styled.nav`
-    width:200px;
-    height:100vh;
-    position:fixed;
-    left:0px;
-    top:0px;
-    display:flex;
-    flex-direction:column;
-    flex-wrap: wrap;
-`;
 export const NavContent = styled.p`
     height:40px;
     width:145px;

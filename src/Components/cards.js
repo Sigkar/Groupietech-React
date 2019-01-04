@@ -70,11 +70,11 @@ export const SmallTile = styled.div`
     border-radius:4px;
 `;
 export const PageContainer = styled.div`
-    width:calc(100% - 110px);
+    width:calc(100% - 105px);
     height:auto;
     min-height:100vh;
     position:relative;
-    left:75px;
+    left:70px;
 `
 
 const PostOptions = ({iconOption}) => (

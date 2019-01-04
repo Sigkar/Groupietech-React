@@ -23,6 +23,19 @@ body{
   left:0px;
   width:100vw;
 }
+.NavigationContainment{
+  width:200px;
+  height:100vh;
+  position:fixed;
+  top:0px;
+  z-index:3500;
+}
+.Nav-Container{
+  position:Fixed;
+  top:0px;
+  left:0px;
+  z-index:10000;
+}
 
 
 .Heavy-Box-Shadow{

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle, SideBar} from '../Components/navigation.js';
+import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle} from '../Components/navigation.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import posed from 'react-pose';
@@ -52,7 +52,7 @@ const ShowClose = posed.div({
 class NavBar extends Component{
     render(){
         return(
-            <SideBar className="Darkgray-bg">
+            <div className="Darkgray-bg NavigationContainment">
                 <Spacer>
                     <SpacerTitle>GROUPIETECH</SpacerTitle>
                 </Spacer>
@@ -61,7 +61,7 @@ class NavBar extends Component{
                 <NavItem navState={this.props.navState} link="/" navIcon="supervisor_account" navTitle="MANAGER"/>
                 <NavItem navState={this.props.navState} link="/" navIcon="track_changes" navTitle="FIND BANDS"/>
                 <NavItem navState={this.props.navState} link="/login" navIcon="account_circle" navTitle="ACCOUNT"/>
-            </SideBar>
+            </div>
         )
     }
 }
@@ -79,13 +79,14 @@ export class Main extends Component{
                     <Router>
                         
                         <div id="Complete-App">
+                            <div className="Nav-Container">
+                                <Popout pose={ isOpen ? 'open' : 'closed' }>
+                                    <NavBar navState={this.toggle}/>
+                                </Popout>
+                            </div>
                             <section className="Content-Container">    
                                 <Navigation/>
-                            </section>
-                            <Popout pose={ isOpen ? 'open' : 'closed' }>
-                                <NavBar navState={this.toggle}/>
-                            </Popout>
-                            
+                            </section>   
                         </div>
                     </Router>
                 </div>
