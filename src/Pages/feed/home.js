@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import posed  from 'react-pose';
 import { PageContainer, ContentFeatureComponent, FlexContainer, FeatureContent, HalfFeature } from '../../Components/cards.js';
-import {Half} from '../../Components/content.js';
-import TestImage from '../../Images/maps.png';
-import {StaggerChildren, LoadFade} from '../../Components/staticposes.js';
+import {StaggerChildren, LoadFade, Fade} from '../../Components/staticposes.js';
 
 
 

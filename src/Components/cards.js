@@ -77,13 +77,17 @@ export const PageContainer = styled.div`
     left:30px;
     top:60px;
 `
-export const ImageDate = styled.div`
+export const HalfContain = styled.div`
     position:absolute;
     top:0px;
     left:0px;
-    width:auto;
+    width:Auto;
+    min-width:25%;
     height:20px;
-    padding:5px;
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align:center
+
 `;
 
 const PostOptions = ({iconOption}) => (
@@ -99,9 +103,9 @@ export class ContentFeatureComponent extends Component{
             <FeatureContent className="White-bg Heavy-Box-Shadow Feed-Content-Box">
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow">
-                        <ImageDate className="Lightgray-bg White Light-Box-Shadow">
+                        <HalfContain className="HalfContain Red-bg White Light-Box-Shadow">
                             {this.props.month}/{this.props.day}/{this.props.year} - {this.props.hour}:{this.props.min} {this.props.ampm}
-                        </ImageDate>
+                        </HalfContain>
                         <img src={this.props.imageLink} alt="Something something required" className="Cover"/>
                     </div>
                     <div className="Darkgray-bg Half-Feature Content-Half">

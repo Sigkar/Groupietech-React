@@ -1,39 +1,8 @@
 import React, { Component } from 'react';
 import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle} from '../Components/navigation.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-import posed from 'react-pose';
-
-const Popout = posed.div({
-    open: {
-        x:'0px',
-        delay: 50,
-        transition:{
-            duration: 350,
-        }
-    },
-    closed: {
-        x:'-230px',
-        delay: 50,
-        transition:{
-            duration: 350,
-        }
-    },
-});
-const SwapVisible = posed.div({
-    open:{
-        x:'0px',
-        transition:{
-            duration:300,
-        }
-    },
-    closed:{
-        x:'200px',
-        transition:{
-            duration:300,
-        }
-    }
-});
+import {Popout, SwapVisible, Fade} from '../Components/staticposes.js';
+import {HeaderButton, HeaderButtonContainer, LogModal, Overlay} from '../Components/global.js';
 
 class NavBar extends Component{
     render(){
@@ -53,15 +22,32 @@ class NavBar extends Component{
 }
 
 export class Main extends Component{
-    state = { isOpen: false, navigationOption:false};
+    state = { isOpen: false, navigationOption:false, signup: false, signin: false};
 
-    toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: false}) : this.setState({ navigationOption:true }));
-
+    toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }) && this.state.navigationOption ? this.setState({ navigationOption: false}) : this.setState({ navigationOption:true }));
+    openSignup = () => (this.state.signup ? this.setState({signup: false}) : this.setState({signup: true, signin: false}));
+    openSignin = () => (this.state.signin ? this.setState({signin: false}) : this.setState({signup: false, signin: true}));
     render(){
-        const { isOpen, navigationOption } = this.state;
+        const { isOpen, navigationOption, signup, signin } = this.state;
         return(
             <div className="App">
                 <div className="App-header">
+                    <Fade pose={signup ? 'open' : 'closed'}>
+                        <Overlay>
+                            <LogModal className="White-bg">
+                                <FunctionIcon navIcon="close" classOption="Darkgray-children" functionOption={this.openSignup}/>
+                                Sign Up
+                            </LogModal>
+                        </Overlay>
+                    </Fade>
+                    <Fade pose={signin ? 'open' : 'closed'}>
+                        <Overlay>
+                            <LogModal className="White-bg">
+                                <FunctionIcon navIcon="close" classOption="Darkgray-children" functionOption={this.openSignin}/>
+                                Sign In
+                            </LogModal>
+                        </Overlay>
+                    </Fade>
                     <Router>
                         <div id="Complete-App">
                             <div className="Header-Bar">
@@ -71,6 +57,14 @@ export class Main extends Component{
                             <SwapVisible pose={navigationOption ? 'open' : 'closed'}>
                                 <FunctionIcon navIcon="close" classOption="Open-Menu Darkgray-children" functionOption={this.toggle}/>
                             </SwapVisible>
+                            <HeaderButtonContainer>
+                                <HeaderButton onClick={this.openSignup}>
+                                    SIGN UP
+                                </HeaderButton>
+                                <HeaderButton onClick={this.openSignin}>
+                                    SIGN IN
+                                </HeaderButton>
+                            </HeaderButtonContainer>
                             </div>
                             <div className="Nav-Container">    
                                 <Popout pose={ isOpen ? 'open' : 'closed' }>
