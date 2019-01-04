@@ -35,6 +35,11 @@ body{
   -moz-box-shadow: inset -20px -20px 30px -10px rgba(0,0,0,0.5);
   box-shadow: inset -20px -20px 30px -10px rgba(0,0,0,0.5);
 }
+.Light-Box-Shadow{
+  -webkit-box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
+  -moz-box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
+  box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
+}
 
 
 /* Navigation */
@@ -145,6 +150,7 @@ body{
 
 
 
+
 @media screen and (max-width:600px){
   .Half-Feature{
     width:100% !important;
@@ -189,7 +195,9 @@ body{
 }
 
 .Cover{
-  object-fit:fill;
+  object-fit:cover;
+  height:100%;
+  width:100%;
   margin:0;
   padding:0;
   min-height:400px;

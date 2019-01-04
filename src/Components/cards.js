@@ -75,8 +75,16 @@ export const PageContainer = styled.div`
     min-height:100vh;
     position:relative;
     left:30px;
-    top:70px;
+    top:60px;
 `
+export const ImageDate = styled.div`
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:auto;
+    height:20px;
+    padding:5px;
+`;
 
 const PostOptions = ({iconOption}) => (
     <div className="Red-hover Social-Icon White-children">
@@ -87,10 +95,14 @@ const PostOptions = ({iconOption}) => (
 export class ContentFeatureComponent extends Component{
     render(){
         return(
+            
             <FeatureContent className="White-bg Heavy-Box-Shadow Feed-Content-Box">
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow">
-                        <img src={this.props.imageLink} alt="Alt Image" className="Cover"/>
+                        <ImageDate className="Lightgray-bg White Light-Box-Shadow">
+                            {this.props.month}/{this.props.day}/{this.props.year} - {this.props.hour}:{this.props.min} {this.props.ampm}
+                        </ImageDate>
+                        <img src={this.props.imageLink} alt="Something something required" className="Cover"/>
                     </div>
                     <div className="Darkgray-bg Half-Feature Content-Half">
                         <FeatureTitle className="White">{this.props.title}</FeatureTitle>
@@ -105,7 +117,6 @@ export class ContentFeatureComponent extends Component{
                                 <PostOptions iconOption="report"/>
                             </FlexRight>
                         </div>
-
                     </div>
                 </FlexContainer>
             </FeatureContent>

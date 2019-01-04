@@ -187,3 +187,7 @@
     color: rgba(191, 63, 63, 1) !important;
     cursor:pointer;
 }
+.Inline-Icon i{
+    font-size:inherit;
+    display:inline;
+}
