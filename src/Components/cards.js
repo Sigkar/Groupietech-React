@@ -70,11 +70,12 @@ export const SmallTile = styled.div`
     border-radius:4px;
 `;
 export const PageContainer = styled.div`
-    width:calc(100% - 105px);
+    width:calc(100% - 60px);
     height:auto;
     min-height:100vh;
     position:relative;
-    left:70px;
+    left:30px;
+    top:70px;
 `
 
 const PostOptions = ({iconOption}) => (
@@ -86,12 +87,12 @@ const PostOptions = ({iconOption}) => (
 export class ContentFeatureComponent extends Component{
     render(){
         return(
-            <FeatureContent className="White-bg Heavy-Box-Shadow">
+            <FeatureContent className="White-bg Heavy-Box-Shadow Feed-Content-Box">
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow">
                         <img src={this.props.imageLink} alt="Alt Image" className="Cover"/>
                     </div>
-                    <div className="Darkgray-bg Half-Feature">
+                    <div className="Darkgray-bg Half-Feature Content-Half">
                         <FeatureTitle className="White">{this.props.title}</FeatureTitle>
                         <BreakTitle/>
                         <FeatureDesc className="White">{this.props.description}</FeatureDesc>

@@ -83,7 +83,7 @@ export const NavStyleLink = styled.div`
 export class FunctionIcon extends Component{
     render(){
         return(
-            <FunctionalIcon onClick={this.props.functionOption} className={"Lightblue-hover White-children Functional-Icon-Child " + this.props.classOption}>
+            <FunctionalIcon onClick={this.props.functionOption} className={"Lightblue-hover Functional-Icon-Child " + this.props.classOption}>
                 <MaterialIcon icon={this.props.navIcon}/>
             </FunctionalIcon>
         )

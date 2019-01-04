@@ -28,26 +28,12 @@ const SwapVisible = posed.div({
         }
     },
     closed:{
-        x:'-200px',
+        x:'200px',
         transition:{
             duration:300,
         }
     }
 });
-const ShowClose = posed.div({
-    open:{
-        x:'140px',
-        transition:{
-            duration:300,
-        }
-    },
-    closed:{
-        x:'-200px',
-        transition:{
-            duration:300,
-        }
-    }
-})
 
 class NavBar extends Component{
     render(){
@@ -77,9 +63,16 @@ export class Main extends Component{
             <div className="App">
                 <div className="App-header">
                     <Router>
-                        
                         <div id="Complete-App">
-                            <div className="Nav-Container">
+                            <div className="Header-Bar">
+                            <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
+                                <FunctionIcon navIcon="menu" classOption="Open-Menu Darkgray-children" functionOption={this.toggle}/>
+                            </SwapVisible>
+                            <SwapVisible pose={navigationOption ? 'open' : 'closed'}>
+                                <FunctionIcon navIcon="close" classOption="Open-Menu Darkgray-children" functionOption={this.toggle}/>
+                            </SwapVisible>
+                            </div>
+                            <div className="Nav-Container">    
                                 <Popout pose={ isOpen ? 'open' : 'closed' }>
                                     <NavBar navState={this.toggle}/>
                                 </Popout>
@@ -90,12 +83,6 @@ export class Main extends Component{
                         </div>
                     </Router>
                 </div>
-                <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
-                    <FunctionIcon navIcon="menu" classOption="Open-Menu" functionOption={this.toggle}/>
-                </SwapVisible>
-                <ShowClose pose={navigationOption ? 'open' : 'closed'}>
-                    <FunctionIcon navIcon="close" classOption="Close-Menu" functionOption={this.toggle}/>
-                </ShowClose>
             </div>
         )
     }

@@ -23,19 +23,6 @@ body{
   left:0px;
   width:100vw;
 }
-.NavigationContainment{
-  width:200px;
-  height:100vh;
-  position:fixed;
-  top:0px;
-  z-index:3500;
-}
-.Nav-Container{
-  position:Fixed;
-  top:0px;
-  left:0px;
-  z-index:10000;
-}
 
 
 .Heavy-Box-Shadow{
@@ -48,6 +35,8 @@ body{
   -moz-box-shadow: inset -20px -20px 30px -10px rgba(0,0,0,0.5);
   box-shadow: inset -20px -20px 30px -10px rgba(0,0,0,0.5);
 }
+
+
 /* Navigation */
 .Icon-Child i{
   font-size:26px !important;
@@ -75,23 +64,42 @@ body{
 
 .Open-Menu{
   position:fixed;
-  top:80px;
-  left:10px;
+  top:10px;
+  right:10px;
   z-index:2500;
   cursor:pointer;
+}
+
+.NavigationContainment{
+  width:200px;
+  height:100vh;
+  position:fixed;
+  top:0px;
+  z-index:3500;
+}
+.Nav-Container{
+  position:Fixed;
+  top:0px;
+  left:0px;
+  z-index:10000;
+}
+.Header-Bar{
+  position:fixed;
+  top:0px;
+  left:50px;
+  z-index:2499;
+  height:60px;
+  width:calc(100vw - 50px);
+  background-color:white;
 }
 .Close-Menu{
   position:fixed;
   top:10px;
   left:60px;
-  z-index:2500;
+  z-index:3000;
   cursor:pointer;
 }
-.Account{
-  position:absolute;
-  bottom:0px;
-  left:0px;
-}
+
 /* Cards */
 .Half-Card{
   height:calc((100vw - 140px) / 2 - 2vw);
@@ -113,15 +121,20 @@ body{
   width:50%;
   height:400px;
 }
+.Content-Half{
+  height:360px !important;
+  transform:translateY(-20px);
+}
 .Scroll-Y{
   overflow-y:scroll;
 }
 .Feature-Image-Options{
-  width:50%;
+  width:100%;
   height:40px;
   position:absolute;
   bottom:0px;
   right:0px;
+  transform:translateY(40px);
 }
 .Social-Icon i{
   font-size:32px !important;
@@ -169,6 +182,9 @@ body{
   .Half-Card{
     width:98%;
     height:calc((100vw - 140px) - 2vw);
+  }
+  .Feed-Content-Box{
+    margin-bottom:40px !important;
   }
 }
 
