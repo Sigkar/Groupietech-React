@@ -62,8 +62,15 @@ body{
 
 .Open-Menu{
   position:fixed;
+  top:80px;
+  left:10px;
+  z-index:2500;
+  cursor:pointer;
+}
+.Close-Menu{
+  position:fixed;
   top:10px;
-  right:10px;
+  left:60px;
   z-index:2500;
   cursor:pointer;
 }

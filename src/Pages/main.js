@@ -28,12 +28,27 @@ const SwapVisible = posed.div({
         }
     },
     closed:{
-        x:'200px',
+        x:'-200px',
         transition:{
             duration:300,
         }
     }
 });
+const ShowClose = posed.div({
+    open:{
+        x:'140px',
+        transition:{
+            duration:300,
+        }
+    },
+    closed:{
+        x:'-200px',
+        transition:{
+            duration:300,
+        }
+    }
+})
+
 class NavBar extends Component{
     render(){
         return(
@@ -77,9 +92,9 @@ export class Main extends Component{
                 <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
                     <FunctionIcon navIcon="menu" classOption="Open-Menu" functionOption={this.toggle}/>
                 </SwapVisible>
-                <SwapVisible pose={navigationOption ? 'open' : 'closed'}>
-                    <FunctionIcon navIcon="close" classOption="Open-Menu" functionOption={this.toggle}/>
-                </SwapVisible>
+                <ShowClose pose={navigationOption ? 'open' : 'closed'}>
+                    <FunctionIcon navIcon="close" classOption="Close-Menu" functionOption={this.toggle}/>
+                </ShowClose>
             </div>
         )
     }

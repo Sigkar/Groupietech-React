@@ -41,10 +41,10 @@ export const FeatureDesc = styled.p`
     padding-left:22px;
 `;
 export const BreakTitle = styled.div`
-    width:10vw;
+    width:90%;
     border:2px solid;
     height:0px;
-    margin-left:22px;
+    margin:0 auto;
     border-image: linear-gradient(to top left, rgba(191, 63, 63, 1) 33.33%, rgba(10, 193, 255, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 5;
 `;
 
@@ -70,11 +70,11 @@ export const SmallTile = styled.div`
     border-radius:4px;
 `;
 export const PageContainer = styled.div`
-    width:calc(100% - 140px);
+    width:calc(100% - 110px);
     height:auto;
     min-height:100vh;
     position:relative;
-    left:70px;
+    left:75px;
 `
 
 const PostOptions = ({iconOption}) => (
