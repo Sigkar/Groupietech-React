@@ -2,6 +2,35 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {PopFromNothing } from '../Components/staticposes.js';
 import {FunctionIcon} from './navigation.js';
+export const StandardButton = styled.button`
+    outline:none;
+    height:45px;
+    width:130px;
+    border:3px solid;
+    border-image: linear-gradient(to top left, rgba(191, 63, 63, 1) 33.33%, rgba(255, 84, 5, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 5;  
+    display:flex;
+    justify-content:space-around;
+
+    cursor:pointer;
+    transition:border-image 0.4s, border-color 0.2s;
+    -ms-transition:border-image 0.4s, border-color 0.2s;
+    -moz-transition:border-image 0.4s, border-color 0.2s;
+    -webkit-transition:border-image 0.4s, border-color 0.2s;
+    -o-transition:border-image 0.4s, border-color 0.2s;
+    border-color:rgba(239, 0, 107, 1);
+
+    background-color:transparent;
+
+    position:relative;
+    left:calc(50% - 65px);
+
+    font-size:16px;
+    :hover{
+        border-image:none;
+        border-color:rgba(10, 193, 255, 1);
+    }
+`;
+
 
 export const HeaderButton = styled.button`
     outline:none;
@@ -41,14 +70,20 @@ export const Overlay = styled.div`
 export const LogModal = styled.div`
     width:80vw;
     height:90vh;
+
     position:absolute;
     top:5vh;
     left:10vw;
+
     border-radius:5px;
+
     z-index:200001;
+
     display:flex;
     flex-direction:row;
     flex-wrap: wrap;
+
+    overflow-y:scroll;
 `;
 export const HalfModal = styled.div`
     width:50%;
@@ -106,10 +141,10 @@ export class ModalOverlay extends Component{
             <Overlay>
                 <PopFromNothing>
                     <LogModal className="White-bg">
-                        <HalfModal>
+                        <HalfModal className="Half-Modal  ModalImage">
                         <img src={this.props.leftimg} alt="Login" className="Cover Left-Radii"/>
                         </HalfModal>
-                        <HalfModal>
+                        <HalfModal className="Half-Modal">
                             <h2 className="Center-Title Red">{this.props.title}</h2>
                             <TextInput>
                                 <label>
@@ -128,6 +163,9 @@ export class ModalOverlay extends Component{
                                     <p>CONFIRM PASSWORD</p>
                                 </label>
                                 <input type="password"></input>
+                                <StandardButton>
+                                    SUBMIT
+                                </StandardButton>
                             </TextInput>
                         </HalfModal>
                         <FunctionIcon navIcon="close" classOption="Darkgray-children Modal-Button" functionOption={this.props.functionOption} />
