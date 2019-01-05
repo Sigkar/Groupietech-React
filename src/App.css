@@ -165,6 +165,10 @@ body{
 .Card-Red-Blue-Pink-Border{
   border-image: linear-gradient(to top left, rgba(191, 63, 63, 1) 33.33%, rgba(10, 193, 255, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 5;
 }
+.Solid-Bottom-Border{
+  border-image: linear-gradient(to right, rgba(255, 84, 5, 1) 25%,rgba(239, 0, 107, 1) 25%, rgba(239, 0, 107, 1) 50%, rgba(175, 0, 103, 1) 50%, rgba(175, 0, 103, 1) 75%, rgba(10, 193, 255, 1) 75%) 5;
+}
+
 /* Card-Red-Blue-Pink-Orange-Border-Solid */
 .CRBPOBS{
   border:4px solid;

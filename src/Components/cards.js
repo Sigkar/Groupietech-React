@@ -26,6 +26,7 @@ export const FeatureContent = styled.section`
     width:100%;
     height:auto;
     min-height:400px;
+    border-bottom:3px solid;
 `;
 export const HalfFeature = styled.div`
     width:50%;
@@ -83,7 +84,8 @@ export const HalfContain = styled.div`
     left:0px;
     width:Auto;
     min-width:25%;
-    height:20px;
+    height:18px;
+    border-bottom:4px solid;
     padding-top:5px;
     padding-bottom:5px;
     text-align:center
@@ -100,10 +102,10 @@ export class ContentFeatureComponent extends Component{
     render(){
         return(
             
-            <FeatureContent className="White-bg Heavy-Box-Shadow Feed-Content-Box">
+            <FeatureContent className="White-bg Heavy-Box-Shadow Feed-Content-Box Solid-Bottom-Border">
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow">
-                        <HalfContain className="HalfContain Red-bg White Light-Box-Shadow">
+                        <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">
                             {this.props.month}/{this.props.day}/{this.props.year} - {this.props.hour}:{this.props.min} {this.props.ampm}
                         </HalfContain>
                         <img src={this.props.imageLink} alt="Something something required" className="Cover"/>

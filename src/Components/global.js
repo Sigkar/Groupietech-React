@@ -6,7 +6,7 @@ export const HeaderButton = styled.button`
     height:44px;
     width:94px;
     border:3px solid;
-    border-image: linear-gradient(to top left, rgba(10, 193, 255, 1) 33.33%, rgba(255, 84, 5, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 5;
+    border-image: linear-gradient(to top left, rgba(191, 63, 63, 1) 33.33%, rgba(255, 84, 5, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 10;
     position:relative;
     top:7.5px;
     background:transparent;
@@ -39,7 +39,7 @@ export const Overlay = styled.div`
 export const LogModal = styled.div`
     width:80vw;
     height:90vh;
-    position:fixed;
+    position:absolute;
     top:5vh;
     left:10vw;
     border-radius:10px;
