@@ -266,4 +266,13 @@ body{
   .Modal-Button i{
     color:white !important;
   }
+  .Header-Bar{
+    height:40px;
+    width:calc(100vw - 39px) !important;
+    left:39px;
+  }
+  .Open-Menu{
+    top:0px;
+    right:2px;
+  }
 }

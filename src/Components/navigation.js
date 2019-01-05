@@ -18,6 +18,11 @@ export const Spacer = styled.div`
     clear:both;
     display:block;
     background:#ffffff;
+    @media screen and (max-width:800px){
+        height:40px;
+        border-bottom:none;
+        box-shadow:none !important;
+    }
 `;
 export const SpacerTitle = styled.p`
     height:60px;
@@ -32,6 +37,10 @@ export const SpacerTitle = styled.p`
     font-weight:700;
 
     letter-spacing:2px;
+    @media screen and (max-width:800px){
+        line-height:40px;
+        left:40px;
+    }
 `;
 export const LogoImage = styled.img`
     position:fixed;
@@ -40,7 +49,10 @@ export const LogoImage = styled.img`
     z-index:10000;
     width:60px;
     height:60px;
-    border-bottom-right-radius:5px;
+    @media screen and (max-width:800px){
+        height:40px;
+        width:40px;
+    }
 `;
 export const NavigationIcon = styled.i`
     height: 40px !important;

@@ -57,6 +57,12 @@ export const HeaderButton = styled.button`
         border-image:none;
         border-color:rgba(10, 193, 255, 1);
     }
+    @media screen and (max-width:800px){
+        height:34px;
+        width:74px;
+        top:2.5px;
+        font-size:12px;
+    }
 `
 export const Overlay = styled.div`
     position:fixed;
@@ -101,6 +107,10 @@ export const HeaderButtonContainer = styled.div`
     -moz-transform:translateX(-50px);
     -webkit-transform:translateX(-50px);
     -o-transform:translateX(-50px);
+
+    @media screen and (max-width:800px){
+        width:170px;
+    }
 `
 
 export const TextInput = styled.div`
