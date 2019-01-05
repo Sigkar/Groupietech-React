@@ -1,5 +1,7 @@
+import React, {Component} from 'react';
 import styled from 'styled-components';
-
+import {PopFromNothing } from '../Components/staticposes.js';
+import {FunctionIcon} from './navigation.js';
 
 export const HeaderButton = styled.button`
     outline:none;
@@ -42,7 +44,7 @@ export const LogModal = styled.div`
     position:absolute;
     top:5vh;
     left:10vw;
-    border-radius:10px;
+    border-radius:5px;
     z-index:200001;
     display:flex;
     flex-direction:row;
@@ -76,3 +78,26 @@ export const TextInput = styled.div`
         }
     }
 `
+
+export class ModalOverlay extends Component{
+
+    render(){
+        return(
+            <Overlay>
+                <PopFromNothing>
+                    <LogModal className="White-bg">
+                        <HalfModal>
+                        <img src={this.props.image} alt="Login" className="Cover Left-Radii"/>
+                        </HalfModal>
+                        
+                        <HalfModal>
+                            <p>Create Account</p>
+                        </HalfModal>
+                        <FunctionIcon navIcon="close" classOption="Darkgray-children Modal-Button" functionOption={this.props.functionOption} />
+                    </LogModal>
+                </PopFromNothing>
+            </Overlay>
+        )
+    }
+
+}

@@ -26,7 +26,6 @@ export const FeatureContent = styled.section`
     width:100%;
     height:auto;
     min-height:400px;
-    border-bottom:3px solid;
     max-width:1200px;
 `;
 export const HalfFeature = styled.div`
@@ -103,7 +102,7 @@ export class ContentFeatureComponent extends Component{
     render(){
         return(
             
-            <FeatureContent className="White-bg Heavy-Box-Shadow Feed-Content-Box Solid-Bottom-Border">
+            <FeatureContent className="White-bg Heavy-Box-Shadow Feed-Content-Box">
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow">
                         <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">

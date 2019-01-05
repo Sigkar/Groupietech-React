@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle } from '../Components/navigation.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Popout, SwapVisible, Fade, PopFromNothing } from '../Components/staticposes.js';
-import { HeaderButton, HeaderButtonContainer, LogModal, Overlay } from '../Components/global.js';
+import { HeaderButton, HeaderButtonContainer, LogModal, Overlay, HalfModal } from '../Components/global.js';
+import LoginImage from '../Images/login-comp.jpeg';
 
 class NavBar extends Component {
     render() {
         return (
             <div className="Darkgray-bg NavigationContainment">
                 <Spacer>
-                    <SpacerTitle>GROUPIETECH</SpacerTitle>
+                    <SpacerTitle>HEADLINERR</SpacerTitle>
                 </Spacer>
                 <NavItem navState={this.props.navState} link="/" navIcon="queue_music" navTitle="QUEUE" />
                 <NavItem navState={this.props.navState} link="/" navIcon="calendar_today" navTitle="LOCAL GIGS" />
@@ -37,8 +38,14 @@ export class Main extends Component {
                         <Overlay>
                             <PopFromNothing>
                                 <LogModal className="White-bg">
+                                    <HalfModal>
+                                        <img src={LoginImage} alt="Guy with Guitar" className="Cover Left-Radii"/>
+                                    </HalfModal>
+                                    
+                                    <HalfModal>
+                                        <h2 className="Center-Title Red">CREATE ACCOUNT</h2>
+                                    </HalfModal>
                                     <FunctionIcon navIcon="close" classOption="Darkgray-children Modal-Button" functionOption={this.openSignup} />
-                                    Sign Up
                                 </LogModal>
                             </PopFromNothing>
                         </Overlay>

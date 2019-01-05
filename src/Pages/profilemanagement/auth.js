@@ -7,7 +7,6 @@ export class Auth extends Component{
         return(
             <PageContainer>
                 <FlexContainer>
-                    <hr/>
                     <FeatureContent className="White-bg">
                         <h2>Authorize Yoself</h2>
                     </FeatureContent>

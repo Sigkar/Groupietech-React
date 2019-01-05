@@ -29,6 +29,8 @@ export const SpacerTitle = styled.p`
     margin:0;
     padding:0;
 
+    font-weight:700;
+
     letter-spacing:2px;
 `;
 export const LogoImage = styled.img`

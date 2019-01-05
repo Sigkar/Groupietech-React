@@ -1,7 +1,38 @@
-@import url('https://fonts.googleapis.com/css?family=Nova+Square');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
 *{
-  font-family: 'Nova Square', monospace;
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+/* Basics unless I say otherwise. boi.*/
+h1{
+  font-size:26px;
+}
+h2{
+  font-size:23px;
+}
+h3{
+  font-size:20px;
+}
+h4{
+  font-size:18px;
+}
+h5{
+  font-size:14px;
+}
+h6{
+  font-size:10px;
+}
+p{
+  font-size:18px;
+}
+
+.Center-Title{
+  text-align:center;
+  letter-spacing:2px;
+  margin:20px 0;
+  padding:0;
+}
+
 body{
   margin:0;
   padding:0;
@@ -195,6 +226,10 @@ body{
   object-fit:contain;
   max-width:100%;
   max-height:100%;
+}
+.Left-Radii{
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 @media screen and (max-width:800px){
