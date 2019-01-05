@@ -13,9 +13,9 @@ class NavBar extends Component {
                     <SpacerTitle>HEADLINERR</SpacerTitle>
                 </Spacer>
                 <NavItem navState={this.props.navState} link="/" navIcon="queue_music" navTitle="QUEUE" />
-                <NavItem navState={this.props.navState} link="/" navIcon="calendar_today" navTitle="LOCAL GIGS" />
-                <NavItem navState={this.props.navState} link="/" navIcon="supervisor_account" navTitle="MANAGER" />
-                <NavItem navState={this.props.navState} link="/" navIcon="track_changes" navTitle="FIND BANDS" />
+                <NavItem navState={this.props.navState} link="/gigs" navIcon="calendar_today" navTitle="LOCAL GIGS" />
+                <NavItem navState={this.props.navState} link="/manager" navIcon="supervisor_account" navTitle="MANAGER" />
+                <NavItem navState={this.props.navState} link="/discover" navIcon="track_changes" navTitle="FIND BANDS" />
                 <NavItem navState={this.props.navState} link="/login" navIcon="account_circle" navTitle="ACCOUNT" />
             </div>
         )

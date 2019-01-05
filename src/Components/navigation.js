@@ -6,11 +6,20 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 import { Home } from '../Pages/feed/home.js';
 import { Auth } from '../Pages/profilemanagement/auth.js';
+import { Venue } from '../Pages/bandmanagement/venue.js';
+import { Gigs } from '../Pages/bandmanagement/gigs.js';
+import { Manager } from '../Pages/bandmanagement/manager.js';
+import { Discover } from '../Pages/feed/discover.js';
+
+
 
 import Logo from '../Images/icon.png';
 
 const HomePage = () => <Home/>;
 const AuthPage = () => <Auth/>;
+const GigsPage = () => <Gigs/>;
+const ManagerPage = () => <Manager/>;
+const DiscoverPage = () => <Discover/>
 
 export const Spacer = styled.div`
     height:60px;
@@ -130,6 +139,9 @@ export class Navigation extends Component{
                 <LogoImage src={Logo} alt="Groupietech Logo"/>
                 <Route path="/" exact component={HomePage}/>
                 <Route path="/login" exact component={AuthPage}/>
+                <Route path="/gigs" component={GigsPage}/>
+                <Route path="/manager" component={ManagerPage}/>
+                <Route path="/discover" component={DiscoverPage}/>
             </div>
         )
     }
