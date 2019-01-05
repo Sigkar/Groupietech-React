@@ -44,8 +44,14 @@ export const LogModal = styled.div`
     left:10vw;
     border-radius:10px;
     z-index:200001;
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
 `;
-
+export const HalfModal = styled.div`
+    width:50%;
+    height:100%;
+`;
 export const HeaderButtonContainer = styled.div`
     display:flex;
     flex-direction:row;

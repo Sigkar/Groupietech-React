@@ -22,11 +22,12 @@ export const BoxContainer = styled.section`
 /* Features */
 export const FeatureContent = styled.section`
     position:relative;
-    margin:20px 0;
+    margin:20px auto;
     width:100%;
     height:auto;
     min-height:400px;
     border-bottom:3px solid;
+    max-width:1200px;
 `;
 export const HalfFeature = styled.div`
     width:50%;

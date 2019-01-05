@@ -27,6 +27,7 @@ export class Main extends Component {
     toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: false }) : this.setState({ navigationOption: true }));
     openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true, signin: false }));
     openSignin = () => (this.state.signin ? this.setState({ signin: false }) : this.setState({ signup: false, signin: true }));
+    
     render() {
         const { isOpen, navigationOption, signup, signin } = this.state;
         return (
@@ -36,7 +37,7 @@ export class Main extends Component {
                         <Overlay>
                             <PopFromNothing>
                                 <LogModal className="White-bg">
-                                    <FunctionIcon navIcon="close" classOption="Darkgray-children" functionOption={this.openSignup} />
+                                    <FunctionIcon navIcon="close" classOption="Darkgray-children Modal-Button" functionOption={this.openSignup} />
                                     Sign Up
                                 </LogModal>
                             </PopFromNothing>
@@ -46,7 +47,7 @@ export class Main extends Component {
                         <Overlay>
                             <PopFromNothing>
                                 <LogModal className="White-bg">
-                                    <FunctionIcon navIcon="close" classOption="Darkgray-children" functionOption={this.openSignin} />
+                                    <FunctionIcon navIcon="close" classOption="Darkgray-children Modal-Button" functionOption={this.openSignin} />
                                     Sign In
                             </LogModal>
                             </PopFromNothing>
