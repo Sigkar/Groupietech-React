@@ -10,16 +10,18 @@ import { Venue } from '../Pages/bandmanagement/venue.js';
 import { Gigs } from '../Pages/bandmanagement/gigs.js';
 import { Manager } from '../Pages/bandmanagement/manager.js';
 import { Discover } from '../Pages/feed/discover.js';
-
+import { Profile } from '../Pages/profilemanagement/profile.js';
 
 
 import Logo from '../Images/icon.png';
 
+// Might eventually be used for hooks, and its for better swapping of components.
 const HomePage = () => <Home/>;
 const AuthPage = () => <Auth/>;
 const GigsPage = () => <Gigs/>;
 const ManagerPage = () => <Manager/>;
-const DiscoverPage = () => <Discover/>
+const DiscoverPage = () => <Discover/>;
+const ProfilePage = () => <Profile/>;
 
 export const Spacer = styled.div`
     height:60px;
@@ -28,7 +30,7 @@ export const Spacer = styled.div`
     display:block;
     background:#ffffff;
     @media screen and (max-width:800px){
-        height:40px;
+        height:50px;
         border-bottom:none;
         box-shadow:none !important;
     }
@@ -47,8 +49,8 @@ export const SpacerTitle = styled.p`
 
     letter-spacing:2px;
     @media screen and (max-width:800px){
-        line-height:40px;
-        left:40px;
+        line-height:50px;
+        left:50px;
     }
 `;
 export const LogoImage = styled.img`
@@ -59,8 +61,8 @@ export const LogoImage = styled.img`
     width:60px;
     height:60px;
     @media screen and (max-width:800px){
-        height:40px;
-        width:40px;
+        height:50px;
+        width:50px;
     }
 `;
 export const NavigationIcon = styled.i`
@@ -103,6 +105,15 @@ export const NavStyleLink = styled.div`
     *{text-decoration:none !important;}
 `
 
+export class HeaderIcon extends Component{
+    render(){
+        return(
+            <div className={"Lightblue-hover Functional-Icon-CHild " + this.props.classOption}>
+                <MaterialIcon icon={this.props.iconOption}/>
+            </div>
+        )
+    }
+}
 export class FunctionIcon extends Component{
     render(){
         return(
@@ -142,6 +153,7 @@ export class Navigation extends Component{
                 <Route path="/gigs" component={GigsPage}/>
                 <Route path="/manager" component={ManagerPage}/>
                 <Route path="/discover" component={DiscoverPage}/>
+                <Route path="/profile" component={ProfilePage}/>
             </div>
         )
     }

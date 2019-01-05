@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
 html, body{
   scroll-behavior: smooth;
+  overflow-x:hidden;
 }
 *{
   font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.No-X-Scroll{
+  overflow-x:hidden;
+}
 /* Basics unless I say otherwise. boi.*/
 h1{
   font-size:26px;
@@ -77,6 +81,12 @@ body{
 
 
 /* Navigation */
+.Header-Icon i{
+  font-size:40px !important;
+  position:relative;
+  top:10px;
+  transform:translateX(150px);
+}
 .Icon-Child i{
   font-size:26px !important;
   position:relative;
@@ -140,6 +150,12 @@ body{
 }
 
 /* Cards */
+.Card-Title-Container{
+  height:32px !important;
+}
+.Card-Title-Container *{
+  line-height:32px;
+}
 .Half-Card{
   height:calc((100vw - 140px) / 2 - 2vw);
   width:calc(48% - 6px);
@@ -267,12 +283,16 @@ body{
     color:white !important;
   }
   .Header-Bar{
-    height:40px;
-    width:calc(100vw - 39px) !important;
-    left:39px;
+    height:50px;
+    width:calc(100vw - 50px) !important;
+    left:50px;
   }
   .Open-Menu{
-    top:0px;
+    top:5px;
     right:2px;
+  }
+  .Header-Icon i{
+    top:6px;
+    transform:translateX(120px);
   }
 }

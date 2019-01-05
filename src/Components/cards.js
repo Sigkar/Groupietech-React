@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import MaterialIcon, {colorPalette} from 'material-icons-react';
+import { isNullOrUndefined } from 'util';
 
 
 /* Full width and height card */
@@ -28,6 +29,25 @@ export const FeatureContent = styled.section`
     min-height:400px;
     max-width:1200px;
 `;
+
+export const FeatureHeader = styled.div`
+    height:auto;
+    min-height:24px;
+    padding-top:10px;
+    padding-bottom:10px;
+    width:100%;
+    margin:20px auto;
+    line-height:24px;
+    border-color:rgba(191, 63, 63, 1);
+    border-bottom:3px solid;
+    h2{
+        text-align:center;
+        margin:0;
+        padding:0;
+    }
+`;
+
+
 export const HalfFeature = styled.div`
     width:50%;
     min-height:400px;
@@ -89,7 +109,17 @@ export const HalfContain = styled.div`
     padding-top:5px;
     padding-bottom:5px;
     text-align:center
+`;
 
+export const ProfileBlock = styled.div`
+    width:24%;
+    height:400px;
+    border-radius:5px;
+    margin-right:1%;
+`;
+export const LeftContentContainer = styled.section`
+    width:75%;
+    min-height:400px;
 `;
 
 const PostOptions = ({iconOption}) => (
@@ -99,6 +129,7 @@ const PostOptions = ({iconOption}) => (
 )
 
 export class ContentFeatureComponent extends Component{
+
     render(){
         return(
             
@@ -111,7 +142,7 @@ export class ContentFeatureComponent extends Component{
                         <img src={this.props.imageLink} alt="Something something required" className="Cover"/>
                     </div>
                     <div className="Darkgray-bg Half-Feature Content-Half">
-                        <FeatureTitle className="White">{this.props.title}</FeatureTitle>
+                        <FeatureTitle className="White">{this.props.title.toUpperCase()}</FeatureTitle>
                         <BreakTitle/>
                         <FeatureDesc className="White">{this.props.description}</FeatureDesc>
 
@@ -126,6 +157,18 @@ export class ContentFeatureComponent extends Component{
                     </div>
                 </FlexContainer>
             </FeatureContent>
+        )
+    }
+}
+
+export class ContentTitleForSectionCards extends Component{
+    render(){
+        return(
+            <FeatureHeader className="Heavy-Box-Shadow Darkgray-bg White-children Solid-Bottom-Border">
+                <h2>
+                    {this.props.title !== isNullOrUndefined ? this.props.title.toUpperCase() : "AN EVENT IS HAPPENING!"}
+                </h2>
+            </FeatureHeader>
         )
     }
 }

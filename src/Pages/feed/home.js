@@ -30,7 +30,7 @@ export class Home extends Component {
                             ampm="PM" />
                     </LoadFade>
                     <LoadFade>
-                        <ContentFeatureComponent imageLink="Solid-Bottom-Border"
+                        <ContentFeatureComponent imageLink="https://picsum.photos/600/600/?random"
                             title="DUMMY DATA"
                             description="Kinfolk everyday carry marfa, franzen air plant squid sustainable coloring book plaid ramps tacos green juice cardigan"
                             day="04"

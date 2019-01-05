@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle } from '../Components/navigation.js';
+import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle, HeaderIcon } from '../Components/navigation.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Popout, SwapVisible, Fade, PopFromNothing } from '../Components/staticposes.js';
 import { HeaderButton, HeaderButtonContainer, LogModal, Overlay, HalfModal, ModalOverlay } from '../Components/global.js';
@@ -16,7 +16,7 @@ class NavBar extends Component {
                 <NavItem navState={this.props.navState} link="/gigs" navIcon="calendar_today" navTitle="LOCAL GIGS" />
                 <NavItem navState={this.props.navState} link="/manager" navIcon="supervisor_account" navTitle="MANAGER" />
                 <NavItem navState={this.props.navState} link="/discover" navIcon="track_changes" navTitle="FIND BANDS" />
-                <NavItem navState={this.props.navState} link="/login" navIcon="account_circle" navTitle="ACCOUNT" />
+                
             </div>
         )
     }
@@ -58,12 +58,18 @@ export class Main extends Component {
                                     <FunctionIcon navIcon="close" classOption="Open-Menu Darkgray-children" functionOption={this.toggle} />
                                 </SwapVisible>
                                 <HeaderButtonContainer>
+                                    {/* 
+                                    // if unauthed
                                     <HeaderButton onClick={this.openSignup}>
                                         SIGN UP
-                                </HeaderButton>
-                                    <HeaderButton onClick={this.openSignin}>
-                                        SIGN IN
-                                </HeaderButton>
+                                    </HeaderButton>
+                                        <HeaderButton onClick={this.openSignin}>
+                                            SIGN IN
+                                    </HeaderButton> 
+                                */}
+                                    <Link to="/profile">
+                                        <HeaderIcon iconOption="account_circle" classOption="Darkgray-children Header-Icon" />
+                                    </Link>
                                 </HeaderButtonContainer>
                             </div>
                             <div className="Nav-Container">
