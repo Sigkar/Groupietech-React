@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle } from '../Components/navigation.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Popout, SwapVisible, Fade, PopFromNothing } from '../Components/staticposes.js';
-import { HeaderButton, HeaderButtonContainer, LogModal, Overlay, HalfModal } from '../Components/global.js';
+import { HeaderButton, HeaderButtonContainer, LogModal, Overlay, HalfModal, ModalOverlay } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
 
 class NavBar extends Component {
@@ -26,8 +26,8 @@ export class Main extends Component {
     state = { isOpen: false, navigationOption: false, signup: false, signin: false };
 
     toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: false }) : this.setState({ navigationOption: true }));
-    openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true, signin: false }));
-    openSignin = () => (this.state.signin ? this.setState({ signin: false }) : this.setState({ signup: false, signin: true }));
+    openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true}));
+    openSignin = () => (this.state.signin ? this.setState({ signin: false }) : this.setState({ signup: true}));
     
     render() {
         const { isOpen, navigationOption, signup, signin } = this.state;
@@ -35,30 +35,18 @@ export class Main extends Component {
             <div className="App">
                 <div className="App-header">
                     <Fade pose={signup ? 'open' : 'closed'}>
-                        <Overlay>
-                            <PopFromNothing>
-                                <LogModal className="White-bg">
-                                    <HalfModal>
-                                        <img src={LoginImage} alt="Guy with Guitar" className="Cover Left-Radii"/>
-                                    </HalfModal>
-                                    
-                                    <HalfModal>
-                                        <h2 className="Center-Title Red">CREATE ACCOUNT</h2>
-                                    </HalfModal>
-                                    <FunctionIcon navIcon="close" classOption="Darkgray-children Modal-Button" functionOption={this.openSignup} />
-                                </LogModal>
-                            </PopFromNothing>
-                        </Overlay>
+                        <ModalOverlay 
+                            functionOption={this.openSignup} 
+                            leftimg={LoginImage}
+                            title="CREATE ACCOUNT"
+                        />
                     </Fade>
                     <Fade pose={signin ? 'open' : 'closed'}>
-                        <Overlay>
-                            <PopFromNothing>
-                                <LogModal className="White-bg">
-                                    <FunctionIcon navIcon="close" classOption="Darkgray-children Modal-Button" functionOption={this.openSignin} />
-                                    Sign In
-                            </LogModal>
-                            </PopFromNothing>
-                        </Overlay>
+                        <ModalOverlay 
+                            functionOption={this.openSignup} 
+                            leftimg={LoginImage}
+                            title="SIGN IN"
+                        />
                     </Fade>
                     <Router>
                         <div id="Complete-App">

@@ -69,13 +69,33 @@ export const HeaderButtonContainer = styled.div`
 `
 
 export const TextInput = styled.div`
-    *{
+    p{
+        color:rgba(191, 63, 63, 1);
+        letter-spacing:3px;
+        transform:translateX(5%);
+        -ms-transform:translateX(5%);
+        -moz-transform:translateX(5%);
+        -webkit-transform:translateX(5%);
+        -o-transform:translateX(5%);
+        margin:0 10px 0 0;
+        padding:0;
+    }
+    input{
         outline:none;
-        border:3px solid;
-        border-image:linear-gradient(to top left, rgba(175, 0, 103, 1) 0%, rgba(191, 63, 63, 1) 0100%) 5;
-        :focus{
-            border-image:none;
-        }
+        border:none;
+        border-bottom:3px solid;
+        border-color:rgba(175, 0, 103, 1);
+        border-image:linear-gradient(to right, rgba(191, 63, 63, 1) 25.0%, rgba(10, 193, 255, 1) 50.0%, rgba(175, 0, 103, 1) 75.0%, rgba(255, 84, 5, 1) 100%) 5;
+        width:90%;
+        transform:translateX(5%);
+        -ms-transform:translateX(5%);
+        -moz-transform:translateX(5%);
+        -webkit-transform:translateX(5%);
+        -o-transform:translateX(5%);
+        
+        line-height:24px;
+        font-size:22px;
+        margin-bottom:15px;
     }
 `
 
@@ -87,11 +107,28 @@ export class ModalOverlay extends Component{
                 <PopFromNothing>
                     <LogModal className="White-bg">
                         <HalfModal>
-                        <img src={this.props.image} alt="Login" className="Cover Left-Radii"/>
+                        <img src={this.props.leftimg} alt="Login" className="Cover Left-Radii"/>
                         </HalfModal>
-                        
                         <HalfModal>
-                            <p>Create Account</p>
+                            <h2 className="Center-Title Red">{this.props.title}</h2>
+                            <TextInput>
+                                <label>
+                                    <p>EMAIL</p>
+                                </label>
+                                <input type="email"></input>
+                                <label>
+                                    <p>USERNAME</p>
+                                </label>
+                                <input type="text"></input>
+                                <label>
+                                    <p>PASSWORD</p>
+                                </label>
+                                <input type="password"></input>
+                                <label>
+                                    <p>CONFIRM PASSWORD</p>
+                                </label>
+                                <input type="password"></input>
+                            </TextInput>
                         </HalfModal>
                         <FunctionIcon navIcon="close" classOption="Darkgray-children Modal-Button" functionOption={this.props.functionOption} />
                     </LogModal>
