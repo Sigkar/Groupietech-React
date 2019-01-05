@@ -25,6 +25,22 @@ export const StaggerRemaining = posed.div({
       y:'30px',
     }
   });
+  export const PopFromNothing = posed.div({
+      open:{
+          scale:1,
+          y:"0px",
+          transition:{
+              duration:300,
+          }
+      },
+      closed:{
+          scale:0,
+          y:"50vh",
+          transition:{
+              duration: 300,
+          }
+      }
+  });
 
 export  const Popout = posed.div({
     open: {
@@ -62,12 +78,13 @@ export const Fade = posed.div({
         opacity:1,
         transition:{
             duration:300,
-        }
+        },
+        delayChildren: 300
     },
     closed:{
         opacity:0,
         transition:{
-            duration:300,
-        }
+            duration:50,
+        },
     }
 });

@@ -65,6 +65,10 @@
     background:linear-gradient(to top left, rgba(10, 193, 255, 1) 33.33%, rgba(255, 84, 5, 1) 66.66%, rgba(175, 0, 103, 1) 100%);
 }
 
+.r-o-p{
+    background:linear-gradient(to top left, rgba(191, 63, 63, 1) 33.33%, rgba(255, 84, 5, 1) 66.66%, rgba(175, 0, 103, 1) 100%); 
+}
+
 
 /*Actual Site Colors*/
 
@@ -166,7 +170,7 @@
     border-color:rgba(255, 245, 245, 1) !important;
 }
 .RBPO{
-    background: linear-gradient(to right, rgba(191, 63, 63, 1) 25.0%, rgba(10, 193, 255, 1) 50.0%, rgba(175, 0, 103, 1) 75.0%, rgba(255, 84, 5, 1) 100%)
+    background: linear-gradient(to right, rgba(10, 193, 255, 1) 25.0%, rgba(191, 63, 63, 1) 50.0%, rgba(175, 0, 103, 1) 75.0%, rgba(255, 84, 5, 1) 100%)
 }
 /* Overrides */
 .Lightblue-hover:hover * {
