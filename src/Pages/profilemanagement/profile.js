@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
-import { PageContainer, FlexContainer, ContentTitleForSectionCards, ContentFeatureComponent, ProfileBlock, LeftContentContainer } from '../../Components/cards.js';
+import styled from 'styled-components';
 
+import { PageContainer, FlexContainer, ContentTitleForSectionCards, ContentFeatureComponent, ProfileBlock, LeftContentContainer } from '../../Components/cards.js';
 import { StaggerChildren, LoadFade } from '../../Components/staticposes.js';
+import { HeaderLeftPad, BigHeader } from '../../Components/content.js'
+
+
+const ProfilePictureContainer = styled.div`
+    width:50%;
+    height:calc(24vw * 0.50);
+    margin:20px auto;
+    @media screen and (max-width:800px){
+        height:45vw;
+        margin:0px auto;
+        padding-top:10px;
+    }
+`;
+const ProfilePic = styled.img`
+    width:100%;
+    height:100%;
+    object-fit:cover;
+`
 
 
 export class Profile extends Component {
@@ -18,10 +37,16 @@ export class Profile extends Component {
                     <FlexContainer>
 
                         <LeftContentContainer>
+                            <ProfileBlock className="Darkgray-bg Darkgray-children">
+                                <ProfilePictureContainer>
+                                    <ProfilePic src="https://picsum.photos/300/?random" alt="Random Picsum"/>
+                                </ProfilePictureContainer>
+                                <BigHeader className="White">MILL BURRAY</BigHeader>
+                            </ProfileBlock>
                             <ContentTitleForSectionCards title="recent posts" />
                             <LoadFade>
                                 <ContentFeatureComponent imageLink="https://picsum.photos/620/599/?random"
-                                    title="BILL MURRAY ATTACKS"
+                                    title="MILL BURRAY ATTACKS"
                                     description="Tilde quinoa vexillologist shoreditch. Single-origin coffee keffiyeh cornhole hot chicken. Tbh pug chia asymmetrical gluten-free sustainable tumblr squid deep"
                                     day="14"
                                     month="04"
@@ -52,9 +77,6 @@ export class Profile extends Component {
                                     min="15"
                                     ampm="PM" />
                             </LoadFade>
-                            <ProfileBlock className="Darkgray-bg Darkgray-children">
-                                <h1>Uh suh dude</h1>
-                            </ProfileBlock>
                         </LeftContentContainer>
 
                     </FlexContainer>

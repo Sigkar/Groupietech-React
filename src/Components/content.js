@@ -3,6 +3,20 @@ import styled from 'styled-components';
 import Location from '../Images/123mainstreet.jpg';
 import Map from '../Images/maps.png';
 
+export const BigHeader = styled.h2`
+    letter-spacing: 4px;
+    text-align:center;
+`
+export const HeaderLeftPad = styled.h2`
+    letter-spacing:4px;
+    text-align:left;
+    position:relative;
+    margin:0;
+    padding-left:5%;
+`;
+
+
+
 /*
   A regular card title, which can be used on anything but the full card title.
  */

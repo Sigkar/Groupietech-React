@@ -28,6 +28,9 @@ export const FeatureContent = styled.section`
     height:auto;
     min-height:400px;
     max-width:1200px;
+    @media screen and (max-width:800px){
+        margin-top:0px !important;
+    }
 `;
 
 export const FeatureHeader = styled.div`
@@ -123,6 +126,7 @@ export const ProfileBlock = styled.div`
     @media screen and (max-width:800px){
         position:relative !important;
         width:100%;
+        height:auto;
     }
 
     *{
