@@ -112,14 +112,32 @@ export const HalfContain = styled.div`
 `;
 
 export const ProfileBlock = styled.div`
-    width:24%;
-    height:400px;
-    border-radius:5px;
-    margin-right:1%;
+    width:23.5%;
+    height:calc(100vh - 60px);
+
+
+    position:fixed;
+    top:60px;
+    right:0px;
+
+    @media screen and (max-width:800px){
+        position:relative !important;
+        width:100%;
+    }
+
+    *{
+        margin:0;
+    }
 `;
 export const LeftContentContainer = styled.section`
     width:75%;
     min-height:400px;
+    position:relative;
+    right:12.5%
+    @media screen and (max-width:800px){
+        width:100%;
+        right:0px !important;
+    }
 `;
 
 const PostOptions = ({iconOption}) => (

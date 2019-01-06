@@ -58,15 +58,14 @@ export class Main extends Component {
                                     <FunctionIcon navIcon="close" classOption="Open-Menu Darkgray-children" functionOption={this.toggle} />
                                 </SwapVisible>
                                 <HeaderButtonContainer>
-                                    {/* 
-                                    // if unauthed
+{/*                                     
                                     <HeaderButton onClick={this.openSignup}>
                                         SIGN UP
                                     </HeaderButton>
                                         <HeaderButton onClick={this.openSignin}>
                                             SIGN IN
-                                    </HeaderButton> 
-                                */}
+                                    </HeaderButton>  */}
+                               
                                     <Link to="/profile">
                                         <HeaderIcon iconOption="account_circle" classOption="Darkgray-children Header-Icon" />
                                     </Link>
