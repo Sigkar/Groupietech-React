@@ -59,7 +59,7 @@ body{
   position:absolute;
   top:0px;
   left:0px;
-  width:100vw;
+  width:100%;
 }
 
 
@@ -114,7 +114,7 @@ body{
 .Open-Menu{
   position:fixed;
   top:10px;
-  right:10px;
+  left:60px;
   z-index:2500;
   cursor:pointer;
 }
@@ -135,10 +135,10 @@ body{
 .Header-Bar{
   position:fixed;
   top:0px;
-  left:50px;
+  left:0px;
   z-index:2499;
   height:60px;
-  width:calc(100vw - 50px);
+  width:100%;
   background-color:white;
 }
 .Close-Menu{
@@ -284,8 +284,6 @@ body{
   }
   .Header-Bar{
     height:50px;
-    width:calc(100vw - 50px) !important;
-    left:50px;
   }
   .Open-Menu{
     top:5px;

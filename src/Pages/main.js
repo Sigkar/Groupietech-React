@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle, HeaderIcon } from '../Components/navigation.js';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Popout, SwapVisible, Fade, PopFromNothing } from '../Components/staticposes.js';
+import { Popout, SwapVisible, Fade, PopFromNothing, OpenCloseButton } from '../Components/staticposes.js';
 import { HeaderButton, HeaderButtonContainer, LogModal, Overlay, HalfModal, ModalOverlay } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
 
@@ -54,9 +54,9 @@ export class Main extends Component {
                                 <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
                                     <FunctionIcon navIcon="menu" classOption="Open-Menu Darkgray-children" functionOption={this.toggle} />
                                 </SwapVisible>
-                                <SwapVisible pose={navigationOption ? 'open' : 'closed'}>
-                                    <FunctionIcon navIcon="close" classOption="Open-Menu Darkgray-children" functionOption={this.toggle} />
-                                </SwapVisible>
+                                <OpenCloseButton pose={navigationOption ? 'open' : 'closed'}>
+                                    <FunctionIcon navIcon="chevron_left" classOption="Open-Menu Darkgray-children" functionOption={this.toggle} />
+                                </OpenCloseButton>
                                 <HeaderButtonContainer>
 {/*                                     
                                     <HeaderButton onClick={this.openSignup}>
