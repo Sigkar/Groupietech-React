@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from 'styled-components';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
+import {LoadFade, HoverScale} from './staticposes.js';
+
 import { Home } from '../Pages/feed/home.js';
 import { Auth } from '../Pages/profilemanagement/auth.js';
 import { Venue } from '../Pages/bandmanagement/venue.js';
@@ -128,16 +130,20 @@ export class NavItem extends Component{
     render(){
         return(
             <NavStyleLink>
-                <Link to={this.props.link} onClick={this.props.navState}>
-                    <NavigationTileContainer className="Lightblue-hover">
-                        <div className={"NavTile Darkgray-bg " + this.props.classOption} >
-                            <NavigationIcon className=" White-children Icon-Child">
-                                <MaterialIcon icon={this.props.navIcon}/>
-                            </NavigationIcon>
-                        </div>
-                        <NavContent className="White">{this.props.navTitle}</NavContent>
-                    </NavigationTileContainer>
-                </Link>
+                <LoadFade>
+                    <Link to={this.props.link} onClick={this.props.navState}>
+                        <NavigationTileContainer className="Lightblue-hover">
+                            <HoverScale>
+                                <div className={"NavTile Darkgray-bg " + this.props.classOption} >
+                                    <NavigationIcon className=" White-children Icon-Child">
+                                        <MaterialIcon icon={this.props.navIcon}/>
+                                    </NavigationIcon>
+                                </div>
+                                <NavContent className="White">{this.props.navTitle}</NavContent>
+                            </HoverScale>
+                        </NavigationTileContainer>
+                    </Link>
+                </LoadFade>
             </NavStyleLink>
         )
     }
@@ -147,7 +153,9 @@ export class Navigation extends Component{
     render(){
         return(
             <div id="Main-Container">
-                <LogoImage src={Logo} alt="Groupietech Logo"/>
+                <Link to="/">
+                    <LogoImage src={Logo} alt="Groupietech Logo"/>
+                </Link>
                 <Route path="/" exact component={HomePage}/>
                 <Route path="/login" exact component={AuthPage}/>
                 <Route path="/gigs" component={GigsPage}/>

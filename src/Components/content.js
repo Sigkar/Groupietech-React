@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Location from '../Images/123mainstreet.jpg';
 import Map from '../Images/maps.png';
 
+/* Optional Texts */
 export const BigHeader = styled.h2`
     letter-spacing: 4px;
     text-align:center;
@@ -14,8 +15,24 @@ export const HeaderLeftPad = styled.h2`
     margin:0;
     padding-left:5%;
 `;
-
-
+export const ProfileList = styled.ul`
+    width:70%;
+    position:relative;
+    left:15%;
+    padding:20px 0px 20px 0px;
+`;
+export const PC = styled.li`
+    width:100%;
+    margin:0px 0px 10px 0px;
+    padding:0;
+`;
+export const InnerPC = styled.p`
+    :before{
+        content:"-";
+    }
+    width:95%;
+    padding:0;
+`
 
 /*
   A regular card title, which can be used on anything but the full card title.

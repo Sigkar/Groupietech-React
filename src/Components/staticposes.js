@@ -1,5 +1,24 @@
 import posed from 'react-pose';
 
+export const HoverScale = posed.div({
+    hoverable: true,
+    init: { scale: 1 },
+    hover: { 
+        scale: 1.05,
+        x:'0.5%',
+    },
+    pressable: true,
+    press: { 
+        scale: 0.95,
+    }
+})
+
+export const StaggerPauseThenQuick = posed.div({
+    open:{
+        staggerChildren: 100,
+        delayChildren: 250
+    }
+});
 export const StaggerRemaining = posed.div({
     open: {
         staggerChildren: 50,
@@ -52,7 +71,7 @@ export const Popout = posed.div({
     },
     closed: {
         x: '-230px',
-        delay: 50,
+        delay: 200,
         transition: {
             duration: 350,
         }
@@ -76,9 +95,9 @@ export const SwapVisible = posed.div({
 export const OpenCloseButton = posed.div(
     {
         open: {
-            x: '150px',
+            x: '170px',
             transition: {
-                delay:150,
+                delay:50,
                 duration: 300,
             }
         },

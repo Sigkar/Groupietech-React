@@ -29,7 +29,7 @@ h5{
 h6{
   font-size:10px;
 }
-p{
+p, li{
   font-size:18px;
 }
 
@@ -52,7 +52,7 @@ body{
   height:auto;
   min-height:100vh !important;
   overflow-y:scroll;
-  width:calc(100vw + 1px) !important;
+  width:100vw;
   background: linear-gradient(to top right, rgba(175, 0, 103, 1) 0%, rgba(191, 63, 63, 1) 0100%);
 }
 .Content-Container{
@@ -81,10 +81,14 @@ body{
 
 
 /* Navigation */
+.Header-Icon{
+  float:right;
+}
 .Header-Icon i{
   font-size:40px !important;
   position:relative;
   top:10px;
+  right:0px;
 }
 .Icon-Child i{
   font-size:26px !important;
@@ -119,11 +123,12 @@ body{
 }
 
 .NavigationContainment{
-  width:200px;
+  width:220px;
   height:100vh;
   position:fixed;
   top:0px;
   z-index:3500;
+  border:none;
 }
 .Nav-Container{
   position:Fixed;

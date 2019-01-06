@@ -1,26 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import {ProfilePictureContainer, ProfilePic} from '../../Components/global.js';
 import { PageContainer, FlexContainer, ContentTitleForSectionCards, ContentFeatureComponent, ProfileBlock, LeftContentContainer } from '../../Components/cards.js';
 import { StaggerChildren, LoadFade } from '../../Components/staticposes.js';
-import { HeaderLeftPad, BigHeader } from '../../Components/content.js'
+import { HeaderLeftPad, BigHeader, PC, InnerPC, ProfileList } from '../../Components/content.js'
 
 
-const ProfilePictureContainer = styled.div`
-    width:50%;
-    height:calc(24vw * 0.50);
-    margin:20px auto;
-    @media screen and (max-width:800px){
-        height:45vw;
-        margin:0px auto;
-        padding-top:10px;
-    }
-`;
-const ProfilePic = styled.img`
-    width:100%;
-    height:100%;
-    object-fit:cover;
-`
 
 
 export class Profile extends Component {
@@ -42,6 +28,18 @@ export class Profile extends Component {
                                     <ProfilePic src="https://picsum.photos/300/?random" alt="Random Picsum"/>
                                 </ProfilePictureContainer>
                                 <BigHeader className="White">MILL BURRAY</BigHeader>
+                                <ProfileList className="White-children">
+                                    <PC>Age: 51</PC>
+                                    <PC>Style: Indie</PC>
+                                    <PC>
+                                        Instruments:
+                                        <br/>
+                                        <InnerPC>Vocals</InnerPC>
+                                        <InnerPC>Guitar</InnerPC>
+                                        <InnerPC>Drums</InnerPC>
+                                        <InnerPC>Keyboard</InnerPC>
+                                    </PC>
+                                </ProfileList>
                             </ProfileBlock>
                             <ContentTitleForSectionCards title="recent posts" />
                             <LoadFade>

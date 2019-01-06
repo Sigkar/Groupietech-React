@@ -140,6 +140,23 @@ export const TextInput = styled.div`
     }
 `
 
+export const ProfilePictureContainer = styled.div`
+    width:50%;
+    height:calc(24vw * 0.50);
+    margin:20px auto;
+    @media screen and (max-width:800px){
+        height:20vw;
+        width:20%;
+        padding-top:10px;
+        margin:0px 0px 0px 2.5%;
+    }
+`;
+export const ProfilePic = styled.img`
+    width:100%;
+    height:100%;
+    object-fit:cover;
+`
+
 export class ModalOverlay extends Component{
 
     render(){
