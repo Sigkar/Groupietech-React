@@ -99,7 +99,7 @@ export const HeaderButtonContainer = styled.div`
     display:flex;
     flex-direction:row;
     float:right;
-    width:220px;
+    width:auto;
     height:60px;
 
     transform:translateX(-50px);
@@ -107,10 +107,6 @@ export const HeaderButtonContainer = styled.div`
     -moz-transform:translateX(-50px);
     -webkit-transform:translateX(-50px);
     -o-transform:translateX(-50px);
-
-    @media screen and (max-width:800px){
-        width:170px;
-    }
 `
 
 export const TextInput = styled.div`

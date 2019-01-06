@@ -85,7 +85,6 @@ body{
   font-size:40px !important;
   position:relative;
   top:10px;
-  transform:translateX(150px);
 }
 .Icon-Child i{
   font-size:26px !important;
@@ -115,7 +114,7 @@ body{
   position:fixed;
   top:10px;
   left:60px;
-  z-index:2500;
+  z-index:1234567;
   cursor:pointer;
 }
 
@@ -291,6 +290,5 @@ body{
   }
   .Header-Icon i{
     top:6px;
-    transform:translateX(120px);
   }
 }
