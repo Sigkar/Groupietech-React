@@ -323,7 +323,6 @@ body{
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-
 @media screen and (max-width:800px){
   .Half-Card{
     width:98%;
@@ -367,5 +366,8 @@ body{
     width:100%;
     display:block;
     clear:both;
+  }
+  .Auto-Height{
+    height:auto !important;
   }
 }

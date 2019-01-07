@@ -245,7 +245,7 @@ export class ContentFeatureComponent extends Component {
                         </HalfContain>
                         <img src={this.props.imageLink} alt="Something something required" className="Cover" />
                     </div>
-                    <div className="Darkgray-bg Half-Feature Content-Half">
+                    <div className="Darkgray-bg Half-Feature Content-Half Auto-Height">
                         <FeatureTitle className="White Capitalize">{this.props.title}</FeatureTitle>
                         <BreakTitle />
                         <FeatureDesc className="White">{this.props.description}</FeatureDesc>

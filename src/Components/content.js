@@ -126,7 +126,7 @@ export const SectionTitle = styled.div`
     @media screen and (max-width:800px){
         height:30px;
         line-height:30px;
-
+        width:66.66%;
     }
 `
 
