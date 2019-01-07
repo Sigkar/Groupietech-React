@@ -231,7 +231,7 @@ body{
   bottom:0px;
   right:0px;
   transform:translateY(40px);
-  overflow-y:none;
+  overflow-y:hidden;
 }
 .Social-Icon i{
   font-size:32px !important;
@@ -239,7 +239,21 @@ body{
   height:32px !important;
   margin:4px 10px !important;
 }
-
+.Pad-Top-AR:before{
+  padding-top:100%;
+  content:"";
+  display:block;
+}
+.Pad-Top-AR{
+  position:absolute;
+}
+.PushUpOneHundredY{
+  transform:translateY(-100%);
+  -ms-transform:translateY(-100%);
+  -moz-transform:translateY(-100%);
+  -webkit-transform:translateY(-100%);
+  -o-transform:translateY(-100%);
+}
 
 
 
@@ -333,5 +347,11 @@ body{
   }
   .Header-Icon i{
     top:6px;
+  }
+  .Media-Spacer{
+    height:20px;
+    width:100%;
+    display:block;
+    clear:both;
   }
 }

@@ -103,6 +103,7 @@ export const OpenCloseButton = posed.div(
         closed: {
             x: '-200px',
             transition: {
+                delay:200,
                 duration: 300,
             }
         }

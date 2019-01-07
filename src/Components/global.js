@@ -147,14 +147,18 @@ export const ProfilePictureContainer = styled.div`
     @media screen and (max-width:800px){
         height:20vw;
         width:20%;
-        padding-top:10px;
-        margin:0px 0px 0px 2.5%;
+        margin:0px auto;
     }
 `;
 export const ProfilePic = styled.img`
     width:100%;
     height:100%;
     object-fit:cover;
+`
+export const CoverThis = styled.div`
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
 `
 
 export class ModalOverlay extends Component{

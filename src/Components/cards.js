@@ -133,16 +133,17 @@ export const HalfContain = styled.div`
 export const ProfileBlock = styled.div`
     width:23.5%;
     height:calc(100vh - 60px);
-
-
     position:fixed;
     top:60px;
     right:0px;
 
     @media screen and (max-width:800px){
+        margin:20px 0px 0px 0px;
         position:relative !important;
         width:100%;
         height:auto;
+        top:0px;
+        padding:20px 0;
     }
 
     *{
