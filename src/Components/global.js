@@ -143,7 +143,6 @@ export const TextInput = styled.div`
 export const ProfilePictureContainer = styled.div`
     width:50%;
     :before{
-        padding-top:100%;
         display:block;
         content:"";
     }
@@ -160,7 +159,6 @@ export const ProfilePic = styled.img`
     border-radius:100%;
     position:relative;
     border:3px solid rgba(255, 84, 5, 1);
-    transform:translateY(-100%);
 `
 export const CoverThis = styled.div`
     width:100%;

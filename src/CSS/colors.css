@@ -85,7 +85,9 @@
 .Lightblue-bor{
     border-color:rgba(10, 193, 255, 1) !important;
 }
-
+.Lightblue-icon i{
+    color:rgba(10, 193, 255, 1) !important;
+}
 /*Light Gray*/
 .Lightgray{
     color: rgba(73, 81, 84, 1) !important;
@@ -141,7 +143,9 @@
 .Pink-border{
     border-color: rgba(239, 0, 107, 1) !important;
 }
-
+.Pink-icon i{
+    color:rgba(239, 0, 107, 1) !important;
+}
 /*Orange*/
 .Orange{
     color: rgba(255, 84, 5, 1) !important;

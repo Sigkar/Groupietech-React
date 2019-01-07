@@ -119,12 +119,7 @@ export const ProfileTile = styled.section`
         padding-top:100%;
         content:"";
     }
-    :nth-of-type(4n + 2){
-        margin:20px 10px 0px 20px;
-    }
-    :nth-of-type(4n + 3){
-        margin:20px 20px 0px 10px;
-    }
+
     border-top:0px;
     border-left:0px;
     border-right:0px;
@@ -133,16 +128,6 @@ export const ProfileTile = styled.section`
     position:relative;
     @media screen and (max-width:450px){
         width:calc((100% / 2) - 10px);
-        :nth-of-type(4n + 2){
-            margin:20px 0px 0px 0px;
-        }
-        :nth-of-type(4n + 3){
-            margin:20px 0px 0px 0px;
-        }
-        :nth-of-type(2n){
-            margin-left:20px;
-            
-        }
     }
 `;
 
@@ -187,6 +172,9 @@ export const ProfileBlock = styled.div`
         height:auto;
         top:0px;
         padding:20px 0;
+        -webkit-box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
+        -moz-box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
+        box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
     }
 
     *{

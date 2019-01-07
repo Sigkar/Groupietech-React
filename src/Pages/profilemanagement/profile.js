@@ -9,11 +9,20 @@ import {
     ContentFeatureComponent,
     ProfileBlock,
     LeftContentContainer,
-    ProfileTile
+    ProfileTile,
+    HalfContain,
+    BreakTitle
 } from '../../Components/cards.js';
+import MaterialIcon, { colorPalette } from 'material-icons-react';
 import { StaggerRemaining, LoadFade } from '../../Components/staticposes.js';
 import { HeaderLeftPad, BigHeader, SectionTitle } from '../../Components/content.js';
 import { CoverThis } from '../../Components/global.js';
+
+const ProfileBreak = styled.hr`
+    width:80%;
+    border:2px solid;
+    border-color:rgba(191, 63, 63, 1);
+`
 
 const OptionTiles = ({pictureOption, stateTitle, stateOption}) => (
     <ProfileTile className="White-bg Light-Box-Shadow Solid-Bottom-Border">
@@ -23,8 +32,21 @@ const OptionTiles = ({pictureOption, stateTitle, stateOption}) => (
         </CoverThis>
     </ProfileTile>
 )
-
-
+const Stats = ({iconOption, statText, statNumber}) => (
+        <div className="Profile-Statistic CAPS">
+            <div className="SeventyPercWidth">
+                <div className="One-Third Pink-icon">
+                    <MaterialIcon icon={iconOption} />
+                </div>
+                <div className="Two-Thirds White">
+                    {statText}
+                </div>
+            </div>
+            <div className="ThirtyPercWidth White">
+                {statNumber}
+            </div>
+        </div>
+)
 
 export class Profile extends Component {
     state = { loadAnimations: false }
@@ -45,9 +67,20 @@ export class Profile extends Component {
                                     <ProfilePic src="https://picsum.photos/300/?random" alt="Random Picsum" />
                                 </ProfilePictureContainer>
                                 <BigHeader className="White">MILL BURRAY</BigHeader>
+                                <br/>
+                                <ProfileBreak className="Force-Center"/>
+                                <br/>
+                                <FlexContainer className="Stat-Container">
+                                    <Stats iconOption="menu" statText="Member Since" statNumber="2018"/>
+                                    <Stats iconOption="chat_bubble" statText="Posts" statNumber="82"/>
+                                    <Stats iconOption="thumb_up" statText="Notoriety" statNumber="32"/>
+                                    <Stats iconOption="library_music" statText="Number of Songs" statNumber="18"/>
+                                    <Stats iconOption="bar_chart" statText="Popularity" statNumber="+3% / Week"/>
+
+                                </FlexContainer>
                             </ProfileBlock>
                             <LoadFade>
-                                <FlexContainer>
+                                <FlexContainer className="Spacer-Between MaxWidthGeneral">
                                     <OptionTiles pictureOption="https://picsum.photos/501/?random" stateTitle="POSTS"/>
                                     <OptionTiles pictureOption="https://picsum.photos/502/?random" stateTitle="SHOWS"/>
                                     <OptionTiles pictureOption="https://picsum.photos/503/?random" stateTitle="SONGS"/>
@@ -59,11 +92,6 @@ export class Profile extends Component {
                                 </FlexContainer>
                             </LoadFade>
                             <div className="Media-Spacer"></div>
-                            <LoadFade>
-                                <SectionTitle className="Solid-Vertical-Border Darkgray-bg">
-                                    <h1 className="CAPS White">Pinned Posts</h1>
-                                </SectionTitle>
-                            </LoadFade>
                             <LoadFade>
                                 <ContentFeatureComponent imageLink="https://picsum.photos/620/599/?random"
                                     title="MILL BURRAY ATTACKS"
