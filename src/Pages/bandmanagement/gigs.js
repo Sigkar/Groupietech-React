@@ -4,7 +4,9 @@ import {StaggerChildren, LoadFade, Fade} from '../../Components/staticposes.js';
 import {SectionTitle} from '../../Components/content.js'
 
 export class Gigs extends Component{
-
+    componentDidMount(){
+        window.scrollTo(0, 0);
+    }
     render(){
         return(
             <PageContainer>

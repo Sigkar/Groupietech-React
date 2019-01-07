@@ -383,6 +383,12 @@ body{
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
+.Fixed-Right{
+  position:fixed;
+  top:0px !important;
+  right:-30px !important;
+}
 @media screen and (max-width:800px){
   .Half-Card{
     width:98%;

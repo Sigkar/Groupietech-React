@@ -10,6 +10,7 @@ export class Home extends Component {
 
     }
     componentDidMount() {
+        window.scrollTo(0, 0);
         setTimeout(this.toggleLoadAnimations, 500);
     }
     toggleLoadAnimations = () => (this.setState({ loadAnimations: true }));

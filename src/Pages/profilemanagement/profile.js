@@ -51,6 +51,7 @@ const Stats = ({iconOption, statText, statNumber}) => (
 export class Profile extends Component {
     state = { loadAnimations: false }
     componentDidMount() {
+        window.scrollTo(0, 0);
         setTimeout(this.toggleLoadAnimations, 500);
     }
     toggleLoadAnimations = () => (this.setState({ loadAnimations: true }));

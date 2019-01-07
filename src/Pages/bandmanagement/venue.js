@@ -3,7 +3,9 @@ import { PageContainer, ContentFeatureComponent, FlexContainer, FeatureContent, 
 import {StaggerChildren, LoadFade, Fade} from '../../Components/staticposes.js';
 
 export class Venue extends Component{
-
+    componentDidMount(){
+        window.scrollTo(0, 0);
+    }
     render(){
         return(
             <PageContainer>
