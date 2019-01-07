@@ -51,6 +51,28 @@ export class Home extends Component {
                             min="15"
                             ampm="PM" />
                     </LoadFade>
+                    <LoadFade>
+                        <ContentFeatureComponent imageLink="https://picsum.photos/610/601/?random"
+                            title="POUTINE WILLIAMSBURG"
+                            description="Single-origin coffee listicle tousled, cornhole vinyl letterpress kogi green juice kale chips tofu. Pug 90's cronut man bun photo booth you probably haven't heard of them knausgaard lumbersexual copper mug flannel gluten-free chartreuse narwhal fixie."
+                            day="05"
+                            month="02"
+                            year="2019"
+                            hour="5"
+                            min="15"
+                            ampm="PM" />
+                    </LoadFade>
+                    <LoadFade>
+                        <ContentFeatureComponent imageLink="https://picsum.photos/62c0/601/?random"
+                            title="90'S ALL THAT"
+                            description="Brunch 90's taiyaki, jianbing plaid skateboard 8-bit mustache pour-over quinoa. Cronut butcher aesthetic knausgaard mixtape artisan microdosing bespoke normcore polaroid shaman YOLO"
+                            day="05"
+                            month="02"
+                            year="2019"
+                            hour="5"
+                            min="15"
+                            ampm="PM" />
+                    </LoadFade>
                 </StaggerChildren>
             </PageContainer>
         )

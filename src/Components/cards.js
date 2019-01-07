@@ -59,6 +59,7 @@ export const FeatureTitle = styled.h2`
     font-size:24px;
     padding-left:20px;
     letter-spacing:3px;
+    text-transform: uppercase;
 `
 export const FeatureDesc = styled.p`
     font-size:18px;
@@ -85,6 +86,21 @@ export const FlexRight = styled.section`
     flex-wrap:wrap;
     flex-decoration: row;
     float:right;
+`;
+
+export const ThirdTile = styled.section`
+    width:calc((100% / 3) - 1%);
+    margin-top:20px;
+    :before{
+        display:block;
+        padding-top:100%;
+        content:"";
+    }
+    :nth-of-type(2+3n){
+        margin:20px 1% 0px 1%;
+    }
+    position:relative;
+    
 `;
 
 export const SmallTile = styled.div`
@@ -164,7 +180,7 @@ export class ContentFeatureComponent extends Component{
                         <img src={this.props.imageLink} alt="Something something required" className="Cover"/>
                     </div>
                     <div className="Darkgray-bg Half-Feature Content-Half">
-                        <FeatureTitle className="White">{this.props.title.toUpperCase()}</FeatureTitle>
+                        <FeatureTitle className="White Capitalize">{this.props.title}</FeatureTitle>
                         <BreakTitle/>
                         <FeatureDesc className="White">{this.props.description}</FeatureDesc>
 

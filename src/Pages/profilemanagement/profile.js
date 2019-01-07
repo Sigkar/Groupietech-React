@@ -2,8 +2,16 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import {ProfilePictureContainer, ProfilePic} from '../../Components/global.js';
-import { PageContainer, FlexContainer, ContentTitleForSectionCards, ContentFeatureComponent, ProfileBlock, LeftContentContainer } from '../../Components/cards.js';
-import { StaggerChildren, LoadFade } from '../../Components/staticposes.js';
+import { 
+    PageContainer,
+    FlexContainer,
+    ContentTitleForSectionCards, 
+    ContentFeatureComponent, 
+    ProfileBlock, 
+    LeftContentContainer,
+    ThirdTile
+} from '../../Components/cards.js';
+import { StaggerRemaining, LoadFade } from '../../Components/staticposes.js';
 import { HeaderLeftPad, BigHeader, PC, InnerPC, ProfileList } from '../../Components/content.js'
 
 
@@ -19,10 +27,21 @@ export class Profile extends Component {
         const { loadAnimations } = this.state;
         return (
             <PageContainer>
-                <StaggerChildren pose={loadAnimations ? 'open' : 'closed'}>
+                <StaggerRemaining pose={loadAnimations ? 'open' : 'closed'}>
                     <FlexContainer>
-
+                    
                         <LeftContentContainer>
+                            <FlexContainer>
+                                <ThirdTile className="White-bg">
+                                    <h2 className="InnerAspectRatio NoPadNoMargin">POSTS</h2>
+                                </ThirdTile>
+                                <ThirdTile className="White-bg">
+                                    <h2 className="InnerAspectRatio NoPadNoMargin">SONGS</h2>
+                                </ThirdTile>
+                                <ThirdTile className="White-bg">
+                                    <h2 className="InnerAspectRatio NoPadNoMargin">SHOWS</h2>
+                                </ThirdTile>
+                            </FlexContainer>
                             <ProfileBlock className="Darkgray-bg Darkgray-children">
                                 <ProfilePictureContainer>
                                     <ProfilePic src="https://picsum.photos/300/?random" alt="Random Picsum"/>
@@ -78,7 +97,7 @@ export class Profile extends Component {
                         </LeftContentContainer>
 
                     </FlexContainer>
-                </StaggerChildren>
+                </StaggerRemaining>
             </PageContainer>
         )
     }

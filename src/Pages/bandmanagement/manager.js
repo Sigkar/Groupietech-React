@@ -7,7 +7,7 @@ export class Manager extends Component{
     render(){
         return(
             <PageContainer>
-                <h1>Manager</h1>
+                <h1>Looking for a venue, need a venue?</h1>
             </PageContainer>
         )
     }

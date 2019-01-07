@@ -3,9 +3,8 @@ import posed from 'react-pose';
 export const HoverScale = posed.div({
     hoverable: true,
     init: { scale: 1 },
-    hover: { 
+    hover:{
         scale: 1.05,
-        x:'0.5%',
     },
     pressable: true,
     press: { 
@@ -22,7 +21,7 @@ export const StaggerPauseThenQuick = posed.div({
 export const StaggerRemaining = posed.div({
     open: {
         staggerChildren: 50,
-        delayChildren: 750
+        delayChildren: 100
     }
 });
 export const StaggerChildren = posed.div({

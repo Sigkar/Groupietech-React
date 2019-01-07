@@ -32,6 +32,41 @@ h6{
 p, li{
   font-size:18px;
 }
+@media screen and (max-width:800px){
+  h1{
+    font-size:20px;
+  }
+  h2{
+    font-size:18px;
+  }
+  h3{
+    font-size:16px;
+  }
+  h4{
+    font-size:14px;
+  }
+  h5{
+    font-size:10px;
+  }
+  h6{
+    font-size:8px;
+  }
+  p, li{
+    font-size:14px;
+  }
+}
+
+.InnerAspectRatio{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  text-align:center;
+  width:100%;
+}
+.NoPadNoMargin{
+  margin:0 !important;
+  padding:0 !important;
+}
 
 .Center-Title{
   text-align:center;
@@ -82,7 +117,9 @@ body{
 
 /* Navigation */
 .Header-Icon{
-  float:right;
+  position:fixed;
+  top:0px;
+  right:0px;
 }
 .Header-Icon i{
   font-size:40px !important;
@@ -194,6 +231,7 @@ body{
   bottom:0px;
   right:0px;
   transform:translateY(40px);
+  overflow-y:none;
 }
 .Social-Icon i{
   font-size:32px !important;
@@ -271,7 +309,7 @@ body{
   }
   .Half-Feature{
     width:100% !important;
-    height:300px;
+    height:400px;
   }
   .Feature-Image-Options{
     width:100% !important;
