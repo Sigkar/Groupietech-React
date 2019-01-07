@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-import { ProfilePictureContainer, ProfilePic } from '../../Components/global.js';
+import { ProfilePictureContainer, ProfilePic, StandardButton } from '../../Components/global.js';
 import {
     PageContainer,
     FlexContainer,
@@ -76,8 +76,11 @@ export class Profile extends Component {
                                     <Stats iconOption="thumb_up" statText="Notoriety" statNumber="32"/>
                                     <Stats iconOption="library_music" statText="Number of Songs" statNumber="18"/>
                                     <Stats iconOption="bar_chart" statText="Popularity" statNumber="+3% / Week"/>
-
                                 </FlexContainer>
+                                <br/>
+                                <StandardButton className="White Lightgray-bg">WEBSITE</StandardButton>
+                                <br/>
+                                <StandardButton className="White Lightgray-bg">BANDCAMP</StandardButton>
                             </ProfileBlock>
                             <LoadFade>
                                 <FlexContainer className="Spacer-Between MaxWidthGeneral">

@@ -210,9 +210,10 @@ body{
   top:6px;
 }
 .ThirtyPercWidth{
-  width:30%;
+  width:calc(30% - 10px);
   line-height:24px;
   text-align:Center;
+  padding-right:10px;
 }
 .ThirtyPercWidth *{
   display:inline;

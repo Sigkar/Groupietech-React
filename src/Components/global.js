@@ -149,7 +149,8 @@ export const ProfilePictureContainer = styled.div`
     margin:20px auto;
     @media screen and (max-width:800px){
         width:20%;
-        margin:0px auto;
+        margin:0px auto 15px auto; 
+        min-width:120px;
     }
 `;
 export const ProfilePic = styled.img`
@@ -159,6 +160,7 @@ export const ProfilePic = styled.img`
     border-radius:100%;
     position:relative;
     border:3px solid rgba(255, 84, 5, 1);
+    
 `
 export const CoverThis = styled.div`
     width:100%;

@@ -159,12 +159,12 @@ export const HalfContain = styled.div`
 `;
 
 export const ProfileBlock = styled.div`
-    width:23.5%;
+    width:28.5%;
     height:calc(100vh - 60px);
     position:fixed;
     top:60px;
     right:0px;
-
+    overflow-y:scroll;
     @media screen and (max-width:800px){
         margin:20px 0px 0px 0px;
         position:relative !important;
@@ -182,10 +182,10 @@ export const ProfileBlock = styled.div`
     }
 `;
 export const LeftContentContainer = styled.section`
-    width:75%;
+    width:70%;
     min-height:400px;
     position:relative;
-    right:12.5%
+    right:15%
     @media screen and (max-width:800px){
         width:100%;
         right:0px !important;
