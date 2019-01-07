@@ -106,6 +106,29 @@ export const RemainingContent = styled.div`
     width:calc(100% - 200px);
     height:200px;
 `;
+export const SectionTitle = styled.div`
+    height:40px;
+    line-height:40px;
+    width:calc(50% - 12px);
+    margin:20px 0px;
+
+    border:0px;
+    border-right:6px solid;
+    border-left:6px solid;
+    border-color:rgba(191, 63, 63, 1);
+    border-image: linear-gradient(to bottom, rgba(255, 84, 5, 1) 25%,rgba(239, 0, 107, 1) 25%, rgba(239, 0, 107, 1) 50%, rgba(175, 0, 103, 1) 50%, rgba(175, 0, 103, 1) 75%, rgba(10, 193, 255, 1) 75%) 5;
+    *{
+        margin:none;
+        padding:none;
+        height:auto;
+        text-align:center;
+    }
+    @media screen and (max-width:800px){
+        height:30px;
+        line-height:30px;
+
+    }
+`
 
 export class ShortCard extends Component{
     constructor(props){

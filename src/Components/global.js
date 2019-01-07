@@ -142,23 +142,41 @@ export const TextInput = styled.div`
 
 export const ProfilePictureContainer = styled.div`
     width:50%;
-    height:calc(24vw * 0.50);
+    :before{
+        padding-top:100%;
+        display:block;
+        content:"";
+    }
     margin:20px auto;
     @media screen and (max-width:800px){
-        height:20vw;
         width:20%;
         margin:0px auto;
     }
 `;
 export const ProfilePic = styled.img`
-    width:100%;
-    height:100%;
+    width:calc(100% - 6px);
+    height:calc(100% - 6px);
     object-fit:cover;
+    border-radius:100%;
+    position:relative;
+    border:3px solid rgba(255, 84, 5, 1);
+    transform:translateY(-100%);
 `
 export const CoverThis = styled.div`
     width:100%;
     height:100%;
     background:rgba(0,0,0,0.4);
+    transition:background 0.2s;
+    -ms-transition:background 0.2s;
+    -moz-transition:background 0.2s;
+    -webkit-transition:background 0.2s;
+    -o-transition:background 0.2s;
+
+    cursor:pointer;
+
+    :hover{
+        background:rgba(0,0,0,0.6);
+    }
 `
 
 export class ModalOverlay extends Component{

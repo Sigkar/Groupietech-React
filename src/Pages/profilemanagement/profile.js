@@ -9,33 +9,19 @@ import {
     ContentFeatureComponent,
     ProfileBlock,
     LeftContentContainer,
-    ThirdTile
+    ProfileTile
 } from '../../Components/cards.js';
 import { StaggerRemaining, LoadFade } from '../../Components/staticposes.js';
-import { HeaderLeftPad, BigHeader, PC, InnerPC, ProfileList } from '../../Components/content.js';
+import { HeaderLeftPad, BigHeader, SectionTitle } from '../../Components/content.js';
 import { CoverThis } from '../../Components/global.js';
 
-const OptionTiles = () => (
-    <FlexContainer>
-        <ThirdTile className="White-bg Light-Box-Shadow">
-            <img src="https://picsum.photos/620/595/?random" className="Cover Pad-Top-AR PushUpOneHundredY" alt="Random" />
-            <CoverThis className="Pad-Top-AR PushUpOneHundredY">
-                <h2 className="InnerAspectRatio NoPadNoMargin White">SONGS</h2>
-            </CoverThis>
-        </ThirdTile>
-        <ThirdTile className="White-bg Light-Box-Shadow">
-            <img src="https://picsum.photos/622/599/?random" className="Cover Pad-Top-AR PushUpOneHundredY" alt="Random" />
-            <CoverThis className="Pad-Top-AR PushUpOneHundredY">
-                <h2 className="InnerAspectRatio NoPadNoMargin White">SHOWS</h2>
-            </CoverThis>
-        </ThirdTile>
-        <ThirdTile className="White-bg Light-Box-Shadow">
-            <img src="https://picsum.photos/600/569/?random" className="Cover Pad-Top-AR PushUpOneHundredY" alt="Random" />
-            <CoverThis className="Pad-Top-AR PushUpOneHundredY">
-                <h2 className="InnerAspectRatio NoPadNoMargin White">POSTS</h2>
-            </CoverThis>
-        </ThirdTile>
-    </FlexContainer>
+const OptionTiles = ({pictureOption, stateTitle, stateOption}) => (
+    <ProfileTile className="White-bg Light-Box-Shadow Solid-Bottom-Border">
+        <img src={pictureOption} className="Cover Pad-Top-AR PushUpOneHundredY" alt="Random" />
+        <CoverThis className="Pad-Top-AR PushUpOneHundredY">
+            <h2 className="InnerAspectRatio NoPadNoMargin White">{stateTitle}</h2>
+        </CoverThis>
+    </ProfileTile>
 )
 
 
@@ -60,8 +46,24 @@ export class Profile extends Component {
                                 </ProfilePictureContainer>
                                 <BigHeader className="White">MILL BURRAY</BigHeader>
                             </ProfileBlock>
-                            <OptionTiles/>
+                            <LoadFade>
+                                <FlexContainer>
+                                    <OptionTiles pictureOption="https://picsum.photos/501/?random" stateTitle="POSTS"/>
+                                    <OptionTiles pictureOption="https://picsum.photos/502/?random" stateTitle="SHOWS"/>
+                                    <OptionTiles pictureOption="https://picsum.photos/503/?random" stateTitle="SONGS"/>
+                                    <OptionTiles pictureOption="https://picsum.photos/504/?random" stateTitle="SPONSOR"/>
+                                    <OptionTiles pictureOption="https://picsum.photos/505/?random" stateTitle="CONTACT"/>
+                                    <OptionTiles pictureOption="https://picsum.photos/506/?random" stateTitle="ABOUT"/>
+                                    <OptionTiles pictureOption="https://picsum.photos/507/?random" stateTitle="HISTORY"/>
+                                    <OptionTiles pictureOption="https://picsum.photos/509/?random" stateTitle="HIRE"/>
+                                </FlexContainer>
+                            </LoadFade>
                             <div className="Media-Spacer"></div>
+                            <LoadFade>
+                                <SectionTitle className="Solid-Vertical-Border Darkgray-bg">
+                                    <h1 className="CAPS White">Pinned Posts</h1>
+                                </SectionTitle>
+                            </LoadFade>
                             <LoadFade>
                                 <ContentFeatureComponent imageLink="https://picsum.photos/620/599/?random"
                                     title="MILL BURRAY ATTACKS"

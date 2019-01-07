@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import styled from 'styled-components';
 
-import MaterialIcon, {colorPalette} from 'material-icons-react';
+import MaterialIcon, { colorPalette } from 'material-icons-react';
+
 import { isNullOrUndefined } from 'util';
 
 
@@ -32,6 +33,28 @@ export const FeatureContent = styled.section`
         margin-top:0px !important;
     }
 `;
+export const ContentWidth = styled.section`
+    position:relative;
+    margin:20px auto;
+    width:100%;
+    height:auto;
+    max-width:1200px;
+    @media screen and (max-width:800px){
+        margin-top:0px !important;
+    }
+`;
+export const TextContent = styled.section`
+    position:reative;
+    margin:20px auto;
+    width:100%;
+    height:auto;
+    max-width:1200px;
+    padding:30px 0px 50px 0px;
+    @media screen and (max-width:800px){
+        margin-top:0px !important;
+    }
+`
+
 
 export const FeatureHeader = styled.div`
     height:auto;
@@ -88,19 +111,36 @@ export const FlexRight = styled.section`
     float:right;
 `;
 
-export const ThirdTile = styled.section`
-    width:calc((100% / 3) - 1%);
+export const ProfileTile = styled.section`
+    width:calc((100% / 4) - 20px);
     margin-top:20px;
     :before{
         display:block;
         padding-top:100%;
         content:"";
     }
-    :nth-of-type(2+3n){
-        margin:20px 1% 0px 1%;
+    :nth-of-type(4n + 2){
+        margin:20px 10px 0px 20px;
     }
+    :nth-of-type(4n + 3){
+        margin:20px 20px 0px 10px;
+    }
+    border-bottom: 3px solid;
+    border-color: rgba(191, 63, 63, 1);
     position:relative;
-    
+    @media screen and (max-width:450px){
+        width:calc((100% / 2) - 10px);
+        :nth-of-type(4n + 2){
+            margin:20px 0px 0px 0px;
+        }
+        :nth-of-type(4n + 3){
+            margin:20px 0px 0px 0px;
+        }
+        :nth-of-type(2n){
+            margin-left:20px;
+            
+        }
+    }
 `;
 
 export const SmallTile = styled.div`
@@ -161,36 +201,60 @@ export const LeftContentContainer = styled.section`
     }
 `;
 
-const PostOptions = ({iconOption}) => (
+const PostOptions = ({ iconOption }) => (
     <div className="Red-hover Social-Icon White-children">
-        <MaterialIcon icon={iconOption}/>
+        <MaterialIcon icon={iconOption} />
     </div>
 )
 
-export class ContentFeatureComponent extends Component{
+export class TextPostComponent extends Component {
+    render() {
+        return (
+            <ContentWidth>
+                <TextContent className="Darkgray-bg Heavy-Box-Shadow Feed-Content-Box">
+                    <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">
+                        {this.props.month}/{this.props.day}/{this.props.year} - {this.props.hour}:{this.props.min} {this.props.ampm}
+                    </HalfContain>
+                    <FeatureTitle className="White Capitalize">{this.props.title}</FeatureTitle>
+                    <BreakTitle />
+                    <FeatureDesc className="White">{this.props.post}</FeatureDesc>
 
-    render(){
-        return(
-            
+                    <div className="Lightgray-bg Scroll-Y Text-Social-Actions">
+                        <FlexRight>
+                            <PostOptions iconOption="chat_bubble_outline" />
+                            <PostOptions iconOption="share" />
+                            <PostOptions iconOption="report" />
+                        </FlexRight>
+                    </div>
+                </TextContent>
+            </ContentWidth>
+        )
+    }
+}
+
+export class ContentFeatureComponent extends Component {
+
+    render() {
+        return (
+
             <FeatureContent className="White-bg Heavy-Box-Shadow Feed-Content-Box">
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow">
                         <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">
                             {this.props.month}/{this.props.day}/{this.props.year} - {this.props.hour}:{this.props.min} {this.props.ampm}
                         </HalfContain>
-                        <img src={this.props.imageLink} alt="Something something required" className="Cover"/>
+                        <img src={this.props.imageLink} alt="Something something required" className="Cover" />
                     </div>
                     <div className="Darkgray-bg Half-Feature Content-Half">
                         <FeatureTitle className="White Capitalize">{this.props.title}</FeatureTitle>
-                        <BreakTitle/>
+                        <BreakTitle />
                         <FeatureDesc className="White">{this.props.description}</FeatureDesc>
 
                         <div className="Feature-Image-Options Lightgray-bg Scroll-Y">
                             <FlexRight>
-                                <PostOptions iconOption="favorite_border"/>
-                                <PostOptions iconOption="chat_bubble_outline"/>
-                                <PostOptions iconOption="share"/>
-                                <PostOptions iconOption="report"/>
+                                <PostOptions iconOption="chat_bubble_outline" />
+                                <PostOptions iconOption="share" />
+                                <PostOptions iconOption="report" />
                             </FlexRight>
                         </div>
                     </div>
@@ -200,9 +264,9 @@ export class ContentFeatureComponent extends Component{
     }
 }
 
-export class ContentTitleForSectionCards extends Component{
-    render(){
-        return(
+export class ContentTitleForSectionCards extends Component {
+    render() {
+        return (
             <FeatureHeader className="Heavy-Box-Shadow Darkgray-bg White-children Solid-Bottom-Border">
                 <h2>
                     {this.props.title !== isNullOrUndefined ? this.props.title.toUpperCase() : "AN EVENT IS HAPPENING!"}

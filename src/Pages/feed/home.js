@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageContainer, ContentFeatureComponent, FlexContainer, FeatureContent, HalfFeature } from '../../Components/cards.js';
+import { PageContainer, ContentFeatureComponent, TextPostComponent, FlexContainer, FeatureContent, HalfFeature } from '../../Components/cards.js';
 import { StaggerChildren, LoadFade, Fade } from '../../Components/staticposes.js';
 
 
@@ -22,6 +22,17 @@ export class Home extends Component {
                         <ContentFeatureComponent imageLink="https://picsum.photos/600/599/?random"
                             title="CHIA VAPORWAVE"
                             description="Tilde quinoa vexillologist shoreditch. Single-origin coffee keffiyeh cornhole hot chicken. Tbh pug chia asymmetrical gluten-free sustainable tumblr squid deep"
+                            day="14"
+                            month="04"
+                            year="2019"
+                            hour="2"
+                            min="40"
+                            ampm="PM" />
+                    </LoadFade>
+                    <LoadFade>
+                        <TextPostComponent
+                            title="TEXT POST"
+                            post="Tilde quinoa vexillologist shoreditch. Single-origin coffee keffiyeh cornhole hot chicken. Tbh pug chia asymmetrical gluten-free sustainable tumblr squid deep. Kinfolk everyday carry marfa, franzen air plant squid sustainable coloring book plaid ramps tacos green juice cardigan"
                             day="14"
                             month="04"
                             year="2019"
