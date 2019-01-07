@@ -125,7 +125,10 @@ export const ProfileTile = styled.section`
     :nth-of-type(4n + 3){
         margin:20px 20px 0px 10px;
     }
-    border-bottom: 3px solid;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    border-bottom:3px solid;
     border-color: rgba(191, 63, 63, 1);
     position:relative;
     @media screen and (max-width:450px){

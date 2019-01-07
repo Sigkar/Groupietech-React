@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from 'styled-components';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
 
-import {LoadFade, HoverScale} from './staticposes.js';
+import {LoadFade, HoverScale, StaggerChildren} from './staticposes.js';
 
 import { Home } from '../Pages/feed/home.js';
 import { Auth } from '../Pages/profilemanagement/auth.js';
@@ -18,7 +18,13 @@ import { Profile } from '../Pages/profilemanagement/profile.js';
 import Logo from '../Images/icon.png';
 
 // Might eventually be used for hooks, and its for better swapping of components.
-const HomePage = () => <Home/>;
+const HomePage = () => (
+<StaggerChildren>
+    <LoadFade>
+        <Home/>
+    </LoadFade>
+</StaggerChildren>
+);
 const AuthPage = () => <Auth/>;
 const GigsPage = () => <Gigs/>;
 const ManagerPage = () => <Manager/>;
