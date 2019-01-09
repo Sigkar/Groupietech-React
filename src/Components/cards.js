@@ -73,6 +73,18 @@ export const FeatureHeader = styled.div`
     }
 `;
 
+export const HalfBlock = styled.div`
+    width:calc(50% - 26px);
+    margin:10px;
+    height:auto;
+    padding:3px;
+`
+export const FullBlock = styled.div`
+    width:calc(100% - 26px);
+    margin:10px;
+    height:auto;
+    padding:3px;
+`
 
 export const HalfFeature = styled.div`
     width:50%;

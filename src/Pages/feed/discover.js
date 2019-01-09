@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PageContainer, ContentFeatureComponent, FlexContainer, FeatureContent, HalfFeature } from '../../Components/cards.js';
+import { PageContainer, ContentFeatureComponent, FlexContainer, FeatureContent, HalfBlock, FullBlock } from '../../Components/cards.js';
 import { StaggerChildren, LoadFade, Fade } from '../../Components/staticposes.js';
 import {SectionTitle} from '../../Components/content.js'
 
@@ -11,9 +11,19 @@ export class Discover extends Component {
         return (
             <PageContainer>
                 <LoadFade>
-                    <SectionTitle className="Solid-Vertical-Border Darkgray-bg">
-                        <h1 className="CAPS White">DISCOVER BANDS</h1>
-                    </SectionTitle>
+                    <FeatureContent>
+                        <FlexContainer>
+                            <FullBlock>
+                                Hey mr. postman
+                            </FullBlock>
+                            <HalfBlock>Hello World</HalfBlock>
+                            <HalfBlock>Hello World</HalfBlock>
+                            <HalfBlock>Hello World</HalfBlock>
+                            <HalfBlock>Hello World</HalfBlock>
+                            <HalfBlock>Hello World</HalfBlock>
+                            <HalfBlock>Hello World</HalfBlock>
+                        </FlexContainer>
+                    </FeatureContent>
                 </LoadFade>
             </PageContainer>
         )
