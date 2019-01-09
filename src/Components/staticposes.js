@@ -11,6 +11,12 @@ export const HoverScale = posed.div({
         scale: 0.95,
     }
 })
+export const StaggerChildrenContent = posed.div({
+    open:{
+        staggerChildren: 30,
+        delayChildren:100,
+    }
+})
 
 export const StaggerPauseThenQuick = posed.div({
     open:{
@@ -43,6 +49,8 @@ export const LoadFade = posed.div({
         y: '30px',
     }
 });
+
+
 export const PopFromNothing = posed.div({
     open: {
         scale: 1,

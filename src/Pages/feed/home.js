@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { PageContainer, ContentFeatureComponent, TextPostComponent, FlexContainer, FeatureContent, HalfFeature } from '../../Components/cards.js';
-import { StaggerChildren, LoadFade, Fade } from '../../Components/staticposes.js';
+import { StaggerChildrenContent, LoadFade, Fade } from '../../Components/staticposes.js';
 
 
 
@@ -38,33 +38,34 @@ export class Home extends Component {
             )
     }
     toggleLoadAnimations = () => (this.setState({ loadAnimations: true }));
+    getRandomArbitrary = (min, max) => {return Math.round(Math.random() * (max - min) + min)}
     render() {
         const { loadAnimations, error, isLoaded, items } = this.state;
         if (error) {
-            return <div>Sorry, Headlinerr has a bad sound guy!<br/>Error: {error.message}</div>;
+            return <div>Sorry, Headlinerr has a bad sound guy!<br />Error: {error.message}</div>;
         } else if (!isLoaded) {
             return <div>Loading...</div>;
-        } else
+        } else {
             return (
 
                 <PageContainer>
-                    <StaggerChildren pose={loadAnimations ? 'open' : 'closed'}>
-                            {items.map(item => (
-                                <LoadFade key={item.id}>
-                                    <ContentFeatureComponent
-                                        imageLink="https://picsum.photos/600/599/?random"
-                                        key={item.id}
-                                        title={item.title}
-                                        description={item.body}
-                                        day="14"
-                                        month="04"
-                                        year="2019"
-                                        hour="2"
-                                        min="40"
-                                        ampm="PM"
-                                    />
-                                </LoadFade>
-                            ))}
+                    <StaggerChildrenContent pose={loadAnimations ? 'open' : 'closed'}>
+                        {items.slice(0, 15).map(item => (
+                            <LoadFade key={item.id}>
+                                <ContentFeatureComponent
+                                    imageLink={"https://picsum.photos/" + this.getRandomArbitrary(550, 650) + "/" + this.getRandomArbitrary(550, 650) + "/?random"}
+                                    key={item.id}
+                                    title={item.title}
+                                    description={item.body}
+                                    day="14"
+                                    month="04"
+                                    year="2019"
+                                    hour="2"
+                                    min="40"
+                                    ampm="PM"
+                                />
+                            </LoadFade>
+                        ))}
                         {/* <LoadFade>
                             <ContentFeatureComponent imageLink="https://picsum.photos/600/599/?random"
                                 title="CHIA VAPORWAVE"
@@ -131,8 +132,9 @@ export class Home extends Component {
                                 min="15"
                                 ampm="PM" />
                         </LoadFade> */}
-                    </StaggerChildren>
+                    </StaggerChildrenContent>
                 </PageContainer>
             )
+        }
     }
 }
