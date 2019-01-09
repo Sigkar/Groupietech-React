@@ -4,6 +4,27 @@ import { StaggerChildrenContent, LoadFade, Fade } from '../../Components/staticp
 
 
 
+const GenerateHomeContent = ({current, items, total, rand}) => (
+        <div>
+            {items.slice(current, total).map(item => (
+                <LoadFade key={item.id}>
+                    <ContentFeatureComponent
+                        imageLink={"https://picsum.photos/" + rand(550, 650) + "/" + rand(550, 650) + "/?random"}
+                        key={item.id}
+                        title={item.title}
+                        description={item.body}
+                        day="14"
+                        month="04"
+                        year="2019"
+                        hour="2"
+                        min="40"
+                        ampm="PM"
+                    />
+                </LoadFade>
+            ))}
+            </div>
+);
+
 export class Home extends Component {
     state = { loadAnimations: false }
     constructor(props) {
@@ -11,7 +32,9 @@ export class Home extends Component {
         this.state = {
             error: null,
             isLoaded: false,
-            items: []
+            items: [],
+            current: 0,
+            total: 15,
         };
     }
     componentWillMount() {
@@ -37,101 +60,21 @@ export class Home extends Component {
                 }
             )
     }
+
     toggleLoadAnimations = () => (this.setState({ loadAnimations: true }));
     getRandomArbitrary = (min, max) => {return Math.round(Math.random() * (max - min) + min)}
     render() {
-        const { loadAnimations, error, isLoaded, items } = this.state;
+        const { loadAnimations, error, isLoaded, items, current, total } = this.state;
         if (error) {
             return <div>Sorry, Headlinerr has a bad sound guy!<br />Error: {error.message}</div>;
         } else if (!isLoaded) {
             return <div>Loading...</div>;
         } else {
             return (
-
                 <PageContainer>
                     <StaggerChildrenContent pose={loadAnimations ? 'open' : 'closed'}>
-                        {items.slice(0, 15).map(item => (
-                            <LoadFade key={item.id}>
-                                <ContentFeatureComponent
-                                    imageLink={"https://picsum.photos/" + this.getRandomArbitrary(550, 650) + "/" + this.getRandomArbitrary(550, 650) + "/?random"}
-                                    key={item.id}
-                                    title={item.title}
-                                    description={item.body}
-                                    day="14"
-                                    month="04"
-                                    year="2019"
-                                    hour="2"
-                                    min="40"
-                                    ampm="PM"
-                                />
-                            </LoadFade>
-                        ))}
-                        {/* <LoadFade>
-                            <ContentFeatureComponent imageLink="https://picsum.photos/600/599/?random"
-                                title="CHIA VAPORWAVE"
-                                description="Tilde quinoa vexillologist shoreditch. Single-origin coffee keffiyeh cornhole hot chicken. Tbh pug chia asymmetrical gluten-free sustainable tumblr squid deep"
-                                day="14"
-                                month="04"
-                                year="2019"
-                                hour="2"
-                                min="40"
-                                ampm="PM" />
-                        </LoadFade>
-                        <LoadFade>
-                            <TextPostComponent
-                                title="TEXT POST"
-                                post="Tilde quinoa vexillologist shoreditch. Single-origin coffee keffiyeh cornhole hot chicken. Tbh pug chia asymmetrical gluten-free sustainable tumblr squid deep. Kinfolk everyday carry marfa, franzen air plant squid sustainable coloring book plaid ramps tacos green juice cardigan"
-                                day="14"
-                                month="04"
-                                year="2019"
-                                hour="2"
-                                min="40"
-                                ampm="PM" />
-                        </LoadFade>
-                        <LoadFade>
-                            <ContentFeatureComponent imageLink="https://picsum.photos/600/600/?random"
-                                title="DUMMY DATA"
-                                description="Kinfolk everyday carry marfa, franzen air plant squid sustainable coloring book plaid ramps tacos green juice cardigan"
-                                day="04"
-                                month="01"
-                                year="2019"
-                                hour="7"
-                                min="30"
-                                ampm="PM" />
-                        </LoadFade>
-                        <LoadFade>
-                            <ContentFeatureComponent imageLink="https://picsum.photos/600/601/?random"
-                                title="TOFU STARTUP"
-                                description="Lumbersexual selfies austin coloring book cloud bread. Everyday carry hell of beard taiyaki, raclette schlitz "
-                                day="05"
-                                month="02"
-                                year="2019"
-                                hour="5"
-                                min="15"
-                                ampm="PM" />
-                        </LoadFade>
-                        <LoadFade>
-                            <ContentFeatureComponent imageLink="https://picsum.photos/610/601/?random"
-                                title="POUTINE WILLIAMSBURG"
-                                description="Single-origin coffee listicle tousled, cornhole vinyl letterpress kogi green juice kale chips tofu. Pug 90's cronut man bun photo booth you probably haven't heard of them knausgaard lumbersexual copper mug flannel gluten-free chartreuse narwhal fixie."
-                                day="05"
-                                month="02"
-                                year="2019"
-                                hour="5"
-                                min="15"
-                                ampm="PM" />
-                        </LoadFade>
-                        <LoadFade>
-                            <ContentFeatureComponent imageLink="https://picsum.photos/62c0/601/?random"
-                                title="90'S ALL THAT"
-                                description="Brunch 90's taiyaki, jianbing plaid skateboard 8-bit mustache pour-over quinoa. Cronut butcher aesthetic knausgaard mixtape artisan microdosing bespoke normcore polaroid shaman YOLO"
-                                day="05"
-                                month="02"
-                                year="2019"
-                                hour="5"
-                                min="15"
-                                ampm="PM" />
-                        </LoadFade> */}
+                        <GenerateHomeContent items={items} current={current} total={total} rand={this.getRandomArbitrary}/>
+                        <p>Scroll support coming soon I guess.</p>
                     </StaggerChildrenContent>
                 </PageContainer>
             )
