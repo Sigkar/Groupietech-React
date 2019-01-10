@@ -523,6 +523,7 @@ body{
   .Half-Width-Full-Height:first-of-type{
     margin:50px 0px 0px 0px;
     min-height:200px;
+    max-height:40vh;
   }
   .Half-Width-Full-Height:nth-of-type(2){
     margin-top:20px;

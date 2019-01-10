@@ -34,34 +34,35 @@ export const StandardButton = styled.button`
 
 export const HeaderButton = styled.button`
     outline:none;
-    height:44px;
-    width:94px;
-    border:3px solid;
-    border-image: linear-gradient(to top left, rgba(191, 63, 63, 1) 33.33%, rgba(255, 84, 5, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 5;
+    height:55px;
+    width:100px;
+
     position:relative;
-    top:7.5px;
+    top:2.5px;
+
+    font-size:18px;
+
     background:transparent;
-    margin-right:10px;
+    margin:0 10px 0 0;
+    padding:0;
+
     cursor:pointer;
 
-    transition:border-image 0.4s, border-color 0.2s;
-    -ms-transition:border-image 0.4s, border-color 0.2s;
-    -moz-transition:border-image 0.4s, border-color 0.2s;
-    -webkit-transition:border-image 0.4s, border-color 0.2s;
-    -o-transition:border-image 0.4s, border-color 0.2s;
-    border-color:rgba(239, 0, 107, 1);
+    transition: background 0.2s;
+    -ms-transition: background 0.2s;
+    -moz-transition: background 0.2s;
+    -webkit-transition: background 0.2s;
+    -o-transition: background 0.2s;
 
+    border:none;
 
-    font-size:16px;
     :hover{
-        border-image:none;
-        border-color:rgba(10, 193, 255, 1);
+        background:rgba(0,0,0,0.25);
     }
     @media screen and (max-width:800px){
-        height:34px;
-        width:74px;
-        top:2.5px;
-        font-size:12px;
+        height:45px;
+        width:75px;
+        font-size:14px;
     }
 `
 export const Overlay = styled.div`
@@ -102,11 +103,11 @@ export const HeaderButtonContainer = styled.div`
     width:auto;
     height:60px;
 
-    transform:translateX(-50px);
-    -ms-transform:translateX(-50px);
-    -moz-transform:translateX(-50px);
-    -webkit-transform:translateX(-50px);
-    -o-transform:translateX(-50px);
+    transform:translateX(-10px);
+    -ms-transform:translateX(-10px);
+    -moz-transform:translateX(-10px);
+    -webkit-transform:translateX(-10px);
+    -o-transform:translateX(-10px);
 `
 
 export const TextInput = styled.div`

@@ -28,12 +28,12 @@ export class Signup extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-        // eslint-disable-next-line
-        const email = target.email;
-        // eslint-disable-next-line
-        const password = target.password;
-        // eslint-disable-next-line
-        const confirmPassword = target.confirmPassword;
+        // // eslint-disable-next-line
+        // const email = target.email;
+        // // eslint-disable-next-line
+        // const password = target.password;
+        // // eslint-disable-next-line
+        // const confirmPassword = target.confirmPassword;
 
         this.setState({
             [name]: value
@@ -67,6 +67,7 @@ export class Signup extends Component {
                         <BigHeader className="Very-Large">SIGN UP</BigHeader>
                         <br />
                         <BigHeader className="White PLR">MEET BANDS, MEET FANS, GET GIGS<br/>JOIN TODAY FOR FREE.</BigHeader>
+                        <br/>
                     </FeatureHeader>
                     
                     <div id="SignUpModal">

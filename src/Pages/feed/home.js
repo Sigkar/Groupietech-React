@@ -69,7 +69,7 @@ export class Home extends Component {
         if (error) {
             return <div>Sorry, Headlinerr has a bad sound guy!<br />Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div>Loading...</div>;
+            return <div><br/><br/><br/><br/><br/>Loading...</div>;
         } else {
             return (
                 <PageContainer>

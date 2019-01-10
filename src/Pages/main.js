@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle, HeaderIcon } from '../Components/navigation.js';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { Popout, SwapVisible, Fade, HoverScale, OpenCloseButton, StaggerPauseThenQuick } from '../Components/staticposes.js';
-import { HeaderButtonContainer, ModalOverlay } from '../Components/global.js';
+import { HeaderButtonContainer, ModalOverlay, HeaderButton } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
 import firebase from "firebase/app";
 
@@ -70,18 +70,21 @@ export class Main extends Component {
                                 </OpenCloseButton>
 
                                 <HeaderButtonContainer>
-                                    {/*                                     
-                                    <HeaderButton onClick={this.openSignup}>
-                                        SIGN UP
-                                    </HeaderButton>
-                                        <HeaderButton onClick={this.openSignin}>
+                                    <Link to="/signup">
+                                        <HeaderButton>
+                                            SIGN UP
+                                        </HeaderButton>
+                                    </Link>
+                                    <Link to="/signin">
+                                        <HeaderButton>
                                             SIGN IN
-                                    </HeaderButton>  */}
-                                    <HoverScale>
+                                        </HeaderButton>
+                                    </Link>
+                                    {/* <HoverScale>
                                         <Link to="/profile">
                                             <HeaderIcon iconOption="account_circle" classOption="Darkgray-children Header-Icon" />
                                         </Link>
-                                    </HoverScale>
+                                    </HoverScale> */}
                                 </HeaderButtonContainer>
                             </div>
                             <div className="Nav-Container">
