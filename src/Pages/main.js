@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Popout, SwapVisible, Fade, PopFromNothing, HoverScale, OpenCloseButton, StaggerPauseThenQuick } from '../Components/staticposes.js';
 import { HeaderButton, HeaderButtonContainer, LogModal, Overlay, HalfModal, ModalOverlay } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
+import firebase from "firebase/app";
+
 
 class NavBar extends Component {
     render() {
@@ -27,7 +29,17 @@ export class Main extends Component {
     toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: false }) : this.setState({ navigationOption: true }));
     openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true }));
     openSignin = () => (this.state.signin ? this.setState({ signin: false }) : this.setState({ signup: true }));
-
+    componentWillMount() {
+        var config = {
+            apiKey: "AIzaSyCfmatyhFmtKBLrQc0HMUWk59cmEkbKRrg",
+            authDomain: "groupietech.firebaseapp.com",
+            databaseURL: "https://groupietech.firebaseio.com",
+            projectId: "groupietech",
+            storageBucket: "groupietech.appspot.com",
+            messagingSenderId: "1071869820233"
+        };
+        firebase.initializeApp(config);
+    }
     render() {
         const { isOpen, navigationOption, signup, signin } = this.state;
         return (

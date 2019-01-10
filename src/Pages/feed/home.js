@@ -18,8 +18,7 @@ const GenerateHomeContent = ({current, items, total, rand}) => (
                         year="2019"
                         hour="2"
                         min="40"
-                        ampm="PM"
-                    />
+                        ampm="PM"/>
                 </LoadFade>
             ))}
             </div>
@@ -37,9 +36,11 @@ export class Home extends Component {
             total: 15,
         };
     }
+    
     componentWillMount() {
 
     }
+
     componentDidMount() {
         window.scrollTo(0, 0);
         fetch("https://jsonplaceholder.typicode.com/posts")

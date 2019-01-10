@@ -7,7 +7,7 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 import {LoadFade, HoverScale, StaggerChildren} from './staticposes.js';
 
 import { Home } from '../Pages/feed/home.js';
-import { Auth } from '../Pages/profilemanagement/auth.js';
+import { Signup } from '../Pages/profilemanagement/signup.js';
 import { Venue } from '../Pages/bandmanagement/venue.js';
 import { Gigs } from '../Pages/bandmanagement/gigs.js';
 import { Manager } from '../Pages/bandmanagement/manager.js';
@@ -25,7 +25,7 @@ const HomePage = () => (
     </LoadFade>
 </StaggerChildren>
 );
-const AuthPage = () => <Auth/>;
+const SignUp = () => <Signup/>;
 const GigsPage = () => <Gigs/>;
 const ManagerPage = () => <Manager/>;
 const DiscoverPage = () => <Discover/>;
@@ -163,7 +163,7 @@ export class Navigation extends Component{
                     <LogoImage src={Logo} alt="Groupietech Logo"/>
                 </Link>
                 <Route path="/" exact component={HomePage}/>
-                <Route path="/login" exact component={AuthPage}/>
+                <Route path="/login" exact component={SignUp}/>
                 <Route path="/gigs" component={GigsPage}/>
                 <Route path="/manager" component={ManagerPage}/>
                 <Route path="/discover" component={DiscoverPage}/>
