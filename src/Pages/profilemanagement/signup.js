@@ -63,7 +63,7 @@ export class Signup extends Component {
                     <img src={LoginImg} alt="Login Control" className="Cover" />
                 </div>
                 <div className="Half-Width-Full-Height ">
-                    <FeatureHeader className="Darkgray-bg White-children Solid-Bottom-Border Thicc White">
+                    <FeatureHeader className="Darkgray-bg White-children Thicc White">
                         <BigHeader className="Very-Large">SIGN UP</BigHeader>
                         <br />
                         <BigHeader className="White PLR">MEET BANDS, MEET FANS, GET GIGS<br/>JOIN TODAY FOR FREE.</BigHeader>

@@ -163,7 +163,7 @@ export class Navigation extends Component{
                     <LogoImage src={Logo} alt="Groupietech Logo"/>
                 </Link>
                 <Route path="/" exact component={HomePage}/>
-                <Route path="/login" exact component={SignUp}/>
+                <Route path="/signup" exact component={SignUp}/>
                 <Route path="/gigs" component={GigsPage}/>
                 <Route path="/manager" component={ManagerPage}/>
                 <Route path="/discover" component={DiscoverPage}/>
