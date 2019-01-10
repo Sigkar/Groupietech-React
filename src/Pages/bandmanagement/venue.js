@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { PageContainer, ContentFeatureComponent, FlexContainer, FeatureContent, HalfFeature } from '../../Components/cards.js';
-import {StaggerChildren, LoadFade, Fade} from '../../Components/staticposes.js';
+import { PageContainer } from '../../Components/cards.js';
 
 export class Venue extends Component{
     componentDidMount(){

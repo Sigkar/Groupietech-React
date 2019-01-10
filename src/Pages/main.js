@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle, HeaderIcon } from '../Components/navigation.js';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Popout, SwapVisible, Fade, PopFromNothing, HoverScale, OpenCloseButton, StaggerPauseThenQuick } from '../Components/staticposes.js';
-import { HeaderButton, HeaderButtonContainer, LogModal, Overlay, HalfModal, ModalOverlay } from '../Components/global.js';
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Popout, SwapVisible, Fade, HoverScale, OpenCloseButton, StaggerPauseThenQuick } from '../Components/staticposes.js';
+import { HeaderButtonContainer, ModalOverlay } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
 import firebase from "firebase/app";
 
@@ -25,7 +25,7 @@ class NavBar extends Component {
 
 export class Main extends Component {
     state = { isOpen: false, navigationOption: false, signup: false, signin: false };
-
+    // eslint-disable-next-line
     toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: false }) : this.setState({ navigationOption: true }));
     openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true }));
     openSignin = () => (this.state.signin ? this.setState({ signin: false }) : this.setState({ signup: true }));

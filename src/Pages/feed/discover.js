@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { PageContainer, ContentFeatureComponent, FlexContainer, FeatureContent, HalfBlock, FullBlock } from '../../Components/cards.js';
-import { StaggerChildren, LoadFade, Fade } from '../../Components/staticposes.js';
-import {SectionTitle} from '../../Components/content.js'
+import { PageContainer, FlexContainer, FeatureContent, HalfBlock, FullBlock } from '../../Components/cards.js';
+import { LoadFade } from '../../Components/staticposes.js';
 
 export class Discover extends Component {
     componentDidMount(){

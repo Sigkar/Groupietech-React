@@ -6,7 +6,9 @@ html, body{
 *{
   font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
+.Bold{
+  font-weight:bold;
+}
 .No-X-Scroll{
   overflow-x:hidden;
 }
@@ -35,6 +37,9 @@ h6{
 p, li{
   font-size:18px;
 }
+.Very-Large{
+  font-size:30px !important;
+}
 @media screen and (max-width:800px){
   h1{
     font-size:20px;
@@ -58,6 +63,33 @@ p, li{
     font-size:14px;
   }
 }
+
+.Just-Flex{
+  display:flex;
+  flex-wrap:wrap;
+}
+.Fill-Height{
+  min-height:100vh;
+}
+.Half-Width-Full-Height{
+  width:50vw;
+  height:calc(100vh - 60px);
+  margin:60px 0px 0px 0px;
+
+}
+.Vertical-Center-Input{
+  position:relative;
+  top:50%;
+  transform:translateY(-50%);
+  width:80%;
+  margin:0 auto;
+  padding:0px 0px 20px 0px;
+}
+.Vertical-Center-Input *{
+  margin:0;
+  padding:0;
+}
+
 
 .InnerAspectRatio{
   position:absolute;
@@ -334,7 +366,20 @@ body{
   border-image: linear-gradient(to right, rgba(255, 84, 5, 1) 25%,rgba(239, 0, 107, 1) 25%, rgba(239, 0, 107, 1) 50%, rgba(175, 0, 103, 1) 50%, rgba(175, 0, 103, 1) 75%, rgba(10, 193, 255, 1) 75%) 5;
 }
 
+.Thicc{
+  border-top:0px !important;
+  border-left:0px !important;
+  border-right:0px !important;
+  border-bottom:6px solid !important;
+}
 /* Modal */
+.Label-Controller{
+  color:white;
+  padding-left:2.5%;
+  font-size:18px;
+  font-weight:bold;
+  letter-spacing:3px;
+}
 
 /* Profile */
 .Profile-Statistic{
@@ -389,6 +434,13 @@ body{
   top:0px !important;
   right:-30px !important;
 }
+
+.PLR{
+  padding-left:10px !important;
+  padding-right:10px !important;
+}
+
+
 @media screen and (max-width:800px){
   .Half-Card{
     width:98%;
@@ -444,5 +496,32 @@ body{
   .ThirtyPercWidth{
     width:calc(50% - 5px);
     padding-left:5px;
+  }
+  .Half-Width-Full-Height{
+    width:100%;
+    height:auto;
+    margin:0;
+  }
+  .Half-Width-Full-Height:first-of-type{
+    margin:50px 0px 0px 0px;
+    max-height:40vh;
+    min-height:200px;
+  }
+  .Half-Width-Full-Height:nth-of-type(2){
+    margin-top:20px;
+  }
+}
+@media screen and (max-height:600px){
+  .Half-Width-Full-Height{
+    width:100%;
+    height:auto;
+    margin:0;
+  }
+  .Half-Width-Full-Height:first-of-type{
+    margin:50px 0px 0px 0px;
+    min-height:200px;
+  }
+  .Half-Width-Full-Height:nth-of-type(2){
+    margin-top:20px;
   }
 }

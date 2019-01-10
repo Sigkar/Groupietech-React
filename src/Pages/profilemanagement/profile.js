@@ -5,17 +5,14 @@ import { ProfilePictureContainer, ProfilePic, StandardButton } from '../../Compo
 import {
     PageContainer,
     FlexContainer,
-    ContentTitleForSectionCards,
     ContentFeatureComponent,
     ProfileBlock,
     LeftContentContainer,
-    ProfileTile,
-    HalfContain,
-    BreakTitle
+    ProfileTile
 } from '../../Components/cards.js';
-import MaterialIcon, { colorPalette } from 'material-icons-react';
+import MaterialIcon from 'material-icons-react';
 import { StaggerRemaining, LoadFade } from '../../Components/staticposes.js';
-import { HeaderLeftPad, BigHeader, SectionTitle } from '../../Components/content.js';
+import { BigHeader } from '../../Components/content.js';
 import { CoverThis } from '../../Components/global.js';
 
 const ProfileBreak = styled.hr`
@@ -120,7 +117,7 @@ export class Profile extends Component {
                             </LoadFade>
                             <LoadFade>
                                 <ContentFeatureComponent imageLink="https://picsum.photos/601/601/?random"
-                                    title="THE BEAR JEW"
+                                    title="Another Document"
                                     description="Hugo Stiglitz has a really good plot in Inglorious Basterds prove me wrong"
                                     day="05"
                                     month="02"

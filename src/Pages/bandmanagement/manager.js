@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { PageContainer, ContentFeatureComponent, FlexContainer, FeatureContent, HalfFeature } from '../../Components/cards.js';
-import {StaggerChildren, LoadFade, Fade} from '../../Components/staticposes.js';
+import { PageContainer } from '../../Components/cards.js';
+import { LoadFade } from '../../Components/staticposes.js';
 
 import {SectionTitle} from '../../Components/content.js'
 

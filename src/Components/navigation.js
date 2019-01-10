@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+// eslint-disable-next-line
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import styled from 'styled-components';
-import MaterialIcon, {colorPalette} from 'material-icons-react';
+import MaterialIcon from 'material-icons-react';
 
 import {LoadFade, HoverScale, StaggerChildren} from './staticposes.js';
 
 import { Home } from '../Pages/feed/home.js';
 import { Signup } from '../Pages/profilemanagement/signup.js';
-import { Venue } from '../Pages/bandmanagement/venue.js';
 import { Gigs } from '../Pages/bandmanagement/gigs.js';
 import { Manager } from '../Pages/bandmanagement/manager.js';
 import { Discover } from '../Pages/feed/discover.js';
