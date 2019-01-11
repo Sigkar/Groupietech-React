@@ -1,9 +1,19 @@
+//React
 import React, { Component } from 'react';
+
+// Redux
+//import { createStore } from 'redux';
+
+
+//Firebase Authentication
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+// Design
+import MaterialIcon from 'material-icons-react';
 import { PageContainer, ContentFeatureComponent } from '../../Components/cards.js';
 import { StaggerChildrenContent, LoadFade } from '../../Components/staticposes.js';
-import * as firebase from 'firebase/app';
 
-import 'firebase/auth';
+//const store = createStore;
 
 const GenerateHomeContent = ({ current, items, total, rand }) => (
     <div>
@@ -59,7 +69,6 @@ export class Home extends Component {
                 }
             )
     }
-
     toggleLoadAnimations = () => (this.setState({ loadAnimations: true }));
     getRandomArbitrary = (min, max) => { return Math.round(Math.random() * (max - min) + min) }
     render() {
@@ -67,7 +76,7 @@ export class Home extends Component {
         if (error) {
             return <div>Sorry, Headlinerr has a bad sound guy!<br />Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div><br /><br /><br /><br /><br />Loading...</div>;
+            return <div className="Loading">Loading</div>
         } else {
             return (
                 <PageContainer>

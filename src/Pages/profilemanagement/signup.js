@@ -4,6 +4,8 @@ import { FeatureHeader } from '../../Components/cards.js';
 import { TextInput, StandardButton } from '../../Components/global.js';
 import { BigHeader } from '../../Components/content.js';
 import LoginImg from '../../Images/login-comp.jpeg';
+import { FriendlyMessage } from '../../Components/staticposes.js';
+
 
 import firebase from 'firebase';
 
@@ -13,7 +15,9 @@ export class Signup extends Component {
         this.state = {
             email: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            message: '',
+            messageOpen: false
         };
         this.baseState = this.state;
 
@@ -28,12 +32,6 @@ export class Signup extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-        // // eslint-disable-next-line
-        // const email = target.email;
-        // // eslint-disable-next-line
-        // const password = target.password;
-        // // eslint-disable-next-line
-        // const confirmPassword = target.confirmPassword;
 
         this.setState({
             [name]: value
@@ -44,21 +42,41 @@ export class Signup extends Component {
         event.stopPropagation();
         if(this.state.password !== this.state.confirmPassword){
             console.log("Passwords dont match, exiting");
+            this.setState({
+                message: "Passwords did not match. Please input again!",
+                messageOpen: true,
+            })
             return false;
         }
         console.log("Creating user");
         this.createUser();
-        this.resetForm();
+        this.setState({
+            message: "Thanks for signing up, you will be redirected!",
+            messageOpen: true,
+        })
+        setTimeout(function(){
+            setTimeout("location.href = '/';",1500);
+        },2500);
     }
     createUser = () => (
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
             var errorMessage = error.message;
-            throw errorMessage;
+            this.setState({
+                message: errorMessage,
+                messageOpen: true,
+            });
         })
     );
+
+    friendlyMessageToggle = () => (this.state.messageOpen ? this.setState({ messageOpen: false }) : this.setState({ messageOpen: true }));
+    
     render() {
+        const { messageOpen, message } = this.state;
         return (
             <div className="Just-Flex Darkgray-bg Fill-Height">
+                <FriendlyMessage className="alert Pink-bg White-children" pose={messageOpen ? "open" : "closed"}>
+                    {message}
+                </FriendlyMessage>
                 <div className="Third-Width-Full-Height">
                     <img src={LoginImg} alt="Login Control" className="Cover" />
                 </div>

@@ -5,6 +5,7 @@ import { Popout, SwapVisible, Fade, HoverScale, OpenCloseButton, StaggerPauseThe
 import { HeaderButtonContainer, ModalOverlay, HeaderButton } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
 import firebase from "firebase/app";
+import { getUserStatus } from './profilemanagement/getAuthStatus.js';
 
 
 
@@ -32,16 +33,7 @@ class HeaderOption extends Component {
         });
     }
     componentDidMount() {
-        var user = firebase.auth().currentUser;
-        if (user !== null || user) {
-            console.log(user);
-            console.log("User is signed in");
-            this.state = ({ isSignedIn: true });
-        } else {
-            console.log(user);
-            console.log("User shouldnt be signed in");
-            this.state = ({ isSignedIn: false });
-        }
+        getUserStatus();
     }
     logOutAccount = () => {
         firebase.auth().signOut().then(function () {
@@ -54,8 +46,9 @@ class HeaderOption extends Component {
         });
     }
     render() {
-        const { isSignedIn } = this.state;
-        if (isSignedIn) {
+        const isSignedIn = getUserStatus();
+        console.log(isSignedIn);
+        if (isSignedIn !== null) {
             return (
 
                 <span id="Header-Options">
@@ -102,6 +95,7 @@ export class Main extends Component {
             messagingSenderId: "1071869820233"
         };
         firebase.initializeApp(config);
+        let user = getUserStatus();
     }
     render() {
         const { isOpen, navigationOption, signup, signin, isSignedIn } = this.state;

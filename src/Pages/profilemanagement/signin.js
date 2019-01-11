@@ -5,8 +5,9 @@ import { TextInput, StandardButton } from '../../Components/global.js';
 import { BigHeader } from '../../Components/content.js';
 import LoginImg from '../../Images/login-comp.jpeg';
 
-import * as firebase from 'firebase/app';
+import { FriendlyMessage } from '../../Components/staticposes.js';
 
+import firebase from 'firebase/app';
 import 'firebase/auth';
 
 export class SignIn extends Component {
@@ -15,15 +16,14 @@ export class SignIn extends Component {
         this.state = {
             email: '',
             password: '',
+            message: '',
+            messageOpen: false
         };
         this.baseState = this.state;
 
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
-    resetForm = () => {
-        this.setState(this.baseState)
     }
     handleInputChange(event) {
         const target = event.target;
@@ -37,27 +37,46 @@ export class SignIn extends Component {
     handleSubmit(event) {
         event.preventDefault();
         event.stopPropagation();
-        console.log("Signing user in");
         console.log(this.state.password);
         console.log(this.state.email);
-
-        this.signInUser();
-        this.resetForm();
+        
+        var user = this.signInUser();
+        if(!user){
+            this.setState({
+                message: 'Username or Password Incorrect',
+                messageOpen: true,
+            });
+            return false;
+        }else{
+            this.setState({
+                message: 'You will be redirected',
+                messageOpen: true,
+            })
+            setTimeout(function(){
+                setTimeout("location.href = '/';",1500);
+            },2500);
+        }
     }
-    signInUser = () => (
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    signInUser() {
+        var errorMessage
+        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
             .then(function () {
                 return firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
             })
             .catch(function (error) {
-                var errorCode = error.code;
-                var errorMessage = error.message;
+                errorMessage = error.message;
             })
-        
-    );
+            return false;
+    };
+
+    friendlyMessageToggle = () => (this.state.messageOpen ? this.setState({ messageOpen: false }) : this.setState({ messageOpen: true }));
     render() {
+        const { messageOpen, message } = this.state;
         return (
             <div className="Just-Flex Darkgray-bg Fill-Height">
+                <FriendlyMessage className="alert Pink-bg White-children" pose={messageOpen ? "open" : "closed"}>
+                    {message}
+                </FriendlyMessage>
                 <div className="Third-Width-Full-Height">
                     <img src={LoginImg} alt="Login Control" className="Cover" />
                 </div>

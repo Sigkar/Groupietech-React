@@ -1,5 +1,21 @@
 import posed from 'react-pose';
 
+export const FriendlyMessage = posed.div({
+    init: { opacity: 0 },
+    open:{
+        opacity: 1,
+        transition:{
+            duration: 200,
+        }
+    },
+    closed:{
+        opacity: 0,
+        transition:{
+            duration:200,
+        }
+    }
+})
+
 export const HoverScale = posed.div({
     hoverable: true,
     init: { scale: 1 },

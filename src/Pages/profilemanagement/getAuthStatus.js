@@ -1,17 +1,15 @@
+import * as firebase from 'firebase/app';
 import 'firebase/auth';
-import firebaseApp from 'src/config/firebase';
 
-const getUserStatus = function (store) {
-  store.dispatch('CHECK_USER_STATUS');
-
+const getUserStatus = function () {
   return new Promise(function (resolve, reject) {
-    firebaseApp.auth().onAuthStateChanged(function (user) {
+    firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        store.dispatch('LOGIN_SUCCESS', user.uid);
-        resolve(user.uid);
+        console.log("User is signed in");
+        resolve( user );
       } else {
-        store.dispatch('LOGIN_FAIL');
-        reject(Error('It broke'));
+        console.log("User is not signed in");
+        resolve( user );
       }
     });
   });
