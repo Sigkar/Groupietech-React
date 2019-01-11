@@ -12,6 +12,23 @@ html, body{
 .No-X-Scroll{
   overflow-x:hidden;
 }
+
+.Custom-Flex{
+  display:flex;
+  flex-wrap:wrap;
+}
+.Force-Half{
+  width:50vw;
+  margin:0 auto;
+}
+.Force-Half *{
+  margin:0 auto;
+  left:0px !important;
+}
+.Force-Half input{
+  width:50vw !important;
+  transform: none !important;
+}
 /* Basics unless I say otherwise. boi.*/
 .CAPS{
   text-transform: uppercase;
@@ -79,9 +96,19 @@ p, li{
   margin:60px 0px 0px 0px;
   float:left;
 }
-.Half-Width-Full-Height:nth-of-type(2){
-  width:calc(50vw - 10px);
-  margin-left:5px;
+
+.Third-Width-Full-Height{
+  width:33vw;
+  height:calc(100vh - 65px);
+  margin:60px 0px 0px 0px;
+  float:left;
+}
+.Fill-Remaining-Thirds{
+  margin-left:2vw;
+  width:64vw;
+  height:calc(100vh - 65px);
+  margin:60px 0px 0px 0px;
+  float:left;
 }
 .Vertical-Center-Input{
   position:relative;
@@ -157,16 +184,15 @@ body{
 
 
 /* Navigation */
-.Header-Icon{
-  position:fixed;
-  top:0px;
-  right:0px;
+.Account-Logged{
+  position:relative;
+  right:60px;
 }
 .Header-Icon i{
   font-size:40px !important;
   position:relative;
   top:10px;
-  right:0px;
+  right:40px;
 }
 .Icon-Child i{
   font-size:26px !important;
@@ -410,6 +436,7 @@ body{
   right:10px;
 }
 
+
 .Cover{
   object-fit:cover;
   height:100%;
@@ -505,6 +532,11 @@ body{
     width:calc(50% - 5px);
     padding-left:5px;
   }
+  .Third-Width-Full-Height{
+    width:100%;
+    height:auto;
+    
+  }
   .Half-Width-Full-Height{
     width:100%;
     height:auto;
@@ -518,21 +550,23 @@ body{
   .Half-Width-Full-Height:nth-of-type(2){
     margin-top:20px;
     width:100vw;
+  }
+  .Force-Half{
+    width:100vw;
+  }
+  .Force-Half input{
+    width:80vw !important;
   }
 }
 @media screen and (max-height:600px){
-  .Half-Width-Full-Height{
-    width:100%;
-    height:auto;
-    margin:0;
-  }
-  .Half-Width-Full-Height:first-of-type{
-    margin:50px 0px 0px 0px;
-    min-height:200px;
-    max-height:40vh;
-  }
-  .Half-Width-Full-Height:nth-of-type(2){
-    margin-top:20px;
+  .Third-Width-Full-Height{
     width:100vw;
+    max-height:40vh;
+    min-height:200px;
+  }
+  .Fill-Remaining-Thirds{
+    width:100vw;
+    height:auto;
+    min-height:500px;
   }
 }

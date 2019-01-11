@@ -59,10 +59,11 @@ export class Signup extends Component {
     render() {
         return (
             <div className="Just-Flex Darkgray-bg Fill-Height">
-                <div className="Half-Width-Full-Height">
+                <div className="Third-Width-Full-Height">
                     <img src={LoginImg} alt="Login Control" className="Cover" />
                 </div>
-                <div className="Half-Width-Full-Height ">
+                <div className="Fill-Remaining-Thirds">
+                <div className="Custom-Flex Force-Half Space-Around">
                     <FeatureHeader className="Darkgray-bg White-children Thicc White">
                         <BigHeader className="Very-Large">SIGN UP</BigHeader>
                         <br />
@@ -108,6 +109,7 @@ export class Signup extends Component {
                             </TextInput>
                             <StandardButton className="Red Bold White-bg" type="submit">SIGN UP</StandardButton>
                         </form>
+                    </div>
                     </div>
                 </div>
             </div>

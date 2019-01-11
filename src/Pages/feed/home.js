@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
-import { PageContainer, ContentFeatureComponent} from '../../Components/cards.js';
+import { PageContainer, ContentFeatureComponent } from '../../Components/cards.js';
 import { StaggerChildrenContent, LoadFade } from '../../Components/staticposes.js';
+import * as firebase from 'firebase/app';
 
+import 'firebase/auth';
 
-
-const GenerateHomeContent = ({current, items, total, rand}) => (
-        <div>
-            {items.slice(current, total).map(item => (
-                <LoadFade key={item.id}>
-                    <ContentFeatureComponent
-                        imageLink={"https://picsum.photos/" + rand(550, 650) + "/" + rand(550, 650) + "/?random"}
-                        key={item.id}
-                        title={item.title}
-                        description={item.body}
-                        day="14"
-                        month="04"
-                        year="2019"
-                        hour="2"
-                        min="40"
-                        ampm="PM"/>
-                </LoadFade>
-            ))}
-            </div>
+const GenerateHomeContent = ({ current, items, total, rand }) => (
+    <div>
+        {items.slice(current, total).map(item => (
+            <LoadFade key={item.id}>
+                <ContentFeatureComponent
+                    imageLink={"https://picsum.photos/" + rand(550, 650) + "/" + rand(550, 650) + "/?random"}
+                    key={item.id}
+                    title={item.title}
+                    description={item.body}
+                    day="14"
+                    month="04"
+                    year="2019"
+                    hour="2"
+                    min="40"
+                    ampm="PM" />
+            </LoadFade>
+        ))}
+    </div>
 );
 
 export class Home extends Component {
@@ -36,12 +37,9 @@ export class Home extends Component {
             total: 15,
         };
     }
-    
-    componentWillMount() {
-
-    }
 
     componentDidMount() {
+        
         window.scrollTo(0, 0);
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then(res => res.json())
@@ -63,18 +61,18 @@ export class Home extends Component {
     }
 
     toggleLoadAnimations = () => (this.setState({ loadAnimations: true }));
-    getRandomArbitrary = (min, max) => {return Math.round(Math.random() * (max - min) + min)}
+    getRandomArbitrary = (min, max) => { return Math.round(Math.random() * (max - min) + min) }
     render() {
         const { loadAnimations, error, isLoaded, items, current, total } = this.state;
         if (error) {
             return <div>Sorry, Headlinerr has a bad sound guy!<br />Error: {error.message}</div>;
         } else if (!isLoaded) {
-            return <div><br/><br/><br/><br/><br/>Loading...</div>;
+            return <div><br /><br /><br /><br /><br />Loading...</div>;
         } else {
             return (
                 <PageContainer>
                     <StaggerChildrenContent pose={loadAnimations ? 'open' : 'closed'}>
-                        <GenerateHomeContent items={items} current={current} total={total} rand={this.getRandomArbitrary}/>
+                        <GenerateHomeContent items={items} current={current} total={total} rand={this.getRandomArbitrary} />
                         <p>Scroll support coming soon I guess.</p>
                     </StaggerChildrenContent>
                 </PageContainer>

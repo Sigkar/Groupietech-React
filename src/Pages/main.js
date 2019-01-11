@@ -7,6 +7,7 @@ import LoginImage from '../Images/login-comp.jpeg';
 import firebase from "firebase/app";
 
 
+
 class NavBar extends Component {
     render() {
         return (
@@ -20,6 +21,68 @@ class NavBar extends Component {
                 <NavItem navState={this.props.navState} link="/discover" navIcon="track_changes" navTitle="FIND BANDS" />
             </div>
         )
+    }
+}
+
+class HeaderOption extends Component {
+    constructor(props) {
+        super(props)
+        this.state = ({
+            isSignedIn: false
+        });
+    }
+    componentDidMount() {
+        var user = firebase.auth().currentUser;
+        if (user !== null || user) {
+            console.log(user);
+            console.log("User is signed in");
+            this.state = ({ isSignedIn: true });
+        } else {
+            console.log(user);
+            console.log("User shouldnt be signed in");
+            this.state = ({ isSignedIn: false });
+        }
+    }
+    logOutAccount = () => {
+        firebase.auth().signOut().then(function () {
+            console.log("Sign-out successful.");
+            setTimeout(function () {
+                window.location.reload();
+            }, 2000);
+        }, function (error) {
+            console.log("Couldn't sign you out");
+        });
+    }
+    render() {
+        const { isSignedIn } = this.state;
+        if (isSignedIn) {
+            return (
+
+                <span id="Header-Options">
+                    <HeaderButton className="Account-Logged" onClick={this.logOutAccount}>
+                        LOG OUT
+                    </HeaderButton>
+                    <Link to="/profile">
+                        <HeaderIcon iconOption="account_circle" classOption="Darkgray-children Header-Icon" />
+                    </Link>
+                </span>
+            )
+        } else {
+            return (
+                <span id="Header-Options">
+                    <Link to="/signup">
+                        <HeaderButton>
+                            SIGN UP
+                        </HeaderButton>
+                    </Link>
+                    <Link to="/signin">
+                        <HeaderButton>
+                            SIGN IN
+                    </HeaderButton>
+                    </Link>
+                </span>
+            )
+        }
     }
 }
 
@@ -41,7 +104,8 @@ export class Main extends Component {
         firebase.initializeApp(config);
     }
     render() {
-        const { isOpen, navigationOption, signup, signin } = this.state;
+        const { isOpen, navigationOption, signup, signin, isSignedIn } = this.state;
+
         return (
             <div className="App">
                 <div className="App-header">
@@ -70,21 +134,7 @@ export class Main extends Component {
                                 </OpenCloseButton>
 
                                 <HeaderButtonContainer>
-                                    <Link to="/signup">
-                                        <HeaderButton>
-                                            SIGN UP
-                                        </HeaderButton>
-                                    </Link>
-                                    <Link to="/signin">
-                                        <HeaderButton>
-                                            SIGN IN
-                                        </HeaderButton>
-                                    </Link>
-                                    {/* <HoverScale>
-                                        <Link to="/profile">
-                                            <HeaderIcon iconOption="account_circle" classOption="Darkgray-children Header-Icon" />
-                                        </Link>
-                                    </HoverScale> */}
+                                    <HeaderOption />
                                 </HeaderButtonContainer>
                             </div>
                             <div className="Nav-Container">
