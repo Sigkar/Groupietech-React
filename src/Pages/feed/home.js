@@ -6,10 +6,9 @@ import React, { Component } from 'react';
 
 
 //Firebase Authentication
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 // Design
-import MaterialIcon from 'material-icons-react';
 import { PageContainer, ContentFeatureComponent } from '../../Components/cards.js';
 import { StaggerChildrenContent, LoadFade } from '../../Components/staticposes.js';
 

@@ -114,9 +114,14 @@ p, li{
 
 .Third-Width-Full-Height{
   width:33vw;
-  height:calc(100vh - 65px);
-  margin:60px 0px 0px 0px;
-  float:left;
+  position:Relative;
+  top:60px;
+  overflow-y:hidden;
+  height:calc(100vh - 60px);
+}
+.Third-Width-Full-Height *{
+  margin:0;
+  padding:0;
 }
 .Fill-Remaining-Thirds{
   margin-left:2vw;
@@ -550,7 +555,7 @@ body{
   .Third-Width-Full-Height{
     width:100%;
     height:auto;
-    
+    top:50px;
   }
   .Half-Width-Full-Height{
     width:100%;
@@ -580,6 +585,7 @@ body{
     width:100vw;
     max-height:40vh;
     min-height:200px;
+    top:50px;
   }
   .Fill-Remaining-Thirds{
     width:100vw;
@@ -587,6 +593,9 @@ body{
     min-height:500px;
   }
 }
+
+
+
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {
     -webkit-transform: rotate(0deg);
