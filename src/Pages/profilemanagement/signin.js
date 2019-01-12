@@ -33,50 +33,58 @@ export class SignIn extends Component {
             [name]: value
         });
     }
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
         event.stopPropagation();
-        console.log(this.state.email);
-        console.log(this.state.password);
-        
-        let user = this.signInUser();
-        console.log(user);
-        if(!user){
-            this.setState({
-                message: 'Username or Password Incorrect',
-                messageOpen: true,
-            });
-            return false;
-        }else{
-            this.setState({
-                message: 'You will be redirected',
-                messageOpen: true,
-            })
-            setTimeout(function(){
-                setTimeout("location.href = '/';",1500);
-            },2500);
+        var message = null;
+        message = await this.signInUser(this.state.email, this.state.password).then(function(Response){
+            console.log(Response);
+            if(Response !== undefined){
+                return true;
+            }else{
+                return false;
+            }
+        }).catch(function(error){
+            throw error;
+        });
+        if (!message) {
+            this.setMessage("Username or Password is Incorrect");
+        } else {
+            this.setMessage("You will be redirected");
+            setTimeout(function () { window.location = "/" }, 1500);
         }
     }
-    signInUser() {
-        var errorMessage;
-        var email = this.state.email;
-        var password = this.state.password;
-        firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-            .then(function () {
-                return firebase.auth().signInWithEmailAndPassword(email, password);
-            })
-            .catch(function (error) {
-                console.log(error);
-                return false;
-            })
+    setMessage(_message) {
+        this.setState({
+            message: _message,
+            messageOpen: true,
+        })
+    }
+    async signInUser(email, password) {
+        return new Promise(function (resolve) {
+            
+            firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+                .then(function () {
+                    var authenticate = firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error){
+                        resolve(false, error);
+                    });
+                    resolve(authenticate);
+                    
+                })
+                .catch(function (error) {
+                    resolve(false, error);
+                })
+        }).catch(function(error){
+            throw error;
+        })
     };
 
-    friendlyMessageToggle = () => (this.state.messageOpen ? this.setState({ messageOpen: false }) : this.setState({ messageOpen: true }), setTimeout(function(){this.setState({openMessage: false})},3000));
+    friendlyMessageToggle = () => (this.state.messageOpen ? this.setState({ messageOpen: false }) : this.setState({ messageOpen: true }), setTimeout(function () { this.setState({ openMessage: false }) }, 3000));
     render() {
         const { messageOpen, message } = this.state;
         return (
             <div className="Just-Flex Darkgray-bg Fill-Height">
-                <ReturnMessage message={message} functionOption={messageOpen ? "open" : "closed"}/>
+                <ReturnMessage message={message} functionOption={messageOpen ? "open" : "closed"} />
                 <div className="Third-Width-Full-Height">
                     <img src={LoginImg} alt="Login Control" className="Cover" />
                 </div>
