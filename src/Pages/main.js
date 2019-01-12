@@ -33,6 +33,7 @@ class HeaderOption extends Component {
             userState: [],
         });
     }
+    
     componentWillMount() {
         getUserStatus().then((Response) => {
             this.setState({ checkingAuth: false, userState: Response });

@@ -182,12 +182,10 @@ export const CoverThis = styled.div`
     }
 `
 
-export const ReturnMessage = ({ message, functionOption }) => (
-    <FadeDelay pose={functionOption}>
-        <FriendlyMessage className="alert Pink-bg White-children" pose={functionOption}>
-            {message}
-        </FriendlyMessage>
-    </FadeDelay>
+export const ReturnMessage = ({ message, functionOption, _pose }) => (
+    <FriendlyMessage className="alert Pink-bg White-children" pose={_pose} onClick={functionOption}>
+        {message}
+    </FriendlyMessage>
 )
 
 export class ModalOverlay extends Component {
