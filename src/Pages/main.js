@@ -29,51 +29,65 @@ class HeaderOption extends Component {
     constructor(props) {
         super(props)
         this.state = ({
-            isSignedIn: false
+            checkingAuth: true,
+            userState: [],
         });
     }
-    componentDidMount() {
-        getUserStatus();
+    componentWillMount() {
+        getUserStatus().then((Response) => {
+            this.setState({ checkingAuth: false, userState: Response });
+        }).catch(function(error){
+            console.log(error);
+        });
+    }
+    componentWillUnmount(){
+        this.state = ({
+            checkingAuth: false,
+        })
     }
     logOutAccount = () => {
         firebase.auth().signOut().then(function () {
             console.log("Sign-out successful.");
             setTimeout(function () {
                 window.location.reload();
-            }, 2000);
+            }, 1000);
         }, function (error) {
             console.log("Couldn't sign you out");
         });
     }
     render() {
-        const isSignedIn = getUserStatus();
-        console.log(isSignedIn);
-        if (isSignedIn !== null) {
-            return (
-
-                <span id="Header-Options">
-                    <HeaderButton className="Account-Logged" onClick={this.logOutAccount}>
-                        LOG OUT
-                    </HeaderButton>
-                    <Link to="/profile">
-                        <HeaderIcon iconOption="account_circle" classOption="Darkgray-children Header-Icon" />
-                    </Link>
-                </span>
-            )
-        } else {
-            return (
-                <span id="Header-Options">
-                    <Link to="/signup">
-                        <HeaderButton>
-                            SIGN UP
+        const { checkingAuth, userState } = this.state;
+        if (checkingAuth || userState !== []) {
+            if (userState) {
+                return (
+                    <span id="Header-Options">
+                        <HeaderButton className="Account-Logged" onClick={this.logOutAccount}>
+                            LOG OUT
                         </HeaderButton>
-                    </Link>
-                    <Link to="/signin">
-                        <HeaderButton>
-                            SIGN IN
+                        <Link to="/profile">
+                            <HeaderIcon iconOption="account_circle" classOption="Darkgray-children Header-Icon" />
+                        </Link>
+                    </span>
+                )
+            } else {
+                return (
+                    <span id="Header-Options">
+                        <Link to="/signup">
+                            <HeaderButton>
+                                SIGN UP
+                        </HeaderButton>
+                        </Link>
+                        <Link to="/signin">
+                            <HeaderButton>
+                                SIGN IN
                     </HeaderButton>
-                    </Link>
-                </span>
+                        </Link>
+                    </span>
+                )
+            }
+        }else{
+            return(
+                <div></div>
             )
         }
     }

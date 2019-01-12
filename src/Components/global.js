@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import {PopFromNothing } from '../Components/staticposes.js';
-import {FunctionIcon} from './navigation.js';
+import { PopFromNothing } from '../Components/staticposes.js';
+import { FunctionIcon } from './navigation.js';
+import {FriendlyMessage, FadeDelay} from './staticposes.js';
+
 export const StandardButton = styled.button`
     outline:none;
     height:45px;
@@ -180,15 +182,23 @@ export const CoverThis = styled.div`
     }
 `
 
-export class ModalOverlay extends Component{
+export const ReturnMessage = ({ message, functionOption }) => (
+    <FadeDelay pose={functionOption}>
+        <FriendlyMessage className="alert Pink-bg White-children" pose={functionOption}>
+            {message}
+        </FriendlyMessage>
+    </FadeDelay>
+)
 
-    render(){
-        return(
+export class ModalOverlay extends Component {
+
+    render() {
+        return (
             <Overlay>
                 <PopFromNothing>
                     <LogModal className="White-bg">
                         <HalfModal className="Half-Modal  ModalImage">
-                        <img src={this.props.leftimg} alt="Login" className="Cover Left-Radii"/>
+                            <img src={this.props.leftimg} alt="Login" className="Cover Left-Radii" />
                         </HalfModal>
                         <HalfModal className="Half-Modal">
                             <h2 className="Center-Title Red">{this.props.title}</h2>

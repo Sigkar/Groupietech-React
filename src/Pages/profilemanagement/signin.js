@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
 import { FeatureHeader } from '../../Components/cards.js';
-import { TextInput, StandardButton } from '../../Components/global.js';
+import { TextInput, StandardButton, ReturnMessage } from '../../Components/global.js';
 import { BigHeader } from '../../Components/content.js';
 import LoginImg from '../../Images/login-comp.jpeg';
 
-import { FriendlyMessage } from '../../Components/staticposes.js';
 
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -37,10 +36,11 @@ export class SignIn extends Component {
     handleSubmit(event) {
         event.preventDefault();
         event.stopPropagation();
-        console.log(this.state.password);
         console.log(this.state.email);
+        console.log(this.state.password);
         
-        var user = this.signInUser();
+        let user = this.signInUser();
+        console.log(user);
         if(!user){
             this.setState({
                 message: 'Username or Password Incorrect',
@@ -58,25 +58,25 @@ export class SignIn extends Component {
         }
     }
     signInUser() {
-        var errorMessage
+        var errorMessage;
+        var email = this.state.email;
+        var password = this.state.password;
         firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
             .then(function () {
-                return firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password);
+                return firebase.auth().signInWithEmailAndPassword(email, password);
             })
             .catch(function (error) {
-                errorMessage = error.message;
+                console.log(error);
+                return false;
             })
-            return false;
     };
 
-    friendlyMessageToggle = () => (this.state.messageOpen ? this.setState({ messageOpen: false }) : this.setState({ messageOpen: true }));
+    friendlyMessageToggle = () => (this.state.messageOpen ? this.setState({ messageOpen: false }) : this.setState({ messageOpen: true }), setTimeout(function(){this.setState({openMessage: false})},3000));
     render() {
         const { messageOpen, message } = this.state;
         return (
             <div className="Just-Flex Darkgray-bg Fill-Height">
-                <FriendlyMessage className="alert Pink-bg White-children" pose={messageOpen ? "open" : "closed"}>
-                    {message}
-                </FriendlyMessage>
+                <ReturnMessage message={message} functionOption={messageOpen ? "open" : "closed"}/>
                 <div className="Third-Width-Full-Height">
                     <img src={LoginImg} alt="Login Control" className="Cover" />
                 </div>

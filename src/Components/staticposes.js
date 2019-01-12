@@ -15,7 +15,14 @@ export const FriendlyMessage = posed.div({
         }
     }
 })
-
+export const FadeDelay = posed.div({
+    open: {
+        opacity: 0,
+        transition:{
+            delay: 3000,
+        },
+    }
+})
 export const HoverScale = posed.div({
     hoverable: true,
     init: { scale: 1 },
