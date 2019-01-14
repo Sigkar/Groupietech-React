@@ -5,7 +5,7 @@ import { Popout, SwapVisible, Fade, HideOnToggle, OpenCloseButton, StaggerPauseT
 import { HeaderButtonContainer, ModalOverlay, HeaderButton } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
 import firebase from "firebase/app";
-import { getUserStatus } from './profilemanagement/getAuthStatus.js';
+import { getUserStatus } from '../async.js/getAuthStatus.js';
 
 
 
@@ -28,10 +28,10 @@ class NavBar extends Component {
 class HeaderOption extends Component {
     constructor(props) {
         super(props)
-        this.state = ({
+        this.state = {
             checkingAuth: true,
             userState: [],
-        });
+        };
     }
     
     componentWillMount() {
@@ -42,7 +42,7 @@ class HeaderOption extends Component {
         });
     }
     componentWillUnmount(){
-        this.state = ({
+        this.setState({
             checkingAuth: false,
         })
     }

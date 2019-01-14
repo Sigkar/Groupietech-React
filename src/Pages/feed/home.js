@@ -20,7 +20,7 @@ const GenerateHomeContent = ({ current, items, total, rand }) => (
         {items.slice(current, total).map(item => (
             <LoadFade key={item.id}>
                 <ContentFeatureComponent
-                    imageLink={"https://picsum.photos/" + rand(550, 650) + "/" + rand(550, 650) + "/?random"}
+                    //imageLink={"https://picsum.photos/" + rand(550, 650) + "/" + rand(550, 650) + "/?random"}
                     key={item.id}
                     title={item.title}
                     description={item.body}
@@ -36,7 +36,6 @@ const GenerateHomeContent = ({ current, items, total, rand }) => (
 );
 
 export class Home extends Component {
-    state = { loadAnimations: false }
     constructor(props) {
         super(props);
         this.state = {
@@ -45,6 +44,7 @@ export class Home extends Component {
             items: [],
             current: 0,
             total: 15,
+            loadAnimations: false,
         };
     }
 
@@ -54,13 +54,20 @@ export class Home extends Component {
         db.settings({
             timestampsInSnapshots: true
         });
-        db.collection("posts").get().then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`);
-                const data = doc.data();
-                console.log(data);
-            });
+        
+        const homeData = db.collection("posts").get().then((querySnapshot)=> {
+                return querySnapshot;
         });
+
+        console.log(homeData);
+        // console.log();
+        // db.collection("posts").get().then((querySnapshot) => {
+        //     querySnapshot.forEach((doc) => {
+        //         console.log(`${doc.id} => ${doc.data()}`);
+        //         const data = doc.data();
+        //         console.log(data);
+        //     });
+        // });
         window.scrollTo(0, 0);
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then(res => res.json())
