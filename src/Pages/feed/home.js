@@ -5,13 +5,17 @@ import React, { Component } from 'react';
 //import { createStore } from 'redux';
 
 
-//Firebase Authentication
+//Firebase
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import "firebase/firestore";
+
+import {_getCollection} from '../../async/getCollection.js';
+
 // Design
 import { PageContainer, ContentFeatureComponent } from '../../Components/cards.js';
 import { StaggerChildrenContent, LoadFade } from '../../Components/staticposes.js';
+import LoginImage from '../../Images/login-comp.jpeg';
 
 //const store = createStore;
 
@@ -20,7 +24,7 @@ const GenerateHomeContent = ({ current, items, total, rand }) => (
         {items.slice(current, total).map(item => (
             <LoadFade key={item.id}>
                 <ContentFeatureComponent
-                    //imageLink={"https://picsum.photos/" + rand(550, 650) + "/" + rand(550, 650) + "/?random"}
+                    imageLink={LoginImage}
                     key={item.id}
                     title={item.title}
                     description={item.body}
@@ -47,7 +51,6 @@ export class Home extends Component {
             loadAnimations: false,
         };
     }
-
     componentDidMount() {
 
         let db = firebase.firestore();
@@ -55,19 +58,8 @@ export class Home extends Component {
             timestampsInSnapshots: true
         });
         
-        const homeData = db.collection("posts").get().then((querySnapshot)=> {
-                return querySnapshot;
-        });
+        _getCollection("posts").then(response => console.log(response));
 
-        console.log(homeData);
-        // console.log();
-        // db.collection("posts").get().then((querySnapshot) => {
-        //     querySnapshot.forEach((doc) => {
-        //         console.log(`${doc.id} => ${doc.data()}`);
-        //         const data = doc.data();
-        //         console.log(data);
-        //     });
-        // });
         window.scrollTo(0, 0);
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then(res => res.json())

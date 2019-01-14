@@ -19,8 +19,6 @@ export class SignIn extends Component {
             messageOpen: false
         };
         this.baseState = this.state;
-
-
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -28,7 +26,6 @@ export class SignIn extends Component {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
-
         this.setState({
             [name]: value
         });
@@ -50,8 +47,7 @@ export class SignIn extends Component {
             setTimeout(function () { window.location = "/" }, 1500);
         }
     }
-    // This should be rewritten when I have time
-    async signInUser(email, password) {
+    signInUser(email, password) {
         return new Promise(function (resolve) {
             firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(function () {
                 const auth = firebase.auth().signInWithEmailAndPassword(email, password).catch(function (e) { console.assert(e)});

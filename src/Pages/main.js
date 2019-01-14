@@ -5,7 +5,7 @@ import { Popout, SwapVisible, Fade, HideOnToggle, OpenCloseButton, StaggerPauseT
 import { HeaderButtonContainer, ModalOverlay, HeaderButton } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
 import firebase from "firebase/app";
-import { getUserStatus } from '../async.js/getAuthStatus.js';
+import { getUserStatus } from '../async/getAuthStatus.js';
 
 
 
