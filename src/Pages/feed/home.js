@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 //Firebase Authentication
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import "firebase/firestore";
 // Design
 import { PageContainer, ContentFeatureComponent } from '../../Components/cards.js';
 import { StaggerChildrenContent, LoadFade } from '../../Components/staticposes.js';
@@ -48,7 +49,18 @@ export class Home extends Component {
     }
 
     componentDidMount() {
-        
+
+        let db = firebase.firestore();
+        db.settings({
+            timestampsInSnapshots: true
+        });
+        db.collection("posts").get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data()}`);
+                const data = doc.data();
+                console.log(data);
+            });
+        });
         window.scrollTo(0, 0);
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then(res => res.json())
@@ -68,6 +80,26 @@ export class Home extends Component {
                 }
             )
     }
+    // makeRandomData(){
+    //     let _seconds = new Date() / 1000;
+    //     let db = firebase.firestore();
+    //     let r = Math.random().toString(36).substring(7);
+    //     let _hearts = 0;
+    //     let _posted_by = "Randombot";
+    //     let _text = r+r+r+r+r+r+r+r;
+    //     let _title = r;
+    //     let _created_at = _seconds;
+    //     let _updated_at = _seconds;
+    //     db.collection("posts").add({
+    //         text: _text,
+    //         title: _title,
+    //         created_at: _created_at,
+    //         updated_at: _updated_at,
+    //         posted_by: _posted_by,
+    //         hearts: _hearts
+    //     });
+    //     console.log("Created data.");
+    // }
     toggleLoadAnimations = () => (this.setState({ loadAnimations: true }));
     getRandomArbitrary = (min, max) => { return Math.round(Math.random() * (max - min) + min) }
     render() {

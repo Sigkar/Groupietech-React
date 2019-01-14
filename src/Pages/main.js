@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle, HeaderIcon } from '../Components/navigation.js';
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { Popout, SwapVisible, Fade, HoverScale, OpenCloseButton, StaggerPauseThenQuick } from '../Components/staticposes.js';
+import { Popout, SwapVisible, Fade, HideOnToggle, OpenCloseButton, StaggerPauseThenQuick } from '../Components/staticposes.js';
 import { HeaderButtonContainer, ModalOverlay, HeaderButton } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
 import firebase from "firebase/app";
@@ -101,7 +101,7 @@ export class Main extends Component {
     openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true }));
     openSignin = () => (this.state.signin ? this.setState({ signin: false }) : this.setState({ signup: true }));
     componentWillMount() {
-        var config = {
+        let config = {
             apiKey: "AIzaSyCfmatyhFmtKBLrQc0HMUWk59cmEkbKRrg",
             authDomain: "groupietech.firebaseapp.com",
             databaseURL: "https://groupietech.firebaseio.com",
@@ -135,16 +135,18 @@ export class Main extends Component {
                     <Router>
                         <div id="Complete-App">
                             <div className="Header-Bar">
+                            
                                 <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
-                                    <FunctionIcon navIcon="menu" classOption="Open-Menu Darkgray-children" functionOption={this.toggle} />
+                                    <FunctionIcon navIcon="menu" classOption="Open-Menu Darkgray-children Always-top" functionOption={this.toggle} />
                                 </SwapVisible>
                                 <OpenCloseButton pose={navigationOption ? 'open' : 'closed'}>
-                                    <FunctionIcon navIcon="chevron_left" classOption="Open-Menu Darkgray-children" functionOption={this.toggle} />
+                                    <FunctionIcon navIcon="chevron_left" classOption="Open-Menu Darkgray-children Always-top" functionOption={this.toggle} />
                                 </OpenCloseButton>
-
-                                <HeaderButtonContainer>
-                                    <HeaderOption />
-                                </HeaderButtonContainer>
+                                <HideOnToggle pose={navigationOption ? 'closed' : 'open'}>
+                                    <HeaderButtonContainer>
+                                            <HeaderOption />
+                                    </HeaderButtonContainer>
+                                </HideOnToggle>
                             </div>
                             <div className="Nav-Container">
                                 <Popout pose={isOpen ? 'open' : 'closed'}>

@@ -152,7 +152,25 @@ export const Fade = posed.div({
     closed: {
         opacity: 0,
         transition: {
-            duration: 50,
+            duration: 300,
         },
     }
 });
+export const HideOnToggle = posed.div({
+    open: {
+        opacity: 1,
+        x:'0px',
+        transition: {
+            delay: 200,
+            duration: 300,
+        },
+        delayChildren: 300
+    },
+    closed: {
+        opacity: 0,
+        x:'250px',
+        transition: {
+            duration: 300,
+        },
+    }
+})

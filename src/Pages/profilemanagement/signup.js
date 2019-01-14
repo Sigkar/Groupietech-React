@@ -60,7 +60,7 @@ export class Signup extends Component {
     }
     createUser = () => (
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
-            var errorMessage = error.message;
+            let errorMessage = error.message;
             this.setState({
                 message: errorMessage,
                 messageOpen: true,
