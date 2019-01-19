@@ -8,7 +8,9 @@ import firebase from "firebase/app";
 import { getUserStatus } from '../async/getAuthStatus.js';
 
 
-
+class CreatePost extends Component{
+    
+}
 class NavBar extends Component {
     render() {
         return (
@@ -95,7 +97,7 @@ class HeaderOption extends Component {
 }
 
 export class Main extends Component {
-    state = { isOpen: false, navigationOption: false, signup: false, signin: false };
+    state = { isOpen: false, navigationOption: false, signup: false, signin: false, checkingAuth: false, userState: '' };
     // eslint-disable-next-line
     toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: false }) : this.setState({ navigationOption: true }));
     openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true }));
@@ -110,7 +112,11 @@ export class Main extends Component {
             messagingSenderId: "1071869820233"
         };
         firebase.initializeApp(config);
-        let user = getUserStatus();
+        getUserStatus().then((Response) => {
+            this.setState({ checkingAuth: false, userState: Response });
+        }).catch(function(error){
+            console.log(error);
+        });
     }
     render() {
         const { isOpen, navigationOption, signup, signin, isSignedIn } = this.state;
