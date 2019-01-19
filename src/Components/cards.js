@@ -244,7 +244,7 @@ export class ContentFeatureComponent extends Component {
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow">
                         <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">
-                            {this.props.month}/{this.props.day}/{this.props.year} - {this.props.hour}:{this.props.min} {this.props.ampm}
+                            {this.props.day}
                         </HalfContain>
                         <img src={this.props.imageLink} alt="Something something required" className="Cover" />
                     </div>
