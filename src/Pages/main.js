@@ -8,8 +8,8 @@ import firebase from "firebase/app";
 import { getUserStatus } from '../async/getAuthStatus.js';
 
 
-class CreatePost extends Component{
-    
+class CreatePost extends Component {
+
 }
 class NavBar extends Component {
     render() {
@@ -35,15 +35,15 @@ class HeaderOption extends Component {
             userState: [],
         };
     }
-    
+
     componentWillMount() {
         getUserStatus().then((Response) => {
             this.setState({ checkingAuth: false, userState: Response });
-        }).catch(function(error){
+        }).catch(function (error) {
             console.log(error);
         });
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.setState({
             checkingAuth: false,
         })
@@ -88,8 +88,8 @@ class HeaderOption extends Component {
                     </span>
                 )
             }
-        }else{
-            return(
+        } else {
+            return (
                 <div></div>
             )
         }
@@ -103,23 +103,14 @@ export class Main extends Component {
     openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true }));
     openSignin = () => (this.state.signin ? this.setState({ signin: false }) : this.setState({ signup: true }));
     componentWillMount() {
-        let config = {
-            apiKey: "AIzaSyCfmatyhFmtKBLrQc0HMUWk59cmEkbKRrg",
-            authDomain: "groupietech.firebaseapp.com",
-            databaseURL: "https://groupietech.firebaseio.com",
-            projectId: "groupietech",
-            storageBucket: "groupietech.appspot.com",
-            messagingSenderId: "1071869820233"
-        };
-        firebase.initializeApp(config);
         getUserStatus().then((Response) => {
             this.setState({ checkingAuth: false, userState: Response });
-        }).catch(function(error){
+        }).catch(function (error) {
             console.log(error);
         });
     }
     render() {
-        const { isOpen, navigationOption, signup, signin, isSignedIn } = this.state;
+        const { isOpen, navigationOption, signup, signin, checkingAuth, userState } = this.state;
 
         return (
             <div className="App">
@@ -141,7 +132,7 @@ export class Main extends Component {
                     <Router>
                         <div id="Complete-App">
                             <div className="Header-Bar">
-                            
+
                                 <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
                                     <FunctionIcon navIcon="menu" classOption="Open-Menu Darkgray-children Always-top" functionOption={this.toggle} />
                                 </SwapVisible>
@@ -150,7 +141,7 @@ export class Main extends Component {
                                 </OpenCloseButton>
                                 <HideOnToggle pose={navigationOption ? 'closed' : 'open'}>
                                     <HeaderButtonContainer>
-                                            <HeaderOption />
+                                        <HeaderOption />
                                     </HeaderButtonContainer>
                                 </HideOnToggle>
                             </div>

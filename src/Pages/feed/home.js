@@ -10,6 +10,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import "firebase/firestore";
 
+import { getUserStatus } from '../../async/getAuthStatus.js';
 import { _getCollection } from '../../async/getCollection.js';
 
 // Design
@@ -51,7 +52,16 @@ export class Home extends Component {
             loadAnimations: false,
             loadComplete: false,
             offset: new Date().getTimezoneOffset(),
+            userState: '',
+            checkingAuth: false,
         };
+    }
+    componentWillMount(){
+        getUserStatus().then((Response) => {
+            this.setState({ checkingAuth: false, userState: Response });
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
     componentDidMount() {
 
@@ -80,12 +90,12 @@ export class Home extends Component {
     toggleLoadAnimations = () => (this.setState({ loadAnimations: true }));
     getRandomArbitrary = (min, max) => { return Math.round(Math.random() * (max - min) + min) }
     render() {
-        const { loadAnimations, error, isLoaded, items, current, total, offset } = this.state;
+        const { loadAnimations, error, isLoaded, items, current, total, offset, userState, checkingAuth } = this.state;
         if (error) {
             return <div>Sorry, Headlinerr has a bad sound guy!<br />Error: {error.message}</div>;
-        } else if (!isLoaded) {
+        } else if (!isLoaded || checkingAuth) {
             return <div className="Loading">Loading</div>
-        } else {
+        } else if (isLoaded && !checkingAuth && userState){
             return (
                 <PageContainer>
                     <StaggerChildrenContent pose={loadAnimations ? 'open' : 'closed'}>
@@ -94,6 +104,8 @@ export class Home extends Component {
                     </StaggerChildrenContent>
                 </PageContainer>
             )
+        }else{
+            return <div className="Loading">Sign up, or sign in, to see great stuff!</div>
         }
     }
 }
