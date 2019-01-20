@@ -34,28 +34,44 @@ class HomeContent extends Component {
             post,
             'MMM DD YYYY h:mm a'
         );
-        console.log(result);
         return result;
     }
 
     render() {
         return (
-            this.props.items.slice(0, 5).map(item => (
-                <LoadFade key={item.id}>
-                    <ContentFeatureComponent
-                        imageLink={LoginImage}
-                        key={item.content.id}
-                        title={item.content.title}
-                        description={item.content.text}
-                        date={this.getDateFormat(item.content.created_at)}
-                        offset={this.getDateWords(item.content.created_at)} />
-                </LoadFade>
-                )
-            )
+            this.props.items.map((item) => (
+                item['content']['postdata'].map((doc, key) => (
+                    <LoadFade key={key}>
+                        <ContentFeatureComponent
+                            key={key+1}
+                            imageLink={LoginImage}
+                            title={doc.title}
+                            description={doc.desc}
+                            date={this.getDateFormat(doc.tup.seconds)}
+                            offset={this.getDateFormat(doc.tup.seconds)}
+                            user={doc.posted_by}
+                        />
+                    </LoadFade>
+                ))
+            ))
         )
     }
 }
-
+                    // <LoadFade>
+                    //     <ContentFeatureComponent
+                    //         imageLink={LoginImage}
+                    //         title={item.title}
+                    //     />
+                    // </LoadFade>
+                // <LoadFade key={item.id}>
+                //     <ContentFeatureComponent
+                //         imageLink={LoginImage}
+                //         key={item.content.id}
+                //         title={item.content.title}
+                //         description={item.content.text}
+                //         date={this.getDateFormat(item.content.created_at)}
+                //         offset={this.getDateWords(item.content.created_at)} />
+                // </LoadFade>
 export class Home extends Component {
     constructor(props) {
         super(props);

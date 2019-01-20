@@ -304,7 +304,7 @@ export class ContentFeatureComponent extends Component {
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow Limit-At-Media">
                         <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">
-                            <ProfPic /> <p>USERNAME - <span className="CAPS">{this.props.offset}</span></p>
+                            <ProfPic /> <p>{this.props.user} - <span className="CAPS">{this.props.offset}</span></p>
                         </HalfContain>
                         <img src={this.props.imageLink} alt="Something something required" className="Cover" />
                     </div>
