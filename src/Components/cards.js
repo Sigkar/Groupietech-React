@@ -160,14 +160,31 @@ export const PageContainer = styled.div`
 export const HalfContain = styled.div`
     position:absolute;
     top:0px;
-    left:0px;
     width:Auto;
-    min-width:25%;
-    height:18px;
+
     border-bottom:4px solid;
     padding-top:5px;
     padding-bottom:5px;
-    text-align:center
+    vertical-align:center;
+    padding-right:10px;
+    h4{
+        font-size:10px;
+        margin:0;
+        padding:0;
+    }
+    span{
+        min-width:calc(100% - 30px);
+        display:inline;
+        text-align:right;
+    }
+    @media screen and (max-width:800px){
+        padding-right:0px;
+        h4{
+            display:inline;
+            margin-left:15px;
+            line-height:30px;
+        }
+    }
 `;
 
 export const ProfileBlock = styled.div`
@@ -193,6 +210,14 @@ export const ProfileBlock = styled.div`
         margin:0;
     }
 `;
+export const ProfPic = styled.div`
+    width:30px;
+    height:30px;
+    float:left;
+    margin-left:5px;
+    position:Relative;
+    background:#fff;
+`
 export const LeftContentContainer = styled.section`
     width:70%;
     min-height:400px;
@@ -244,7 +269,7 @@ export class ContentFeatureComponent extends Component {
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow">
                         <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">
-                            {this.props.day}
+                            <ProfPic/> <span><h4>USERNAME</h4><h4>{this.props.date}</h4><h4>{this.props.offset}</h4></span>
                         </HalfContain>
                         <img src={this.props.imageLink} alt="Something something required" className="Cover" />
                     </div>

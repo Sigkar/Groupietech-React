@@ -1,4 +1,4 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/auth';
 
 async function getUserStatus () {
@@ -11,6 +11,7 @@ async function getUserStatus () {
           }
         });
       });
+      
 }
 
 export { getUserStatus };

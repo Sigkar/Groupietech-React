@@ -4,13 +4,10 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import { Popout, SwapVisible, Fade, HideOnToggle, OpenCloseButton, StaggerPauseThenQuick } from '../Components/staticposes.js';
 import { HeaderButtonContainer, ModalOverlay, HeaderButton } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
-import firebase from "firebase/app";
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import { getUserStatus } from '../async/getAuthStatus.js';
 
-
-class CreatePost extends Component {
-
-}
 class NavBar extends Component {
     render() {
         return (
@@ -27,27 +24,49 @@ class NavBar extends Component {
     }
 }
 
-class HeaderOption extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            checkingAuth: true,
-            userState: [],
-        };
-    }
+const HeaderOption = ({_checkingAuth, _userState, _functionOption}) => {
+   if(_checkingAuth || _userState !== []) {
 
-    componentWillMount() {
-        getUserStatus().then((Response) => {
-            this.setState({ checkingAuth: false, userState: Response });
-        }).catch(function (error) {
-            console.log(error);
-        });
+        if (_userState !== null) {
+            return (
+                <span id="Header-Options">
+                    <HeaderButton className="Account-Logged" onClick={_functionOption}>
+                        LOG OUT
+                        </HeaderButton>
+                    <Link to="/profile">
+                        <HeaderIcon iconOption="account_circle" classOption="Darkgray-children Header-Icon" />
+                    </Link>
+                </span>
+            )
+        } else {
+            return (
+                <span id="Header-Options">
+                    <Link to="/signup">
+                        <HeaderButton>
+                            SIGN UP
+                        </HeaderButton>
+                    </Link>
+                    <Link to="/signin">
+                        <HeaderButton>
+                            SIGN IN
+                    </HeaderButton>
+                    </Link>
+                </span>
+            )
+        }
+    } else {
+        return (
+            <div></div>
+        )
     }
-    componentWillUnmount() {
-        this.setState({
-            checkingAuth: false,
-        })
-    }
+};
+
+export class Main extends Component {
+    state = { isOpen: false, navigationOption: false, signup: false, signin: false, checkingAuth: false, userState: '' };
+    // eslint-disable-next-line
+    toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: false }) : this.setState({ navigationOption: true }));
+    openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true }));
+    openSignin = () => (this.state.signin ? this.setState({ signin: false }) : this.setState({ signup: true }));
     logOutAccount = () => {
         firebase.auth().signOut().then(function () {
             console.log("Sign-out successful.");
@@ -58,60 +77,13 @@ class HeaderOption extends Component {
             console.log("Couldn't sign you out");
         });
     }
-    render() {
-        const { checkingAuth, userState } = this.state;
-        if (checkingAuth || userState !== []) {
-            if (userState) {
-                return (
-                    <span id="Header-Options">
-                        <HeaderButton className="Account-Logged" onClick={this.logOutAccount}>
-                            LOG OUT
-                        </HeaderButton>
-                        <Link to="/profile">
-                            <HeaderIcon iconOption="account_circle" classOption="Darkgray-children Header-Icon" />
-                        </Link>
-                    </span>
-                )
-            } else {
-                return (
-                    <span id="Header-Options">
-                        <Link to="/signup">
-                            <HeaderButton>
-                                SIGN UP
-                        </HeaderButton>
-                        </Link>
-                        <Link to="/signin">
-                            <HeaderButton>
-                                SIGN IN
-                    </HeaderButton>
-                        </Link>
-                    </span>
-                )
-            }
-        } else {
-            return (
-                <div></div>
-            )
-        }
-    }
-}
-
-export class Main extends Component {
-    state = { isOpen: false, navigationOption: false, signup: false, signin: false, checkingAuth: false, userState: '' };
-    // eslint-disable-next-line
-    toggle = () => (this.state.isOpen ? this.setState({ isOpen: false }) : this.setState({ isOpen: true }), this.state.navigationOption ? this.setState({ navigationOption: false }) : this.setState({ navigationOption: true }));
-    openSignup = () => (this.state.signup ? this.setState({ signup: false }) : this.setState({ signup: true }));
-    openSignin = () => (this.state.signin ? this.setState({ signin: false }) : this.setState({ signup: true }));
-    componentWillMount() {
-        getUserStatus().then((Response) => {
-            this.setState({ checkingAuth: false, userState: Response });
-        }).catch(function (error) {
-            console.log(error);
-        });
+    componentDidMount() {
+        firebase.auth().onAuthStateChanged(user => this.setState({ userState: user, checkingAuth: false }))
+        console.log(this.state.userState);
     }
     render() {
         const { isOpen, navigationOption, signup, signin, checkingAuth, userState } = this.state;
-
+        console.log(this.state.userState);
         return (
             <div className="App">
                 <div className="App-header">
@@ -141,7 +113,7 @@ export class Main extends Component {
                                 </OpenCloseButton>
                                 <HideOnToggle pose={navigationOption ? 'closed' : 'open'}>
                                     <HeaderButtonContainer>
-                                        <HeaderOption />
+                                        <HeaderOption _checkngAuth={checkingAuth} _userState={userState} _functionOption={this.logOutAccount}/>
                                     </HeaderButtonContainer>
                                 </HideOnToggle>
                             </div>

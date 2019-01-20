@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import "firebase/firestore";
-
+import {distanceInWordsToNow, format} from 'date-fns';
 import { getUserStatus } from '../../async/getAuthStatus.js';
 import { _getCollection } from '../../async/getCollection.js';
 
@@ -19,28 +19,36 @@ import { StaggerChildrenContent, LoadFade } from '../../Components/staticposes.j
 import LoginImage from '../../Images/login-comp.jpeg';
 
 class HomeContent extends Component {
-    getStringDate = ( dateValue ) => {
-        let fullDateString = "";
-        let utcSeconds = dateValue;
-        let d = new Date(0);
-        d.setUTCSeconds(utcSeconds);
-        
-
-        fullDateString = (d.getMonth()+1).toString() + "/" + (d.getDay()+1).toString() + "/" + d.getFullYear().toString();
-
-        return fullDateString;
+    getDateWords = ( dateValue ) => {
+        let post = Math.round(new Date(dateValue).getTime() * 1000);
+        let result = distanceInWordsToNow(
+            post,
+            {addSuffix: true}
+        )
+        return result;
     }
+
+    getDateFormat = ( dateValue ) => {
+        let post = Math.round(new Date(dateValue).getTime() * 1000);
+        let result = format(
+            post,
+            'MMM DD YYYY h:mm a'
+        );
+        console.log(result);
+        return result;
+    }
+
     render() {
         return (
             this.props.items.slice(0, 5).map(item => (
-                console.log("In Props: " + item.content.created_at),
                 <LoadFade key={item.id}>
                     <ContentFeatureComponent
                         imageLink={LoginImage}
                         key={item.content.id}
                         title={item.content.title}
                         description={item.content.text}
-                        day={this.getStringDate(Math.ceil(item.content.created_at))} />
+                        date={this.getDateFormat(item.content.created_at)}
+                        offset={this.getDateWords(item.content.created_at)} />
                 </LoadFade>
                 )
             )
@@ -96,7 +104,6 @@ export class Home extends Component {
     toggleLoadAnimations = () => (this.setState({ loadAnimations: true }));
     getRandomArbitrary = (min, max) => { return Math.round(Math.random() * (max - min) + min) }
     render() {
-        console.log("Fuckin rendering again");
         const { loadAnimations, error, isLoaded, items, userState, checkingAuth } = this.state;
         if (error) {
             return <div>Sorry, Headlinerr has a bad sound guy!<br />Error: {error.message}</div>;
