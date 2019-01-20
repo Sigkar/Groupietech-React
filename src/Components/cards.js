@@ -54,8 +54,28 @@ export const TextContent = styled.section`
         margin-top:0px !important;
     }
 `
-
-
+export const PostData = styled.p`
+    text-align:left;
+    height:36px !important;
+    width:25%;
+    line-height:36px;
+    padding-left:5px;
+    display:inline;
+    text-transform: uppercase;
+    font-size:16px;
+`;
+export const ContainHeight = styled.div`
+    height: 36px !important;
+    width: auto;
+    float: left;
+    padding: 0px 10px;
+    border-top:4px solid;
+    @media screen and (max-width:800px){
+        width:100%;
+        padding:0;
+        text-align:center;
+    }
+`;
 export const FeatureHeader = styled.div`
     height:auto;
     min-height:24px;
@@ -121,6 +141,14 @@ export const FlexRight = styled.section`
     flex-wrap:wrap;
     flex-decoration: row;
     float:right;
+    @media screen and (max-width:800px){
+        width:100%;
+        justify-content:center;
+        *{
+            margin-left:3px;
+            margin-right:3px;
+        }
+    }
 `;
 
 export const ProfileTile = styled.section`
@@ -167,22 +195,29 @@ export const HalfContain = styled.div`
     padding-bottom:5px;
     vertical-align:center;
     padding-right:10px;
-    h4{
-        font-size:10px;
+    p{
+        font-size:14px;
         margin:0;
         padding:0;
-    }
-    span{
-        min-width:calc(100% - 30px);
+        margin-left:3px;
+        line-height:30px;
         display:inline;
-        text-align:right;
+        text-align:center;
+        :before{
+            content:" ";
+        }
     }
     @media screen and (max-width:800px){
         padding-right:0px;
-        h4{
-            display:inline;
-            margin-left:15px;
-            line-height:30px;
+        p{
+            text-align:Center;
+            width:100%;
+            position:absolute;
+            top:0px;
+            left:0px;
+
+            height:40px;
+            line-height:40px;
         }
     }
 `;
@@ -267,9 +302,9 @@ export class ContentFeatureComponent extends Component {
 
             <FeatureContent className="White-bg Heavy-Box-Shadow Feed-Content-Box">
                 <FlexContainer>
-                    <div className="White-bg Half-Feature Prevent-Overflow">
+                    <div className="White-bg Half-Feature Prevent-Overflow Limit-At-Media">
                         <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">
-                            <ProfPic/> <span><h4>USERNAME</h4><h4>{this.props.date}</h4><h4>{this.props.offset}</h4></span>
+                            <ProfPic /> <p>USERNAME - <span className="CAPS">{this.props.offset}</span></p>
                         </HalfContain>
                         <img src={this.props.imageLink} alt="Something something required" className="Cover" />
                     </div>
@@ -277,13 +312,17 @@ export class ContentFeatureComponent extends Component {
                         <FeatureTitle className="White Capitalize">{this.props.title}</FeatureTitle>
                         <BreakTitle />
                         <FeatureDesc className="White">{this.props.description}</FeatureDesc>
-
                         <div className="Feature-Image-Options Lightgray-bg Scroll-Y">
-                            <FlexRight>
-                                <PostOptions iconOption="chat_bubble_outline" />
-                                <PostOptions iconOption="share" />
-                                <PostOptions iconOption="report" />
-                            </FlexRight>
+                            <section className="Force-Inline">
+                                <ContainHeight className="Lighrgray-bg Solid-H-Border-Image">
+                                    <PostData className="White">{this.props.date}</PostData>
+                                </ContainHeight>
+                                <FlexRight>
+                                    <PostOptions iconOption="chat_bubble_outline" />
+                                    <PostOptions iconOption="share" />
+                                    <PostOptions iconOption="report" />
+                                </FlexRight>
+                            </section>
                         </div>
                     </div>
                 </FlexContainer>

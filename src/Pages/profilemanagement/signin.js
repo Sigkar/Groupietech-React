@@ -43,7 +43,7 @@ export class SignIn extends Component {
         if (respond === undefined || !respond) {
             this.setMessage("Username or Password is Incorrect")
         } else {
-            this.setMessage("You will be redirected");
+            this.setMessage("Welcome back! You will be redirected.");
             setTimeout(function () { window.location = "/" }, 1500);
         }
     }

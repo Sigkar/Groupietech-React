@@ -79,11 +79,19 @@ export class Main extends Component {
     }
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => this.setState({ userState: user, checkingAuth: false }))
-        console.log(this.state.userState);
     }
     render() {
         const { isOpen, navigationOption, signup, signin, checkingAuth, userState } = this.state;
-        console.log(this.state.userState);
+        if (userState != null && userState) {
+            try{
+                userState.providerData.forEach(function(e){
+                    console.log("UID: " + e.uid);
+                    console.log("Email: " + e.email);
+                })
+            }catch(error){
+                console.assert(error);
+            }
+          }
         return (
             <div className="App">
                 <div className="App-header">
