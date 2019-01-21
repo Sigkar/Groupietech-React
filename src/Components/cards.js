@@ -125,7 +125,7 @@ export const BreakTitle = styled.div`
     border:2px solid;
     height:0px;
     margin:0 auto;
-    border-image: linear-gradient(to top left, rgba(191, 63, 63, 1) 33.33%, rgba(10, 193, 255, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 5;
+    border-image: linear-gradient(to left, rgba(191, 63, 63, 1) 33.33%, rgba(10, 193, 255, 1) 66.66%, rgba(175, 0, 103, 1) 100%) 5;
 `;
 
 export const FlexContainer = styled.section`
@@ -304,13 +304,14 @@ export class ContentFeatureComponent extends Component {
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow Limit-At-Media">
                         <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">
-                            <ProfPic /> <p>{this.props.user} - <span className="CAPS">{this.props.offset}</span></p>
+                            <ProfPic /> <p><span className="CAPS">&mdash;{this.props.offset}&mdash;</span></p>
                         </HalfContain>
                         <img src={this.props.imageLink} alt="Something something required" className="Cover" />
                     </div>
                     <div className="Darkgray-bg Half-Feature Content-Half Auto-Height">
-                        <FeatureTitle className="White Capitalize">{this.props.title}</FeatureTitle>
-                        <BreakTitle />
+                        <FeatureTitle className="White Capitalize">{this.props.title}<br/><span className="Force-SF">Posted by {this.props.user}</span></FeatureTitle>
+                        
+                        <BreakTitle className="Solid-Bottom-Border" />
                         <FeatureDesc className="White">{this.props.description}</FeatureDesc>
                         <div className="Feature-Image-Options Lightgray-bg Scroll-Y">
                             <section className="Force-Inline">

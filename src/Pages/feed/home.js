@@ -12,13 +12,16 @@ import "firebase/firestore";
 import {distanceInWordsToNow, format} from 'date-fns';
 import { getUserStatus } from '../../async/getAuthStatus.js';
 import { _getCollection } from '../../async/getCollection.js';
+import { TextInput, StandardButton, ReturnMessage } from '../../Components/global.js';
 
 // Design
 import { PageContainer, ContentFeatureComponent } from '../../Components/cards.js';
 import { StaggerChildrenContent, LoadFade } from '../../Components/staticposes.js';
 import LoginImage from '../../Images/login-comp.jpeg';
+import { FunctionIcon } from '../../Components/navigation.js';
 
 class HomeContent extends Component {
+
     getDateWords = ( dateValue ) => {
         let post = Math.round(new Date(dateValue).getTime() * 1000);
         let result = distanceInWordsToNow(
@@ -40,6 +43,7 @@ class HomeContent extends Component {
     render() {
         return (
             this.props.items.map((item) => (
+                console.log(item),
                 item['content']['postdata'].map((doc, key) => (
                     <LoadFade key={key}>
                         <ContentFeatureComponent
@@ -48,7 +52,7 @@ class HomeContent extends Component {
                             title={doc.title}
                             description={doc.desc}
                             date={this.getDateFormat(doc.tup.seconds)}
-                            offset={this.getDateFormat(doc.tup.seconds)}
+                            offset={this.getDateWords(doc.tup.seconds)}
                             user={doc.posted_by}
                         />
                     </LoadFade>
@@ -57,21 +61,64 @@ class HomeContent extends Component {
         )
     }
 }
-                    // <LoadFade>
-                    //     <ContentFeatureComponent
-                    //         imageLink={LoginImage}
-                    //         title={item.title}
-                    //     />
-                    // </LoadFade>
-                // <LoadFade key={item.id}>
-                //     <ContentFeatureComponent
-                //         imageLink={LoginImage}
-                //         key={item.content.id}
-                //         title={item.content.title}
-                //         description={item.content.text}
-                //         date={this.getDateFormat(item.content.created_at)}
-                //         offset={this.getDateWords(item.content.created_at)} />
-                // </LoadFade>
+
+class CreatePost extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            authState: this.props.authState,
+            title: '',
+            desc: ''
+        }
+    }
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        });
+    }
+    async handleSubmit(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("User has submitted");
+    }
+    componentDidMount(){
+        console.log(this.state.authState)
+    }
+    render(){
+        return(
+            <form
+                onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); } }}
+                onSubmit={this.handleSubmit.bind(this)}
+            >
+            
+                    <label className="Label-Controller">TITLE</label>
+                    <br />
+                    <input
+                        name="title"
+                        type="text"
+                        value={this.state.title}
+                        onChange={this.handleInputChange}
+                        required
+                    />
+                    <br />
+                    <label className="Label-Controller">TEXT</label>
+                    <br />
+                    <input
+                        name="desc"
+                        type="text"
+                        value={this.state.desc}
+                        onChange={this.handleInputChange}
+                        required
+                    />
+                    <br />
+                <button className="White Bold" type="submit">SIGN IN</button>
+            </form>
+        )
+    }
+}
 export class Home extends Component {
     constructor(props) {
         super(props);
@@ -129,8 +176,12 @@ export class Home extends Component {
             return (
                 <PageContainer>
                     <StaggerChildrenContent pose={loadAnimations ? 'open' : 'closed'}>
+                        <CreatePost authState={userState}></CreatePost>
                         <HomeContent items={items} />
                     </StaggerChildrenContent>
+                    <div className="Create-Post White-bg Light-Box-Shadow White-hover-bg">
+                        <FunctionIcon navIcon="create" classOption="Pink-children"/>
+                    </div>
                 </PageContainer>
             )
 

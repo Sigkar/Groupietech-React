@@ -195,6 +195,14 @@
     color: rgba(191, 63, 63, 1) !important;
     cursor:pointer;
 }
+.White-hover-bg:hover{
+    background-color:rgba(242, 230, 250, 1) !important;
+    transition: background-color 0.2s;
+    -ms-transition: background-color 0.2s;
+    -moz-transition: background-color 0.2s;
+    -webkit-transition: background-color 0.2s;
+    -o-transition: background-color 0.2s;
+}
 .Inline-Icon i{
     font-size:inherit;
     display:inline;

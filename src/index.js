@@ -12,6 +12,7 @@ let config = {
     storageBucket: "groupietech.appspot.com",
     messagingSenderId: "1071869820233"
 };
+
 firebase.initializeApp(config);
 
 ReactDOM.render(<App />, document.getElementById('root'));

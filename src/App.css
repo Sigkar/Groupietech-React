@@ -3,6 +3,9 @@ html, body{
   scroll-behavior: smooth;
   overflow-x:hidden;
 }
+body{
+  background-color: rgba(191, 63, 63, 1) !important;
+}
 .Always-top{
   z-index:12345678;
 }
@@ -75,6 +78,9 @@ h6{
 }
 p, li{
   font-size:18px;
+}
+.Force-SF{
+  font-size:14px !important;
 }
 .Very-Large{
   font-size:30px !important;
@@ -208,7 +214,6 @@ body{
   -moz-box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
   box-shadow: 10px 10px 20px -10px rgba(0,0,0,0.5);
 }
-
 
 /* Navigation */
 .Account-Logged{
@@ -556,6 +561,7 @@ body{
   .Header-Icon i{
     top:6px;
   }
+
   .Media-Spacer{
     height:20px;
     width:100%;
@@ -597,6 +603,9 @@ body{
     width:80vw;
     position:relative;
     left:10vw;
+  }
+  .Force-Center{
+    width:100%;
   }
   .Force-Half input{
     width:80vw !important;
@@ -659,4 +668,21 @@ body{
 .rotating{
   font-size:40px;
 
+}
+.Create-Post{
+  position:fixed;
+  right:10px;
+  top:70px;
+  height:50px;
+  width:50px;
+  border-radius:100%;
+}
+.Create-Post i{
+  font-size:40px !important;
+  height:40px !important;
+  width:40px !important;
+  margin:5px;
+}
+.Create-Post:hover i{
+  color:rgba(255, 84, 5, 1) !important;
 }

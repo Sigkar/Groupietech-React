@@ -7,6 +7,7 @@ import LoginImage from '../Images/login-comp.jpeg';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { getUserStatus } from '../async/getAuthStatus.js';
+import { refStoragePrep } from '../async/uploads.js';
 
 class NavBar extends Component {
     render() {
@@ -24,8 +25,8 @@ class NavBar extends Component {
     }
 }
 
-const HeaderOption = ({_checkingAuth, _userState, _functionOption}) => {
-   if(_checkingAuth || _userState !== []) {
+const HeaderOption = ({ _checkingAuth, _userState, _functionOption }) => {
+    if (_checkingAuth || _userState !== []) {
 
         if (_userState !== null) {
             return (
@@ -79,66 +80,75 @@ export class Main extends Component {
     }
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => this.setState({ userState: user, checkingAuth: false }))
+        refStoragePrep();
     }
     render() {
         const { isOpen, navigationOption, signup, signin, checkingAuth, userState } = this.state;
         if (userState != null && userState) {
-            try{
-                userState.providerData.forEach(function(e){
+            try {
+                userState.providerData.forEach(function (e) {
                     console.log("UID: " + e.uid);
                     console.log("Email: " + e.email);
                 })
-            }catch(error){
+            } catch (error) {
                 console.assert(error);
             }
-          }
-        return (
-            <div className="App">
-                <div className="App-header">
-                    <Fade pose={signup ? 'open' : 'closed'}>
-                        <ModalOverlay
-                            functionOption={this.openSignup}
-                            leftimg={LoginImage}
-                            title="CREATE ACCOUNT"
-                        />
-                    </Fade>
-                    <Fade pose={signin ? 'open' : 'closed'}>
-                        <ModalOverlay
-                            functionOption={this.openSignup}
-                            leftimg={LoginImage}
-                            title="SIGN IN"
-                        />
-                    </Fade>
-                    <Router>
-                        <div id="Complete-App">
-                            <div className="Header-Bar">
+        }
+        if (userState) {
+            return (
+                <div className="App">
+                    <div className="App-header">
+                        <Fade pose={signup ? 'open' : 'closed'}>
+                            <ModalOverlay
+                                functionOption={this.openSignup}
+                                leftimg={LoginImage}
+                                title="CREATE ACCOUNT"
+                            />
+                        </Fade>
+                        <Fade pose={signin ? 'open' : 'closed'}>
+                            <ModalOverlay
+                                functionOption={this.openSignup}
+                                leftimg={LoginImage}
+                                title="SIGN IN"
+                            />
+                        </Fade>
+                        <Router>
+                            <div id="Complete-App">
+                                <div className="Header-Bar">
 
-                                <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
-                                    <FunctionIcon navIcon="menu" classOption="Open-Menu Darkgray-children Always-top" functionOption={this.toggle} />
-                                </SwapVisible>
-                                <OpenCloseButton pose={navigationOption ? 'open' : 'closed'}>
-                                    <FunctionIcon navIcon="chevron_left" classOption="Open-Menu Darkgray-children Always-top" functionOption={this.toggle} />
-                                </OpenCloseButton>
-                                <HideOnToggle pose={navigationOption ? 'closed' : 'open'}>
-                                    <HeaderButtonContainer>
-                                        <HeaderOption _checkngAuth={checkingAuth} _userState={userState} _functionOption={this.logOutAccount}/>
-                                    </HeaderButtonContainer>
-                                </HideOnToggle>
+                                    <SwapVisible pose={navigationOption ? 'closed' : 'open'}>
+                                        <FunctionIcon navIcon="menu" classOption="Open-Menu Darkgray-children Always-top" functionOption={this.toggle} />
+                                    </SwapVisible>
+                                    <OpenCloseButton pose={navigationOption ? 'open' : 'closed'}>
+                                        <FunctionIcon navIcon="chevron_left" classOption="Open-Menu Darkgray-children Always-top" functionOption={this.toggle} />
+                                    </OpenCloseButton>
+                                    <HideOnToggle pose={navigationOption ? 'closed' : 'open'}>
+                                        <HeaderButtonContainer>
+                                            <HeaderOption _checkngAuth={checkingAuth} _userState={userState} _functionOption={this.logOutAccount} />
+                                        </HeaderButtonContainer>
+                                    </HideOnToggle>
+                                </div>
+                                <div className="Nav-Container">
+                                    <Popout pose={isOpen ? 'open' : 'closed'}>
+                                        <StaggerPauseThenQuick>
+                                            <NavBar userState={this.userState} navState={this.toggle} />
+                                        </StaggerPauseThenQuick>
+                                    </Popout>
+                                </div>
+                                <section className="Content-Container">
+                                    <Navigation />
+                                </section>
                             </div>
-                            <div className="Nav-Container">
-                                <Popout pose={isOpen ? 'open' : 'closed'}>
-                                    <StaggerPauseThenQuick>
-                                        <NavBar navState={this.toggle} />
-                                    </StaggerPauseThenQuick>
-                                </Popout>
-                            </div>
-                            <section className="Content-Container">
-                                <Navigation />
-                            </section>
-                        </div>
-                    </Router>
+                        </Router>
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }else{
+            return(
+                <div className="Loading">
+                    "Some things are worth the wait"
+                </div>
+            )
+        }
     }
 }
