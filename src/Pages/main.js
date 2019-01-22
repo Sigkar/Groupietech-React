@@ -81,12 +81,18 @@ export class Main extends Component {
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => this.setState({ userState: user, checkingAuth: false }))
         refStoragePrep();
+        console.log("Welcome to Headlinerr");
+        console.log("'As you can see, this is what it has come to.'");
+        console.log("If you steal this I will be sad");
+        console.log("Don't expect this shizzle to work. Thats up to your own judgement if it works. I consider it a feature.");
     }
     render() {
         const { isOpen, navigationOption, signup, signin, checkingAuth, userState } = this.state;
         if (userState != null && userState) {
             try {
                 userState.providerData.forEach(function (e) {
+                    console.log("Honestly, if you signed up legit, send me an email at telmage4448@gmail.com");
+                    console.log("I'll probably pop some sort of champagne");
                     console.log("UID: " + e.uid);
                     console.log("Email: " + e.email);
                 })
@@ -94,7 +100,6 @@ export class Main extends Component {
                 console.assert(error);
             }
         }
-        if (userState) {
             return (
                 <div className="App">
                     <div className="App-header">
@@ -143,12 +148,5 @@ export class Main extends Component {
                     </div>
                 </div>
             )
-        }else{
-            return(
-                <div className="Loading">
-                    "Some things are worth the wait"
-                </div>
-            )
-        }
     }
 }

@@ -12,6 +12,7 @@ import "firebase/firestore";
 import {distanceInWordsToNow, format} from 'date-fns';
 import { getUserStatus } from '../../async/getAuthStatus.js';
 import { _getCollection } from '../../async/getCollection.js';
+import { createDoc } from '../../async/createNewPost.js';
 import { TextInput, StandardButton, ReturnMessage } from '../../Components/global.js';
 
 // Design
@@ -70,6 +71,9 @@ class CreatePost extends Component {
             title: '',
             desc: ''
         }
+        this.baseState = this.state;
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleInputChange(event) {
         const target = event.target;
@@ -82,10 +86,11 @@ class CreatePost extends Component {
     async handleSubmit(event) {
         event.preventDefault();
         event.stopPropagation();
-        console.log("User has submitted");
-    }
-    componentDidMount(){
-        console.log(this.state.authState)
+        let postData = {
+            title: this.state.title,
+            desc: this.state.desc,
+        }
+        createDoc(postData);
     }
     render(){
         return(
@@ -93,7 +98,6 @@ class CreatePost extends Component {
                 onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); } }}
                 onSubmit={this.handleSubmit.bind(this)}
             >
-            
                     <label className="Label-Controller">TITLE</label>
                     <br />
                     <input
@@ -101,7 +105,6 @@ class CreatePost extends Component {
                         type="text"
                         value={this.state.title}
                         onChange={this.handleInputChange}
-                        required
                     />
                     <br />
                     <label className="Label-Controller">TEXT</label>
@@ -111,7 +114,6 @@ class CreatePost extends Component {
                         type="text"
                         value={this.state.desc}
                         onChange={this.handleInputChange}
-                        required
                     />
                     <br />
                 <button className="White Bold" type="submit">SIGN IN</button>

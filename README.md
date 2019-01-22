@@ -15,9 +15,9 @@ Groupietech is a platform built around Local bands - basically a nice way of say
 
 ## Roadmap
 - Develop UI/UX ✓
-- Develop Routes/Create Data Cards
-- Set up Firebase Authentication States
-- Set up Firebase Database Read Rules
+- Develop Routes/Create Data Cards ✓
+- Set up Firebase Authentication States ✓
+- Set up Firebase Database Read Rules ✓
 - Hook up Firebase Read Rules
 - Set up uploading and content reading
 - Set up Google Map Radius Detection (Geocode)

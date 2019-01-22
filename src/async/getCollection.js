@@ -5,7 +5,7 @@ function _getCollection(documentRequest, noTimestamp=true){
     const db = firebase.firestore();
     noTimestamp ? db.settings({timestampsInSnapshots: true}) : db.settings({timestampsInSnapshots: false});
     return new Promise(resolve=> {
-
+        console.log(documentRequest);
         getCollections(documentRequest, db).then(function(requested){
             try{
                 resolve(requested);

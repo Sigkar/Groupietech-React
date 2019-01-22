@@ -304,18 +304,18 @@ export class ContentFeatureComponent extends Component {
                 <FlexContainer>
                     <div className="White-bg Half-Feature Prevent-Overflow Limit-At-Media">
                         <HalfContain className="HalfContain Darkgray-bg White Solid-Bottom-Border Light-Box-Shadow">
-                            <ProfPic /> <p><span className="CAPS">&mdash;{this.props.offset}&mdash;</span></p>
+                            <ProfPic /> <p><span className="CAPS">&nbsp;{this.props.user}</span></p>
                         </HalfContain>
                         <img src={this.props.imageLink} alt="Something something required" className="Cover" />
                     </div>
                     <div className="Darkgray-bg Half-Feature Content-Half Auto-Height">
-                        <FeatureTitle className="White Capitalize">{this.props.title}<br/><span className="Force-SF">Posted by {this.props.user}</span></FeatureTitle>
+                        <FeatureTitle className="White Capitalize">{this.props.title}<br/><span className="Force-SF">{this.props.offset}</span></FeatureTitle>
                         
                         <BreakTitle className="Solid-Bottom-Border" />
                         <FeatureDesc className="White">{this.props.description}</FeatureDesc>
                         <div className="Feature-Image-Options Lightgray-bg Scroll-Y">
                             <section className="Force-Inline">
-                                <ContainHeight className="Lighrgray-bg Solid-H-Border-Image">
+                                <ContainHeight className="Lighrgray-bg Solid-Top-Border">
                                     <PostData className="White">{this.props.date}</PostData>
                                 </ContainHeight>
                                 <FlexRight>
