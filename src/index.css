@@ -12,3 +12,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.Video-Container{
+  width:100vw;
+  height:100vh;
+  overflow:hidden;
+  z-index:300000000;
+  position:fixed;
+  top:0px;
+  left:0px;
+}
+.Video-Welcome{
+  height:150%;
+  min-width:100vw;
+  position:relative;
+  left:50%;
+  top:-25%;
+  transform:translateX(-50%);
+  margin:0;
+  padding:0;
+}
+.Video-Cover{
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,0.25);
+  position:Absolute;
+  top:0px;
+  left:0px;
+}
+.Onboard-Container{
+  width:40%;
+  height:70%;
+  position:absolute;
+  top:15%;
+  left:50%;
+}

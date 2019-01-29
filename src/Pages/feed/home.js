@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 // Redux
 //import { createStore } from 'redux';
 
+// Welcome
+
+import {WelcomePage} from '../welcome.js';
 
 //Firebase
 import firebase from 'firebase/app';
@@ -188,7 +191,9 @@ export class Home extends Component {
             )
 
         } else {
-            return <div className="Loading">Sign up, or sign in, to see great stuff!</div>
+            return (
+                <WelcomePage/>
+            )
         }
     }
 }
