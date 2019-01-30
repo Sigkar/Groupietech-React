@@ -15,7 +15,7 @@ export class WelcomePage extends Component {
                 <div className="Video-Cover">
                     <br />
                     <br />
-                    <div className="Onboard-Container White-bg Heavy-Box-Shadow">
+                    {/* <div className="Onboard-Container White-bg Heavy-Box-Shadow">
                         <h1 className="Red">
                             TIME FOR LOCAL BANDS TO GET A KICK START.
                         <br />
@@ -27,7 +27,7 @@ export class WelcomePage extends Component {
                             <br/>
                             You can see the actual site once you've signed in.
                     </h1>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )
