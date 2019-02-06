@@ -3,13 +3,74 @@ import styled from 'styled-components';
 import Location from '../Images/123mainstreet.jpg';
 import Map from '../Images/maps.png';
 
+import Logo from '../Images/gtico.png';
+
 /* Input */
 
-export const InputText = styled.input`
+export const LogoImageMain = styled.img`
+    width:100px;
+    position:relative;
+    left:calc(50% - 50px);
+    margin-top:10px;
+`;
+
+export const InputLabel = styled.label`
     width:90%;
+    margin:3px 5%;
+    text-align:left;
+`;
+
+export const InputText = styled.input`
+    width:calc(90% - 13px);
+    padding:3px 6px;
+    margin:10px 5%;
+
+    font-size:18px;
     height:24px;
     line-height:24px;
+    background-color:#f0f0f0;
+    outline:none;
+
+    border:none !important;
+    border-bottom:1px solid #eeeeee;
+    border-right:1px solid #eeeeee;
+`;
+
+export const BigSubmit = styled.button`
+    width:150px;
+    height:50px;
+    border:none;
+    outline:none;
+    font-size:30px;
+    color:#f0f0f0;
+    position:relative;
+    left:calc(50% - 75px);
+    cursor:pointer;
+
+    transition:filter 0.2s ease;
+    -ms-transition:filter 0.2s ease;
+    -moz-transition:filter 0.2s ease;
+    -webkit-transition:filter 0.2s ease;
+    -o-transition:filter 0.2s ease;
+
+    :hover{
+        filter:brightness(1.1);
+    }
 `
+export const SigninModal = styled.div`
+    width:90%;
+    max-width:400px;
+    height:80%;
+    position:relative;
+    top:10%;
+    margin:0 auto;
+    background-color:white;
+    overflow-y:auto;
+    @media screen and (max-height:575px){
+        height:95%;
+        top:2.5%;
+    }
+`;
 
 /* Optional Texts */
 export const BigHeader = styled.h2`
@@ -137,7 +198,76 @@ export const SectionTitle = styled.div`
         width:66.66%;
     }
 `
-
+export const ModalTitle = styled.h1`
+    text-align:center;
+`;
+export class ModalPopSignIn extends Component{
+    render(){
+        return(
+            <SigninModal className="Thicc">
+                <LogoImageMain src={Logo}/>
+                <ModalTitle>
+                    Find artists, get new fans,<br/>
+                    Be the <span className="Pink">Headlinerr</span>
+                </ModalTitle>
+                <InputLabel>
+                    Username
+                </InputLabel>
+                <InputText placeholder="Username" type="text"/>
+                <InputLabel>
+                    Password
+                </InputLabel>
+                <InputText placeholder="Password" type="password"/>
+                <br/><br/><br/>
+                <BigSubmit className="Red-bg">
+                    Sign In
+                </BigSubmit>
+                <section className="center-text">
+                    <br/>
+                    <a href="/signup" className="Red">Need an Account?</a>
+                    <br/><br/>
+                    <a href="/" className="Red">Forgot Password</a>
+                </section>
+                <br/>
+            </SigninModal>
+        )
+    }
+}
+export class ModalPopSignUp extends Component{
+    render(){
+        return(
+            <SigninModal className="Thicc">
+                <LogoImageMain src={Logo}/>
+                <ModalTitle>
+                    Find artists, get new fans,<br/>
+                    Be the <span className="Pink">Headlinerr</span>
+                </ModalTitle>
+                <br/>
+                <p>Sign up Today</p>
+                <br/>
+                <InputLabel>
+                    Username
+                </InputLabel>
+                <InputText placeholder="Username" type="text"/>
+                <InputLabel>
+                    Password
+                </InputLabel>
+                <InputText placeholder="Password" type="password"/>
+                <br/><br/><br/>
+                <BigSubmit className="Red-bg">
+                    Sign Up
+                </BigSubmit>
+                <section className="center-text">
+                    <br/>
+                    <a href="/signup" className="Red">Need an Account?</a>
+                    <br/><br/>
+                    <a href="/" className="Red">Forgot Password</a>
+                </section>
+                <br/>
+            </SigninModal>
+        )
+    }
+}
 export class ShortCard extends Component{
     constructor(props){
         super(props);

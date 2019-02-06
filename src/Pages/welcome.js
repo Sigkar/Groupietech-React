@@ -1,7 +1,7 @@
 //React
 import React, { Component } from 'react';
 import WelcomeWebm from '../Images/welcomehq.webm';
-
+import {ModalPopSignIn} from '../Components/content.js';
 export class WelcomePage extends Component {
 
     render() {
@@ -13,7 +13,7 @@ export class WelcomePage extends Component {
                     Your browser does not support Webm :(
                 </video>
                 <div className="Video-Cover">
-                    
+                    <ModalPopSignIn/>
                 </div>
             </div>
         )
