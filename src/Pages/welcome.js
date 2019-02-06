@@ -8,7 +8,7 @@ export class WelcomePage extends Component {
         return (
             <div className="Video-Container">
 
-                <video onloadeddata="this.play();" className="Video-Welcome" muted loop autoPlay>
+                <video className="Video-Welcome" muted loop autoPlay>
                     <source src={WelcomeWebm} type="video/webm" />
                     Your browser does not support Webm :(
                 </video>
