@@ -40,6 +40,7 @@ body{
   display:flex;
   flex-wrap:wrap;
 }
+
 .Force-Half{
   width:50vw;
   margin:0 auto;
@@ -407,6 +408,10 @@ body{
   justify-content:space-between;
 }
 
+.Align-Items-Center{
+  align-items:center;
+}
+
 .Prevent-Overflow{
   overflow:hidden !important;
 }
@@ -695,3 +700,86 @@ body{
 .Create-Post:hover i{
   color:rgba(255, 84, 5, 1) !important;
 }
+.Load-Full{
+  width:100vw;
+  height:100vh;
+  background-color:rgba(191, 63, 63, 1);
+  position:fixed;
+  top:0px;
+  left:0px;
+}
+.LoadContainer{
+  position:fixed;
+  width:auto;
+  height:auto;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  display:flex;
+}
+.LoadScaler{
+  -webkit-animation: mymove 1s infinite; /* Safari 4.0 - 8.0 */
+  animation: mymove 1s infinite;
+  width:20px;
+  height:20px;
+  margin:0px 20px;
+  
+  border-radius:100%;
+}
+.LoadScaler:nth-of-type(2n){
+  animation-delay: 0.5s;
+}
+.LoadScaler_GetsColor{
+  width:100%;
+  height:100%;
+  border-radius:100%;
+  animation: colorswap 5s infinite;
+  -webkit-animation: colorswap 5s infinite;
+  background-color:white;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+  0% {transform:rotate(1.0);}
+  50% {transform:scale(2.0);}
+  100% {transform:scale(1.0);}
+}
+
+@keyframes mymove {
+  0% {transform:scale(1.0);}
+  50% {transform:scale(2.0);}
+  100% {transform:scale(1.0);}
+}
+
+@-webkit-keyframes colorswap {
+  0% {background-color:#ffffff;}
+  25% {background-color:#f44b97;}
+  50% {background-color:#f72784;}
+  75% {background-color: #ff59a3;}
+  100% {background-color:#ef006b;}
+}
+@keyframes colorswap {
+  0% {background-color:#ef006b;}
+  25% {background-color:#f44b97;}
+  50% {background-color:#f72784;}
+  75% {background-color: #ff59a3;}
+  100% {background-color:#ef006b;}
+}
+/*
+.White{
+  color:rgba(242, 230, 250, 1) !important;
+}
+.Orange{
+  color: rgba(255, 84, 5, 1) !important;
+}
+.Red{
+    color: rgba(191, 63, 63, 1) !important;
+}
+.Pink{
+    color: rgba(239, 0, 107, 1) !important;
+}
+.Lightblue{
+    color: rgba(10, 193, 255, 1) !important;
+}
+*/

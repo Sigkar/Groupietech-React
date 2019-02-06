@@ -16,7 +16,7 @@ import {distanceInWordsToNow, format} from 'date-fns';
 import { getUserStatus } from '../../async/getAuthStatus.js';
 import { _getCollection } from '../../async/getCollection.js';
 import { createDoc } from '../../async/createNewPost.js';
-import { TextInput, StandardButton, ReturnMessage } from '../../Components/global.js';
+import { LoaderNoBG } from '../../Components/global.js';
 
 // Design
 import { PageContainer, ContentFeatureComponent } from '../../Components/cards.js';
@@ -176,7 +176,7 @@ export class Home extends Component {
         if (error) {
             return <div>Sorry, Headlinerr has a bad sound guy!<br />Error: {error.message}</div>;
         } else if (!isLoaded || checkingAuth) {
-            return <div className="Loading">Loading</div>
+            return <LoaderNoBG/>
         } else if (isLoaded && !checkingAuth && userState) {
             return (
                 <PageContainer>

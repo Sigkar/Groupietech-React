@@ -62,6 +62,35 @@ export const BigSubmit = styled.button`
         filter:brightness(1.1);
     }
 `
+
+export const SmallButton = styled.button`
+    width:120px;
+    height:40px;
+    border:none;
+    outline:none;
+    font-size:12px;
+    color:#f0f0f0;
+    position:relative;
+
+
+    margin:5px auto;
+    
+    cursor:pointer;
+    
+    display:inline-block;
+
+    color:#0c0c0c;
+
+    transition:filter 0.2s ease;
+    -ms-transition:filter 0.2s ease;
+    -moz-transition:filter 0.2s ease;
+    -webkit-transition:filter 0.2s ease;
+    -o-transition:filter 0.2s ease;
+
+    :hover{
+        filter:brightness(0.8);
+    }
+`;
 export const SigninModal = styled.div`
     width:90%;
     max-width:400px;
@@ -242,7 +271,6 @@ export class ModalPopSignIn extends Component {
             this.setMessage("Username or Password is Incorrect")
         } else {
             this.setMessage("Welcome back! You will be redirected.");
-            setTimeout(function () { window.location = "/" }, 1500);
         }
     }
     signInUser(email, password) {
@@ -294,13 +322,13 @@ export class ModalPopSignIn extends Component {
                         Sign In
                 </BigSubmit>
                 </form>
-                <section className="center-text">
-                    <br />
-                    <a href="/signup" className="Red">Need an Account?</a>
-                    <br /><br />
-                    <a href="/" className="Red">Forgot Password</a>
-                </section>
                 <br />
+                <section className="Custom-Flex Spacer-Around Align-Items-Center">
+                    <SmallButton className="White-bg">Need an Account?</SmallButton>
+                    <br /><br />
+                    <SmallButton className="White-bg">Forgot Password?</SmallButton>
+                    <br />
+                </section>
             </SigninModal>
         )
     }
@@ -329,13 +357,13 @@ export class ModalPopSignUp extends Component {
                 <BigSubmit className="Red-bg" >
                     Sign Up
                 </BigSubmit>
-                <section className="center-text">
-                    <br />
-                    <a href="/signup" className="Red">Need an Account?</a>
-                    <br /><br />
-                    <a href="/" className="Red">Forgot Password</a>
-                </section>
                 <br />
+                <section className="Custom-Flex Spacer-Around Align-Items-Center">
+                    <SmallButton className="White-bg">Need an Account?</SmallButton>
+                    <br /><br />
+                    <SmallButton className="White-bg">Forgot Password?</SmallButton>
+                    <br />
+                </section>
             </SigninModal>
         )
     }

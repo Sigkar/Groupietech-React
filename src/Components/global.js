@@ -188,6 +188,49 @@ export const ReturnMessage = ({ message, functionOption, _pose }) => (
     </FriendlyMessage>
 )
 
+export const LoaderNoBG = () => (
+    <div className="LoadContainer">
+        <div className="LoadScaler">
+            <div className="LoadScaler_GetsColor">
+            </div>
+        </div>
+        <div className="LoadScaler">
+            <div className="LoadScaler_GetsColor">
+            </div>
+        </div>
+        <div className="LoadScaler">
+            <div className="LoadScaler_GetsColor">
+            </div>
+        </div>
+        <div className="LoadScaler">
+            <div className="LoadScaler_GetsColor">
+            </div>
+        </div>
+    </div>
+)
+export const Loader = () => (
+    <div className="Load-Full">
+        <div className="LoadContainer">
+            <div className="LoadScaler">
+                <div className="LoadScaler_GetsColor">
+                </div>
+            </div>
+            <div className="LoadScaler">
+                <div className="LoadScaler_GetsColor">
+                </div>
+            </div>
+            <div className="LoadScaler">
+                <div className="LoadScaler_GetsColor">
+                </div>
+            </div>
+            <div className="LoadScaler">
+                <div className="LoadScaler_GetsColor">
+                </div>
+            </div>
+        </div>
+    </div>
+)
+
 export class ModalOverlay extends Component {
 
     render() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navigation, FunctionIcon, NavItem, Spacer, SpacerTitle, HeaderIcon } from '../Components/navigation.js';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { Popout, SwapVisible, Fade, HideOnToggle, OpenCloseButton, StaggerPauseThenQuick } from '../Components/staticposes.js';
-import { HeaderButtonContainer, ModalOverlay, HeaderButton } from '../Components/global.js';
+import { HeaderButtonContainer, ModalOverlay, HeaderButton, LoaderNoBG } from '../Components/global.js';
 import LoginImage from '../Images/login-comp.jpeg';
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -82,24 +82,15 @@ export class Main extends Component {
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => this.setState({ userState: user, checkingAuth: false }))
         refStoragePrep();
-        console.log("Welcome to Headlinerr");
-        console.log("'As you can see, this is what it has come to.'");
-        console.log("If you steal this I will be sad");
-        console.log("Don't expect this shizzle to work. Thats up to your own judgement if it works. I consider it a feature.");
     }
     render() {
         const { isOpen, navigationOption, signup, signin, checkingAuth, userState } = this.state;
-        if (userState != null && userState) {
-            try {
-                userState.providerData.forEach(function (e) {
-                    console.log("Honestly, if you signed up legit, send me an email at telmage4448@gmail.com");
-                    console.log("I'll probably pop some sort of champagne");
-                    console.log("UID: " + e.uid);
-                    console.log("Email: " + e.email);
-                })
-            } catch (error) {
-                console.assert(error);
-            } return (
+        if(!checkingAuth && userState == null){
+            return (
+                <WelcomePage/>
+            )
+        }else if (userState != null && userState && !checkingAuth) {
+            return (
                 <div className="App">
                     <div className="App-header">
                         <Fade pose={signup ? 'open' : 'closed'}>
@@ -148,8 +139,8 @@ export class Main extends Component {
                 </div>
             )
         } else {
-            return (
-                <WelcomePage/>
+            return(
+                <LoaderNoBG/>
             )
         }
     }
