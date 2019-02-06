@@ -8,6 +8,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import { getUserStatus } from '../async/getAuthStatus.js';
 import { refStoragePrep } from '../async/uploads.js';
+import {WelcomePage} from './welcome.js';
 
 class NavBar extends Component {
     render() {
@@ -98,9 +99,7 @@ export class Main extends Component {
                 })
             } catch (error) {
                 console.assert(error);
-            }
-        }
-            return (
+            } return (
                 <div className="App">
                     <div className="App-header">
                         <Fade pose={signup ? 'open' : 'closed'}>
@@ -148,5 +147,10 @@ export class Main extends Component {
                     </div>
                 </div>
             )
+        } else {
+            return (
+                <WelcomePage/>
+            )
+        }
     }
 }

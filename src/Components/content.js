@@ -3,6 +3,14 @@ import styled from 'styled-components';
 import Location from '../Images/123mainstreet.jpg';
 import Map from '../Images/maps.png';
 
+/* Input */
+
+export const InputText = styled.input`
+    width:90%;
+    height:24px;
+    line-height:24px;
+`
+
 /* Optional Texts */
 export const BigHeader = styled.h2`
     letter-spacing: 4px;
