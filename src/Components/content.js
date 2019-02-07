@@ -39,6 +39,14 @@ export const InputText = styled.input`
     border:none !important;
     border-bottom:1px solid #eeeeee;
     border-right:1px solid #eeeeee;
+    @media screen and (max-height:700px){
+        height:18px;
+        line-height:18px;
+        padding:2px 6px;
+        margin:5px 5%;
+        
+        font-size:16px;
+    }
 `;
 
 export const BigSubmit = styled.button`
@@ -72,15 +80,13 @@ export const SmallButton = styled.button`
     color:#f0f0f0;
     position:relative;
 
-
-    margin:5px auto;
+    left:50%;
+    transform:translateX(-50%);
     
     cursor:pointer;
-    
-    display:inline-block;
 
     color:#0c0c0c;
-
+    background:#e8e8e8;
     transition:filter 0.2s ease;
     -ms-transition:filter 0.2s ease;
     -moz-transition:filter 0.2s ease;
@@ -92,12 +98,14 @@ export const SmallButton = styled.button`
     }
 `;
 export const SigninModal = styled.div`
-    width:90%;
-    max-width:400px;
-    height:80%;
-    position:relative;
-    top:10%;
-    margin:0 auto;
+    width:50vw;
+    max-width:450px;
+    min-width:340px;
+    height:80vh;
+    position:absolute;
+    top:10vh;
+    left:50%;
+    transform:translateX(-50%);
     background-color:white;
     overflow-y:auto;
     @media screen and (max-height:575px){
@@ -287,10 +295,6 @@ export class ModalPopSignIn extends Component {
         return (
             <SigninModal className="Thicc">
                 <LogoImageMain src={Logo} />
-                <ModalTitle>
-                    Find artists, get new fans,<br />
-                    Be the <span className="Pink">Headlinerr</span>
-                </ModalTitle>
                 <form
                     onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); } }}
                     onSubmit={this.handleSubmit.bind(this)}
@@ -323,17 +327,75 @@ export class ModalPopSignIn extends Component {
                 </BigSubmit>
                 </form>
                 <br />
-                <section className="Custom-Flex Spacer-Around Align-Items-Center">
-                    <SmallButton className="White-bg">Need an Account?</SmallButton>
-                    <br /><br />
-                    <SmallButton className="White-bg">Forgot Password?</SmallButton>
-                    <br />
-                </section>
+                <SmallButton onClick={this.props.funcOption}>Need an Account?</SmallButton>
+                <br /><br />
+                <SmallButton>Forgot Password?</SmallButton>
+                <br />
             </SigninModal>
         )
     }
 }
+/**
+ * Author - Duncan Pierce
+ * Purpose - Signs the User Up
+ * Usage - Drop this as a modal under a transparent toggle with React Pose.
+ */
 export class ModalPopSignUp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            confirmPassword: '',
+            message: '',
+            messageOpen: false
+        };
+        this.baseState = this.state;
+
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    resetForm = () => {
+        this.setState(this.baseState)
+    }
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+    handleSubmit(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.state.password !== this.state.confirmPassword) {
+            console.log("Passwords dont match, exiting");
+            this.setState({
+                message: "Passwords did not match. Please input again!",
+                messageOpen: true,
+            })
+            return false;
+        }
+        console.log("Creating user");
+        this.createUser();
+        this.setState({
+            message: "Thanks for signing up, you will be redirected!",
+            messageOpen: true,
+        })
+    }
+    createUser = () => (
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function (error) {
+            let errorMessage = error.message;
+            this.setState({
+                message: errorMessage,
+                messageOpen: true,
+            });
+        })
+    );
+
     render() {
         return (
             <SigninModal className="Thicc">
@@ -343,37 +405,50 @@ export class ModalPopSignUp extends Component {
                     Be the <span className="Pink">Headlinerr</span>
                 </ModalTitle>
                 <br />
-                <p>Sign up Today</p>
-                <br />
-                <InputLabel>
-                    Username
+                <form
+                    onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); } }}
+                    onSubmit={this.handleSubmit.bind(this)}
+                >
+                    <InputLabel>
+                        Email
                 </InputLabel>
-                <InputText placeholder="Username" type="text" />
-                <InputLabel>
-                    Password
+                    <InputText placeholder="Email" type="text" name="email"
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.handleInputChange}
+                        required
+                    />
+                    <InputLabel>
+                        Password
                 </InputLabel>
-                <InputText placeholder="Password" type="password" />
-                <br /><br /><br />
-                <BigSubmit className="Red-bg" >
-                    Sign Up
-                </BigSubmit>
-                <br />
-                <section className="Custom-Flex Spacer-Around Align-Items-Center">
-                    <SmallButton className="White-bg">Need an Account?</SmallButton>
-                    <br /><br />
-                    <SmallButton className="White-bg">Forgot Password?</SmallButton>
+                    <InputText placeholder="Password" type="password" name="password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        required
+                    />
+                    <InputLabel>
+                        Confirm Password
+                </InputLabel>
+                    <InputText placeholder="Confirm Password" name="confirmPassword"
+                        type="password"
+                        value={this.state.confirmPassword}
+                        onChange={this.handleInputChange}
+                        required
+                    />
+                    <br /><br /><br />
+                    <BigSubmit className="Red-bg" type="submit">
+                        Sign Up
+                    </BigSubmit>
+                    <br /><br/>
+                    <SmallButton onClick={this.props.funcOption}>Sign In</SmallButton>
                     <br />
-                </section>
+                </form>
             </SigninModal>
         )
     }
 }
 export class ShortCard extends Component {
-    constructor(props) {
-        super(props);
-        console.log("ShortCard has been called, constructing");
-
-    }
     render() {
         return (
             <div className="Full-Short-Card Card-Red-Blue-Pink-Border">

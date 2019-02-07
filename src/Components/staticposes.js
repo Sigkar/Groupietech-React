@@ -1,5 +1,7 @@
 import posed from 'react-pose';
 
+
+
 export const FriendlyMessage = posed.div({
     init: { opacity: 0 },
     open:{

@@ -181,7 +181,7 @@ export class Home extends Component {
             return (
                 <PageContainer>
                     <StaggerChildrenContent pose={loadAnimations ? 'open' : 'closed'}>
-                        <CreatePost authState={userState}></CreatePost>
+                        {/* <CreatePost authState={userState}></CreatePost> */}
                         <HomeContent items={items} />
                     </StaggerChildrenContent>
                     <div className="Create-Post White-bg Light-Box-Shadow White-hover-bg">
