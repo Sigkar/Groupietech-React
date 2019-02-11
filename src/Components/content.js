@@ -69,6 +69,9 @@ export const BigSubmit = styled.button`
     :hover{
         filter:brightness(1.1);
     }
+    @media screen and (max-width:768px){
+        font-size:24px;
+    }
 `
 
 export const SmallButton = styled.button`
@@ -102,15 +105,18 @@ export const SigninModal = styled.div`
     max-width:450px;
     min-width:340px;
     height:80vh;
-    position:absolute;
+    position:fixed;
     top:10vh;
     left:50%;
     transform:translateX(-50%);
     background-color:white;
     overflow-y:auto;
-    @media screen and (max-height:575px){
-        height:95%;
-        top:2.5%;
+    @media screen and (max-height:768px){
+        height:100vh;
+        width:100%;
+        top:0px;
+        left:0px;
+        transform:none !important;
     }
 `;
 
@@ -243,6 +249,12 @@ export const SectionTitle = styled.div`
 export const ModalTitle = styled.h1`
     text-align:center;
 `;
+
+/**
+ * Author - Duncan Pierce
+ * Purpose - Signs the User In
+ * Usage - Drop this as a modal under a transparent toggle with React Pose.
+ */
 export class ModalPopSignIn extends Component {
     constructor(props) {
         super(props);
