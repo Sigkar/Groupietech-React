@@ -111,9 +111,18 @@ export const SigninModal = styled.div`
     transform:translateX(-50%);
     background-color:white;
     overflow-y:auto;
-    @media screen and (max-height:768px){
+    @media screen and (max-height:500px){
         height:100vh;
-        width:100%;
+        width:100vw;
+        max-width:none;
+        top:0px;
+        left:0px;
+        transform:none !important;
+    }
+    @media screen and (max-width:768px){
+        height:100vh;
+        width:100vw;
+        max-width:none;
         top:0px;
         left:0px;
         transform:none !important;
@@ -424,7 +433,7 @@ export class ModalPopSignUp extends Component {
                     <InputLabel>
                         Email
                 </InputLabel>
-                    <InputText placeholder="Email" type="text" name="email"
+                    <InputText placeholder="Email" name="email"
                         type="email"
                         value={this.state.email}
                         onChange={this.handleInputChange}
@@ -433,7 +442,7 @@ export class ModalPopSignUp extends Component {
                     <InputLabel>
                         Password
                 </InputLabel>
-                    <InputText placeholder="Password" type="password" name="password"
+                    <InputText placeholder="Password" name="password"
                         type="password"
                         value={this.state.password}
                         onChange={this.handleInputChange}
