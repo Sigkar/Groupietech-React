@@ -9,7 +9,7 @@ Groupietech is a platform built around Local bands - basically a nice way of say
 
 
 ## Mobile Stack (Dev is still in staging/planning)
-- Flutter
+- Nativescript
 - Firebase
 
 
@@ -21,3 +21,5 @@ Groupietech is a platform built around Local bands - basically a nice way of say
 - Hook up Firebase Read Rules
 - Set up uploading and content reading
 - Set up Google Map Radius Detection (Geocode)
+- Set up firebase storage buckets
+- Set up security
