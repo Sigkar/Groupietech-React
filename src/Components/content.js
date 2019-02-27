@@ -284,7 +284,7 @@ export class ModalPopSignIn extends Component {
         this.setState({
             [name]: value
         });
-        console.log("Updated");
+        //console.log("Updated");
     }
     setMessage(_message) {
         this.setState({
@@ -393,14 +393,14 @@ export class ModalPopSignUp extends Component {
         event.preventDefault();
         event.stopPropagation();
         if (this.state.password !== this.state.confirmPassword) {
-            console.log("Passwords dont match, exiting");
+            //console.log("Passwords dont match, exiting");
             this.setState({
                 message: "Passwords did not match. Please input again!",
                 messageOpen: true,
             })
             return false;
         }
-        console.log("Creating user");
+        //console.log("Creating user");
         this.createUser();
         this.setState({
             message: "Thanks for signing up, you will be redirected!",

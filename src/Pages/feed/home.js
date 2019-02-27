@@ -47,7 +47,7 @@ class HomeContent extends Component {
     render() {
         return (
             this.props.items.map((item) => (
-                console.log(item),
+                //console.log(item),
                 item['content']['postdata'].map((doc, key) => (
                     <LoadFade key={key}>
                         <ContentFeatureComponent
@@ -145,7 +145,7 @@ export class Home extends Component {
         getUserStatus().then((Response) => {
             this.setState({ checkingAuth: false, userState: Response });
         }).catch(function (error) {
-            console.log(error);
+            //console.log(error);
         });
     }
     componentDidMount() {
