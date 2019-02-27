@@ -54,6 +54,22 @@ code {
   top:15%;
   left:50%;
 }
+.dev-tag{
+  width:100px;
+  height:100px;
+  position:fixed;
+  bottom:-50px;
+  left:-50px;
+  z-index:1000000000;
+  transform:rotate(45deg);
+  -ms-transform:rotate(45deg);
+  -moz-transform:rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  -o-transform:rotate(45deg);
+  text-align:Center;
+}
+
+
 @media screen and (max-width:800px){
   .Video-Welcome{
     height:200%;

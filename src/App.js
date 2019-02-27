@@ -6,7 +6,12 @@ import { Main } from './Pages/main.js'
 class App extends Component {
   render() {
     return (
-      <Main/>
+      <section id="Full_Application">
+        <Main/>
+        <div className="dev-tag White-bg">
+            DEV
+        </div>
+      </section>
     );
   }
 }
