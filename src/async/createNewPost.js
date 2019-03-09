@@ -2,7 +2,7 @@ import  firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 import 'firebase/database';
-import { addMinutes } from 'date-fns';
+//import { addMinutes } from 'date-fns';
 async function createDoc(_postData){
     const db = firebase.firestore();
     const user = firebase.auth().currentUser;

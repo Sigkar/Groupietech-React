@@ -7,7 +7,7 @@ function refStoragePrep(){
 
     let profPictures = images.child("/profile_pictures");
     
-    let img = profPictures.child("/DuncanComp.jpg");
+    //let img = profPictures.child("/DuncanComp.jpg");
     //console.log(img.fullPath);
     //console.log(img);
 }

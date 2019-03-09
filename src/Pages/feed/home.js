@@ -150,9 +150,6 @@ export class Home extends Component {
     }
     componentDidMount() {
         let db = firebase.firestore();
-        db.settings({
-            timestampsInSnapshots: true
-        });
         this.res();
         window.scrollTo(0, 0);
     }

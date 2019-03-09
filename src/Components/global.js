@@ -189,24 +189,27 @@ export const ReturnMessage = ({ message, functionOption, _pose }) => (
 )
 
 export const LoaderNoBG = () => (
-    <div className="LoadContainer">
-        <div className="LoadScaler">
-            <div className="LoadScaler_GetsColor">
+    <section id="loader">
+        <div className="Container">
+            <div className="Center">
+                <div className="LoadScaler">
+                </div>
+                <div className="LoadScaler">
+                </div>
+                <div className="LoadScaler">
+                </div>
+                <div className="LoadScaler">
+                </div>
+                <div className="LoadScaler">
+                </div>
+                <div className="LoadScaler">
+                </div>
+                <div className="LoadScaler">
+                </div>
             </div>
         </div>
-        <div className="LoadScaler">
-            <div className="LoadScaler_GetsColor">
-            </div>
-        </div>
-        <div className="LoadScaler">
-            <div className="LoadScaler_GetsColor">
-            </div>
-        </div>
-        <div className="LoadScaler">
-            <div className="LoadScaler_GetsColor">
-            </div>
-        </div>
-    </div>
+        <h1 className="center-title">HEADLINERR</h1>
+    </section>
 )
 export const Loader = () => (
     <div className="Load-Full">

@@ -82,3 +82,67 @@ code {
     top:-75%;
   }
 }
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+*{
+    font-family: 'Righteous', sans-serif;
+}
+body{background:#6d6d6d;}
+
+.center-title{
+  position:fixed;
+  top:calc(50% + 60px);
+left:50%;
+  transform:translateX(-50%);
+  color:#f0f0f0;
+}
+.Container{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0px;
+  left:0px;
+  transform:rotate(180deg);
+}
+.Center{
+  display:flex;
+  flex-wrap:wrap;
+  position:relative;
+  justify-content:center;
+  top:calc(50% - 60px);
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.LoadScaler{
+  -webkit-animation: mymove 1s infinite; /* Safari 4.0 - 8.0 */
+  animation: Scaler 1s infinite;
+  width:30px;
+  height:0px;
+  margin:0px 5px;
+  background:#30ffd9;
+}
+
+.LoadScaler:nth-of-type(1){animation-delay: 0.1s;}
+.LoadScaler:nth-of-type(2){animation-delay:0.3s;}
+.LoadScaler:nth-of-type(3){animation-delay:0.4s;}
+.LoadScaler:nth-of-type(4){animation-delay:0.6s;}
+.LoadScaler:nth-of-type(5){animation-delay:0.7s;}
+.LoadScaler:nth-of-type(6){animation-delay:0.9s;}
+.LoadScaler:nth-of-type(7){animation-delay:1.0s;}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes Scaler {
+  0% {height:30px; background:#55e089;}
+  25% {background:#4aba74;}
+  50% {height:120px; background:#4c9b6a;}
+  75% {background:#4aba74;}
+  100% {height:30px;background:#55e089;}
+}
+
+@keyframes Scaler {
+  0% {height:30px; background:#e06255;}
+  25% {background:#e24c3d;}
+  50% {height:120px; background:#ff4a38;}
+  75% {background:#e24c3d;}
+  100% {height:30px;background:#e06255;}
+}
