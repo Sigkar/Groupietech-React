@@ -1,9 +1,8 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
-function _getCollection(documentRequest, noTimestamp=true){
+function _getCollection(documentRequest){
     const db = firebase.firestore();
-    noTimestamp ? db.settings({timestampsInSnapshots: true}) : db.settings({timestampsInSnapshots: false});
     return new Promise(resolve=> {
         //console.log(documentRequest);
         getCollections(documentRequest, db).then(function(requested){

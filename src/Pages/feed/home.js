@@ -25,7 +25,6 @@ import LoginImage from '../../Images/login-comp.jpeg';
 import { FunctionIcon } from '../../Components/navigation.js';
 
 class HomeContent extends Component {
-
     getDateWords = ( dateValue ) => {
         let post = Math.round(new Date(dateValue).getTime() * 1000);
         let result = distanceInWordsToNow(
@@ -44,17 +43,25 @@ class HomeContent extends Component {
         return result;
     }
 
+    checkLength = ( thisString ) => {
+        if(thisString.length > 253){
+            thisString = thisString.substring(0,252) + "...";
+        }
+        return thisString;
+    }
+
     render() {
         return (
             this.props.items.map((item) => (
                 //console.log(item),
                 item['content']['postdata'].map((doc, key) => (
+                    
                     <LoadFade key={key}>
                         <ContentFeatureComponent
                             key={key+1}
                             imageLink={LoginImage}
                             title={doc.title}
-                            description={doc.desc}
+                            description={this.checkLength(doc.desc)}
                             date={this.getDateFormat(doc.tup.seconds)}
                             offset={this.getDateWords(doc.tup.seconds)}
                             user={doc.posted_by}
@@ -65,6 +72,7 @@ class HomeContent extends Component {
         )
     }
 }
+
 
 class CreatePost extends Component {
     constructor(props){
