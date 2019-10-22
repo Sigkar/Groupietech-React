@@ -1,3 +1,6 @@
+# UPDATE OCT 2019
+## THIS PROJECT IS NO LONGER BEING UPDATED, AND IS BEING CREATED ON A MYSQL/EXPRESS/REACT NATIVE|WEB/NODEJS APPLICATION IN A DIFFERENT PRIVATE REPOSITORY. THIS IS SIMPLY A SHOWOFF OF HOW MUCH FIREBASE CAN TRAP YOU ;)
+
 # Groupietech
 
 Groupietech is a platform built around Local bands - basically a nice way of saying 'not a social media' but it has the elements of a social media.
